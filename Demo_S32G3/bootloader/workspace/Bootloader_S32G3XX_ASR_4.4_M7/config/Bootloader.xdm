@@ -1,0 +1,288 @@
+<?xml version='1.0'?>
+<datamodel version="7.0" 
+           xmlns="http://www.tresos.de/_projects/DataModel2/16/root.xsd" 
+           xmlns:a="http://www.tresos.de/_projects/DataModel2/16/attribute.xsd" 
+           xmlns:v="http://www.tresos.de/_projects/DataModel2/06/schema.xsd" 
+           xmlns:d="http://www.tresos.de/_projects/DataModel2/06/data.xsd">
+
+  <d:ctr type="AUTOSAR" factory="autosar" 
+         xmlns:ad="http://www.tresos.de/_projects/DataModel2/08/admindata.xsd" 
+         xmlns:cd="http://www.tresos.de/_projects/DataModel2/08/customdata.xsd" 
+         xmlns:f="http://www.tresos.de/_projects/DataModel2/14/formulaexpr.xsd" 
+         xmlns:icc="http://www.tresos.de/_projects/DataModel2/08/implconfigclass.xsd" 
+         xmlns:mt="http://www.tresos.de/_projects/DataModel2/11/multitest.xsd"  
+         xmlns:variant="http://www.tresos.de/_projects/DataModel2/11/variant.xsd">
+    <d:lst type="TOP-LEVEL-PACKAGES">
+      <d:ctr name="Bootloader" type="AR-PACKAGE">
+        <d:lst type="ELEMENTS">
+          <d:chc name="Bootloader" type="AR-ELEMENT" 
+                 value="MODULE-CONFIGURATION">
+            <d:ctr type="MODULE-CONFIGURATION">
+              <a:a name="DEF" value="ASPath:/TS_T40D12M2412I0R0/Bootloader"/>
+              <d:var name="IMPLEMENTATION_CONFIG_VARIANT" type="ENUMERATION" 
+                     value="VariantPostBuild">
+                <a:a name="IMPORTER_INFO" value="@DEF"/>
+              </d:var>
+              <d:ctr name="BootloaderGeneral" type="IDENTIFIABLE">
+                <d:var name="InTarget_debug_flag" type="BOOLEAN" value="false"/>
+                <d:var name="A53LockstepEnable" type="BOOLEAN" value="false">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="Safety_flag" type="BOOLEAN" value="false"/>
+                <d:var name="Bl_SynchronizedBoot" type="BOOLEAN" value="true">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="Bl_ConfigureDDR" type="BOOLEAN" value="false">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="Bl_EnableSecBoot" type="BOOLEAN" value="false"/>
+                <d:var name="Bl_EnableFlexNoc" type="BOOLEAN" value="true"/>
+                <d:ref name="Bl_SecBootKeyRef" type="REFERENCE" 
+                       value="ASPath:/CryptoDal/CryptoDal/CryptoDalBswConfig/CryptoDescriptors_CMAC"/>
+                <d:ref name="Bl_BootTableKeyRef" type="REFERENCE" 
+                       value="ASPath:/CryptoDal/CryptoDal/CryptoDalBswConfig/CryptoDescriptors_RSA"/>
+                <d:var name="Bl_EnableDynamicConfig" type="BOOLEAN" value="true"/>
+                <d:var name="BootConfigQSPIAddress" type="INTEGER" 
+                       value="2031616"/>
+              </d:ctr>
+              <d:ctr name="BootloaderAcceptedResetReasons" type="IDENTIFIABLE">
+                <d:var name="Bl_POR" type="BOOLEAN" value="true">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="Bl_DestructiveReset" type="BOOLEAN" value="true">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="Bl_FunctionalReset" type="BOOLEAN" value="true">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="Bl_StandbyReset" type="BOOLEAN" value="true">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="Bl_UnknownReset" type="BOOLEAN" value="true">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+              </d:ctr>
+              <d:ctr name="BootloaderConsoleLog" type="IDENTIFIABLE">
+                <d:var name="Bl_ConsoleLog" type="BOOLEAN" value="true"/>
+                <d:ref name="Bl_ConsoleComChannelRef" type="REFERENCE" 
+                       value="ASPath:/ComDal/ComDal/ComDalBswConfig/ComDescriptors_UART0"/>
+              </d:ctr>
+              <d:lst name="CoreConfiguration" type="MAP">
+                <d:ctr name="CoreConfiguration_0" type="IDENTIFIABLE">
+                  <d:var name="CoreID" type="ENUMERATION" value="M7_1">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:ref name="BootSourcesCfg" type="REFERENCE" 
+                         value="ASPath:/Bootloader/Bootloader/BootSources_M7_1"/>
+                  <d:var name="IsCriticalApplication" type="BOOLEAN" 
+                         value="true">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="StartCore" type="BOOLEAN" value="true">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                </d:ctr>
+                <d:ctr name="CoreConfiguration_1" type="IDENTIFIABLE">
+                  <d:var name="CoreID" type="ENUMERATION" value="M7_0"/>
+                  <d:ref name="BootSourcesCfg" type="REFERENCE" 
+                         value="ASPath:/Bootloader/Bootloader/BootSources_M7_0"/>
+                  <d:var name="IsCriticalApplication" type="BOOLEAN" 
+                         value="true">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="StartCore" type="BOOLEAN" value="true">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                </d:ctr>
+                <d:ctr name="CoreConfiguration_2" type="IDENTIFIABLE">
+                  <d:var name="CoreID" type="ENUMERATION" value="A53_0"/>
+                  <d:ref name="BootSourcesCfg" type="REFERENCE" 
+                         value="ASPath:/Bootloader/Bootloader/BootSources_A53_0"/>
+                  <d:var name="IsCriticalApplication" type="BOOLEAN" 
+                         value="true">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="StartCore" type="BOOLEAN" value="true">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                </d:ctr>
+                <d:ctr name="CoreConfiguration_3" type="IDENTIFIABLE">
+                  <d:var name="CoreID" type="ENUMERATION" value="A53_2"/>
+                  <d:ref name="BootSourcesCfg" type="REFERENCE" 
+                         value="ASPath:/Bootloader/Bootloader/BootSources_A53_2"/>
+                  <d:var name="IsCriticalApplication" type="BOOLEAN" 
+                         value="true">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="StartCore" type="BOOLEAN" value="true">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                </d:ctr>
+              </d:lst>
+              <d:lst name="BootSources" type="MAP">
+                <d:ctr name="BootSources_M7_1" type="IDENTIFIABLE">
+                  <d:var name="BootSource" type="ENUMERATION" value="QSPI">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="AuthenticationAlgorithm" type="ENUMERATION" 
+                         value="NONE">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:ref name="EncryptionRef" type="REFERENCE" >
+                    <a:a name="ENABLE" value="false"/>
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:ref>
+                  <d:var name="ApplicationResetHandler" type="INTEGER" 
+                         value="875102208"/>
+                  <d:lst name="ImageFragments" type="MAP">
+                    <d:ctr name="ImageFragments_0" type="IDENTIFIABLE">
+                      <d:var name="SourceAddressQspi" type="INTEGER" 
+                             value="5242880"/>
+                      <d:ref name="MemoryBlockId" type="REFERENCE" >
+                        <a:a name="IMPORTER_INFO" value="@DEF"/>
+                      </d:ref>
+                      <d:ref name="ComManagerSessionReference" type="REFERENCE" >
+                        <a:a name="IMPORTER_INFO" value="@DEF"/>
+                      </d:ref>
+                      <d:var name="LoadAddressRam" type="INTEGER" 
+                             value="872415232"/>
+                      <d:var name="ImageSize" type="INTEGER" value="3072000"/>
+                      <d:var name="SmrIndex" type="INTEGER" value="0">
+                        <a:a name="IMPORTER_INFO" value="@DEF"/>
+                      </d:var>
+                      <d:var name="CrcValue" type="INTEGER" value="0">
+                        <a:a name="IMPORTER_INFO" value="@DEF"/>
+                      </d:var>
+                    </d:ctr>
+                  </d:lst>
+                </d:ctr>
+                <d:ctr name="BootSources_M7_0" type="IDENTIFIABLE">
+                  <d:var name="BootSource" type="ENUMERATION" value="QSPI">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="AuthenticationAlgorithm" type="ENUMERATION" 
+                         value="NONE">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:ref name="EncryptionRef" type="REFERENCE" >
+                    <a:a name="ENABLE" value="false"/>
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:ref>
+                  <d:var name="ApplicationResetHandler" type="INTEGER" 
+                         value="876609552"/>
+                  <d:lst name="ImageFragments" type="MAP">
+                    <d:ctr name="ImageFragments_0" type="IDENTIFIABLE">
+                      <d:var name="SourceAddressQspi" type="INTEGER" 
+                             value="3145728"/>
+                      <d:ref name="MemoryBlockId" type="REFERENCE" >
+                        <a:a name="IMPORTER_INFO" value="@DEF"/>
+                      </d:ref>
+                      <d:ref name="ComManagerSessionReference" type="REFERENCE" >
+                        <a:a name="IMPORTER_INFO" value="@DEF"/>
+                      </d:ref>
+                      <d:var name="LoadAddressRam" type="INTEGER" 
+                             value="876609536"/>
+                      <d:var name="ImageSize" type="INTEGER" value="786432"/>
+                      <d:var name="SmrIndex" type="INTEGER" value="0">
+                        <a:a name="IMPORTER_INFO" value="@DEF"/>
+                      </d:var>
+                      <d:var name="CrcValue" type="INTEGER" value="0">
+                        <a:a name="IMPORTER_INFO" value="@DEF"/>
+                      </d:var>
+                    </d:ctr>
+                  </d:lst>
+                </d:ctr>
+                <d:ctr name="BootSources_A53_0" type="IDENTIFIABLE">
+                  <d:var name="BootSource" type="ENUMERATION" value="QSPI">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="AuthenticationAlgorithm" type="ENUMERATION" 
+                         value="NONE">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:ref name="EncryptionRef" type="REFERENCE" >
+                    <a:a name="ENABLE" value="false"/>
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:ref>
+                  <d:var name="ApplicationResetHandler" type="INTEGER" 
+                         value="878772224"/>
+                  <d:lst name="ImageFragments" type="MAP">
+                    <d:ctr name="ImageFragments_0" type="IDENTIFIABLE">
+                      <d:var name="SourceAddressQspi" type="INTEGER" 
+                             value="2101824"/>
+                      <d:ref name="MemoryBlockId" type="REFERENCE" >
+                        <a:a name="IMPORTER_INFO" value="@DEF"/>
+                      </d:ref>
+                      <d:ref name="ComManagerSessionReference" type="REFERENCE" >
+                        <a:a name="IMPORTER_INFO" value="@DEF"/>
+                      </d:ref>
+                      <d:var name="LoadAddressRam" type="INTEGER" 
+                             value="878732800"/>
+                      <d:var name="ImageSize" type="INTEGER" value="225280"/>
+                      <d:var name="SmrIndex" type="INTEGER" value="0">
+                        <a:a name="IMPORTER_INFO" value="@DEF"/>
+                      </d:var>
+                      <d:var name="CrcValue" type="INTEGER" value="0">
+                        <a:a name="IMPORTER_INFO" value="@DEF"/>
+                      </d:var>
+                    </d:ctr>
+                  </d:lst>
+                </d:ctr>
+                <d:ctr name="BootSources_A53_2" type="IDENTIFIABLE">
+                  <d:var name="BootSource" type="ENUMERATION" value="QSPI">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="AuthenticationAlgorithm" type="ENUMERATION" 
+                         value="NONE">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:ref name="EncryptionRef" type="REFERENCE" >
+                    <a:a name="ENABLE" value="false"/>
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:ref>
+                  <d:var name="ApplicationResetHandler" type="INTEGER" 
+                         value="2164260864"/>
+                  <d:lst name="ImageFragments" type="MAP">
+                    <d:ctr name="ImageFragments_0" type="IDENTIFIABLE">
+                      <d:var name="SourceAddressQspi" type="INTEGER" 
+                             value="4194304"/>
+                      <d:ref name="MemoryBlockId" type="REFERENCE" >
+                        <a:a name="IMPORTER_INFO" value="@DEF"/>
+                      </d:ref>
+                      <d:ref name="ComManagerSessionReference" type="REFERENCE" >
+                        <a:a name="IMPORTER_INFO" value="@DEF"/>
+                      </d:ref>
+                      <d:var name="LoadAddressRam" type="INTEGER" 
+                             value="2164260864"/>
+                      <d:var name="ImageSize" type="INTEGER" value="872704"/>
+                      <d:var name="SmrIndex" type="INTEGER" value="0">
+                        <a:a name="IMPORTER_INFO" value="@DEF"/>
+                      </d:var>
+                      <d:var name="CrcValue" type="INTEGER" value="0">
+                        <a:a name="IMPORTER_INFO" value="@DEF"/>
+                      </d:var>
+                    </d:ctr>
+                  </d:lst>
+                </d:ctr>
+              </d:lst>
+              <d:lst name="Boot_Triggers" type="MAP">
+                <d:ctr name="Boot_Triggers_0" type="IDENTIFIABLE">
+                  <d:var name="BootTriggerSupport" type="BOOLEAN" value="false">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:ref name="GptTimeoutChannel" type="REFERENCE" >
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:ref>
+                  <d:var name="ComTimeoutTime" type="INTEGER" value="10000">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                </d:ctr>
+              </d:lst>
+            </d:ctr>
+          </d:chc>
+        </d:lst>
+      </d:ctr>
+    </d:lst>
+  </d:ctr>
+
+</datamodel>

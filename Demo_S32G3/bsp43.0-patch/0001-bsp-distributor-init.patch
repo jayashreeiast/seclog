@@ -1,0 +1,73 @@
+From c00c7bebfc7c413d93cac69bc540b807804b8f8e Mon Sep 17 00:00:00 2001
+From: maolin <maolin.pan@nxp.com>
+Date: Mon, 28 Apr 2025 11:45:43 +0900
+Subject: [PATCH] bsp-distributor-init
+
+Signed-off-by: maolin <maolin.pan@nxp.com>
+---
+ drivers/irqchip/irq-gic-v3.c | 26 +++++++++++++-------------
+ 1 file changed, 13 insertions(+), 13 deletions(-)
+
+diff --git a/drivers/irqchip/irq-gic-v3.c b/drivers/irqchip/irq-gic-v3.c
+index f59ac9586b7b..f7f174f7369c 100644
+--- a/drivers/irqchip/irq-gic-v3.c
++++ b/drivers/irqchip/irq-gic-v3.c
+@@ -912,7 +912,7 @@ static void __init gic_dist_init(void)
+ 	u32 val;
+ 
+ 	/* Disable the distributor */
+-	writel_relaxed(0, base + GICD_CTLR);
++	// writel_relaxed(0, base + GICD_CTLR);
+ 	gic_dist_wait_for_rwp();
+ 
+ 	/*
+@@ -921,8 +921,8 @@ static void __init gic_dist_init(void)
+ 	 * do the right thing if the kernel is running in secure mode,
+ 	 * but that's not the intended use case anyway.
+ 	 */
+-	for (i = 32; i < GIC_LINE_NR; i += 32)
+-		writel_relaxed(~0, base + GICD_IGROUPR + i / 8);
++	// for (i = 32; i < GIC_LINE_NR; i += 32)
++	// 	writel_relaxed(~0, base + GICD_IGROUPR + i / 8);
+ 
+ 	/* Extended SPI range, not handled by the GICv2/GICv3 common code */
+ 	for (i = 0; i < GIC_ESPI_NR; i += 32) {
+@@ -940,16 +940,16 @@ static void __init gic_dist_init(void)
+ 		writel_relaxed(GICD_INT_DEF_PRI_X4, base + GICD_IPRIORITYRnE + i);
+ 
+ 	/* Now do the common stuff */
+-	gic_dist_config(base, GIC_LINE_NR, NULL);
++	// gic_dist_config(base, GIC_LINE_NR, NULL);
+ 
+-	val = GICD_CTLR_ARE_NS | GICD_CTLR_ENABLE_G1A | GICD_CTLR_ENABLE_G1;
+-	if (gic_data.rdists.gicd_typer2 & GICD_TYPER2_nASSGIcap) {
+-		pr_info("Enabling SGIs without active state\n");
+-		val |= GICD_CTLR_nASSGIreq;
+-	}
++	// val = GICD_CTLR_ARE_NS | GICD_CTLR_ENABLE_G1A | GICD_CTLR_ENABLE_G1;
++	// if (gic_data.rdists.gicd_typer2 & GICD_TYPER2_nASSGIcap) {
++	// 	pr_info("Enabling SGIs without active state\n");
++	// 	val |= GICD_CTLR_nASSGIreq;
++	// }
+ 
+-	/* Enable distributor with ARE, Group1, and wait for it to drain */
+-	writel_relaxed(val, base + GICD_CTLR);
++	// /* Enable distributor with ARE, Group1, and wait for it to drain */
++	// writel_relaxed(val, base + GICD_CTLR);
+ 	gic_dist_wait_for_rwp();
+ 
+ 	/*
+@@ -957,8 +957,8 @@ static void __init gic_dist_init(void)
+ 	 * enabled.
+ 	 */
+ 	affinity = gic_cpu_to_affinity(smp_processor_id());
+-	for (i = 32; i < GIC_LINE_NR; i++)
+-		gic_write_irouter(affinity, base + GICD_IROUTER + i * 8);
++	// for (i = 32; i < GIC_LINE_NR; i++)
++	// 	gic_write_irouter(affinity, base + GICD_IROUTER + i * 8);
+ 
+ 	for (i = 0; i < GIC_ESPI_NR; i++)
+ 		gic_write_irouter(affinity, base + GICD_IROUTERnE + i * 8);
+-- 
+2.25.1
+

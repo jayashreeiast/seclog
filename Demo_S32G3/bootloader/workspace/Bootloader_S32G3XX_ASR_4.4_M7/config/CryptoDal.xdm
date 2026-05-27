@@ -1,0 +1,158 @@
+<?xml version='1.0'?>
+<datamodel version="7.0" 
+           xmlns="http://www.tresos.de/_projects/DataModel2/16/root.xsd" 
+           xmlns:a="http://www.tresos.de/_projects/DataModel2/16/attribute.xsd" 
+           xmlns:v="http://www.tresos.de/_projects/DataModel2/06/schema.xsd" 
+           xmlns:d="http://www.tresos.de/_projects/DataModel2/06/data.xsd">
+
+  <d:ctr type="AUTOSAR" factory="autosar" 
+         xmlns:ad="http://www.tresos.de/_projects/DataModel2/08/admindata.xsd" 
+         xmlns:cd="http://www.tresos.de/_projects/DataModel2/08/customdata.xsd" 
+         xmlns:f="http://www.tresos.de/_projects/DataModel2/14/formulaexpr.xsd" 
+         xmlns:icc="http://www.tresos.de/_projects/DataModel2/08/implconfigclass.xsd" 
+         xmlns:mt="http://www.tresos.de/_projects/DataModel2/11/multitest.xsd"  
+         xmlns:variant="http://www.tresos.de/_projects/DataModel2/11/variant.xsd">
+    <d:lst type="TOP-LEVEL-PACKAGES">
+      <d:ctr name="CryptoDal" type="AR-PACKAGE">
+        <d:lst type="ELEMENTS">
+          <d:chc name="CryptoDal" type="AR-ELEMENT" value="MODULE-CONFIGURATION">
+            <d:ctr type="MODULE-CONFIGURATION">
+              <a:a name="DEF" value="ASPath:/TS_T40D12M2412I0R0/CryptoDal"/>
+              <d:var name="IMPLEMENTATION_CONFIG_VARIANT" type="ENUMERATION" 
+                     value="VariantPostBuild">
+                <a:a name="IMPORTER_INFO" value="@DEF"/>
+              </d:var>
+              <d:ctr name="CryptoDalGeneral" type="IDENTIFIABLE">
+                <d:var name="EnableDevErrorDetect" type="BOOLEAN" value="false">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="UseCrypto" type="BOOLEAN" value="true"/>
+                <d:var name="EnableHashingService" type="BOOLEAN" value="true"/>
+                <d:var name="EnableSMRSupport" type="BOOLEAN" value="true"/>
+                <d:var name="EnableCMACGeneration" type="BOOLEAN" value="true"/>
+                <d:var name="EnableMemoryPartitioning" type="BOOLEAN" 
+                       value="true"/>
+              </d:ctr>
+              <d:ctr name="CryptoDalBswConfig" type="IDENTIFIABLE">
+                <d:lst name="CryptoDescriptors" type="MAP">
+                  <d:ctr name="CryptoDescriptors_CMAC" type="IDENTIFIABLE">
+                    <d:var name="CryptoEngine" type="ENUMERATION" value="CRYPTO">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                    <d:var name="Algorithm" type="ENUMERATION" 
+                           value="AES_256_CMAC"/>
+                    <d:var name="CryptoKey" type="STRING" 
+                           value="0x85, 0xe3, 0xe6, 0x39, 0x1b, 0x13, 0xc2, 0xa3, 0x23, 0x69, 0xb2, 0x36, 0x80, 0x50, 0x4c, 0xbf, 0x1c, 0x12, 0x7b, 0x10, 0xd2, 0x36, 0x7f, 0xf6, 0x8c, 0x0c, 0x35, 0x6b, 0xa8, 0x86, 0x99, 0x0c"/>
+                    <d:ref name="CryptoKeyId" type="REFERENCE" 
+                           value="ASPath:/Crypto/Crypto/CryptoKeys/AES256CMAC_RAM_KEY"/>
+                    <d:ref name="AlternateCryptoKeyId" type="REFERENCE" 
+                           value="ASPath:/Crypto/Crypto/CryptoKeys/AES256CMAC_NVM_KEY"/>
+                  </d:ctr>
+                  <d:ctr name="CryptoDescriptors_ECB" type="IDENTIFIABLE">
+                    <d:var name="CryptoEngine" type="ENUMERATION" value="CRYPTO">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                    <d:var name="Algorithm" type="ENUMERATION" 
+                           value="AES_128_ECB"/>
+                    <d:var name="CryptoKey" type="STRING" 
+                           value="0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0A, 0x0B, 0x0C, 0x0D, 0x0E, 0x0F, 0x10"/>
+                    <d:ref name="CryptoKeyId" type="REFERENCE" 
+                           value="ASPath:/Crypto/Crypto/CryptoKeys/AES128CBCECB_KEY"/>
+                    <d:ref name="AlternateCryptoKeyId" type="REFERENCE" >
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:ref>
+                  </d:ctr>
+                  <d:ctr name="CryptoDescriptors_RSA" type="IDENTIFIABLE">
+                    <d:var name="CryptoEngine" type="ENUMERATION" value="CRYPTO">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                    <d:var name="Algorithm" type="ENUMERATION" 
+                           value="RSA_2048_PKCS"/>
+                    <d:var name="CryptoKey" type="STRING" 
+                           value="0x9f, 0x04, 0x62, 0x0b, 0xa2, 0x56, 0x1f, 0xcf, 0x7d, 0xc1, 0x01, 0xda, 0x1f, 0xbe, 0x97, 0x2c, 0x93, 0x66, 0x14, 0x50, 0x17, 0x32, 0xc1, 0x14, 0xb2, 0x7a, 0x59, 0xd9, 0x67, 0xf6, 0xe7, 0x15, 0x5d, 0xaf, 0x02, 0xfe, 0x9a, 0x60, 0xa7, 0x2a, 0xd1, 0x6f, 0x7d, 0x32, 0x98, 0xd7, 0x08, 0x30, 0x5e, 0x69, 0x30, 0xfc, 0x2b, 0xee, 0x7a, 0x03, 0xbc, 0xda, 0xd2, 0x75, 0xf4, 0xee, 0x3b, 0x19, 0xbb, 0x8a, 0xf6, 0xbd, 0x84, 0x7d, 0xb2, 0xf8, 0x2f, 0x2c, 0x71, 0x0c, 0x4f, 0x09, 0x37, 0xb8, 0xb7, 0x7f, 0x46, 0x03, 0x78, 0x75, 0xb3, 0xf7, 0xe7, 0xac, 0x1c, 0x17, 0xd6, 0x1c, 0x55, 0x64, 0x21, 0xe1, 0x39, 0x01, 0x23, 0x12, 0x9a, 0x69, 0xd8, 0xae, 0x1e, 0x2d, 0x31, 0xef, 0x7c, 0xcb, 0x45, 0x94, 0xa8, 0xdf, 0xef, 0x35, 0xbc, 0x57, 0xb8, 0x3d, 0xe3, 0xc5, 0x15, 0xe8, 0xc4, 0x37, 0x4b, 0x7b, 0x5d, 0xa1, 0x07, 0x7a, 0x48, 0x66, 0xbb, 0xc5, 0xf5, 0x6e, 0x43, 0x34, 0x34, 0x12, 0x10, 0xcd, 0x18, 0x84, 0x05, 0x43, 0x5d, 0xd6, 0x99, 0x40, 0x6d, 0x07, 0xde, 0x06, 0xbd, 0x6a, 0xac, 0xf9, 0xa8, 0x4b, 0x56, 0x40, 0xb6, 0xd8, 0x2f, 0x60, 0x1d, 0x13, 0x23, 0x2a, 0x3c, 0x48, 0x9c, 0xf8, 0x6b, 0xcf, 0xef, 0x06, 0xfb, 0x9b, 0x91, 0x36, 0xae, 0x99, 0xd8, 0xea, 0x34, 0x3a, 0x6b, 0xc8, 0xec, 0x7b, 0x4f, 0xd3, 0x65, 0xfe, 0xd8, 0x21, 0x4e, 0x7a, 0xfb, 0x3c, 0x1b, 0xe7, 0x1f, 0xd8, 0xd2, 0x49, 0xf3, 0xff, 0x95, 0x8c, 0xd2, 0x4b, 0x4f, 0x00, 0x2b, 0x17, 0x78, 0xe3, 0x2f, 0x89, 0x97, 0x59, 0x75, 0x42, 0x69, 0x5a, 0x72, 0xd0, 0xed, 0x9f, 0x91, 0xa9, 0x28, 0xd2, 0x09, 0x3a, 0xf6, 0xf8, 0xa0, 0x00, 0xbb, 0xaa, 0x1e, 0xa6, 0x0b, 0x8c, 0x43, 0xd8, 0x4c, 0x29"/>
+                    <d:ref name="CryptoKeyId" type="REFERENCE" 
+                           value="ASPath:/Crypto/Crypto/CryptoKeys/RSA_2048_PKCS"/>
+                    <d:ref name="AlternateCryptoKeyId" type="REFERENCE" >
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:ref>
+                  </d:ctr>
+                </d:lst>
+                <d:lst name="CryptoMemoryProtection" type="MAP">
+                  <d:ctr name="MU0_allocation_to_A53" type="IDENTIFIABLE">
+                    <d:var name="TargetMU" type="ENUMERATION" value="HSE_MU0">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                    <d:var name="EnableMessagingUnit" type="BOOLEAN" 
+                           value="true">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                    <d:var name="MUMemorySize" type="INTEGER" value="4096"/>
+                    <d:ref name="DomainId" type="REFERENCE" 
+                           value="ASPath:/Rm/Rm/RmConfigSet/Rm_XRDC_Domain_Assignment_A53"/>
+                  </d:ctr>
+                  <d:ctr name="MU1_allocation_to_A53" type="IDENTIFIABLE">
+                    <d:var name="TargetMU" type="ENUMERATION" value="HSE_MU1"/>
+                    <d:var name="EnableMessagingUnit" type="BOOLEAN" 
+                           value="true">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                    <d:var name="MUMemorySize" type="INTEGER" value="4096"/>
+                    <d:ref name="DomainId" type="REFERENCE" 
+                           value="ASPath:/Rm/Rm/RmConfigSet/Rm_XRDC_Domain_Assignment_A53"/>
+                  </d:ctr>
+                  <d:ctr name="MU2_allocation_to_M7_0" type="IDENTIFIABLE">
+                    <d:var name="TargetMU" type="ENUMERATION" value="HSE_MU2"/>
+                    <d:var name="EnableMessagingUnit" type="BOOLEAN" 
+                           value="true">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                    <d:var name="MUMemorySize" type="INTEGER" value="4096"/>
+                    <d:ref name="DomainId" type="REFERENCE" 
+                           value="ASPath:/Rm/Rm/RmConfigSet/Rm_XRDC_Domain_Assignment_M7_0"/>
+                  </d:ctr>
+                  <d:ctr name="MU3_allocation_to_M7_0" type="IDENTIFIABLE">
+                    <d:var name="TargetMU" type="ENUMERATION" value="HSE_MU3"/>
+                    <d:var name="EnableMessagingUnit" type="BOOLEAN" 
+                           value="true">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                    <d:var name="MUMemorySize" type="INTEGER" value="4096"/>
+                    <d:ref name="DomainId" type="REFERENCE" 
+                           value="ASPath:/Rm/Rm/RmConfigSet/Rm_XRDC_Domain_Assignment_M7_0"/>
+                  </d:ctr>
+                </d:lst>
+              </d:ctr>
+              <d:ctr name="CommonPublishedInformation" type="IDENTIFIABLE">
+                <d:var name="ArReleaseMajorVersion" type="INTEGER" value="4">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="ArReleaseMinorVersion" type="INTEGER" value="4">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="ArReleaseRevisionVersion" type="INTEGER" value="0">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="ModuleId" type="INTEGER" value="100">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="SwMajorVersion" type="INTEGER" value="24"/>
+                <d:var name="SwMinorVersion" type="INTEGER" value="12"/>
+                <d:var name="SwPatchVersion" type="INTEGER" value="0">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="VendorApiInfix" type="STRING" value="">
+                  <a:a name="ENABLE" value="false"/>
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="VendorId" type="INTEGER" value="43">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+              </d:ctr>
+            </d:ctr>
+          </d:chc>
+        </d:lst>
+      </d:ctr>
+    </d:lst>
+  </d:ctr>
+
+</datamodel>

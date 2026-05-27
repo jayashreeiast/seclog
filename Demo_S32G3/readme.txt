@@ -1,0 +1,1 @@
+Note: Please download the GoldVIP package from flexnet to get the bootloader eclipse folder and copy it to the bootloader folder.

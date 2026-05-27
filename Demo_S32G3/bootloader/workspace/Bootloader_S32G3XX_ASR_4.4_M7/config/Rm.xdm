@@ -1,0 +1,2575 @@
+<?xml version='1.0'?>
+<datamodel version="7.0" 
+           xmlns="http://www.tresos.de/_projects/DataModel2/16/root.xsd" 
+           xmlns:a="http://www.tresos.de/_projects/DataModel2/16/attribute.xsd" 
+           xmlns:v="http://www.tresos.de/_projects/DataModel2/06/schema.xsd" 
+           xmlns:d="http://www.tresos.de/_projects/DataModel2/06/data.xsd">
+
+  <d:ctr type="AUTOSAR" factory="autosar" 
+         xmlns:ad="http://www.tresos.de/_projects/DataModel2/08/admindata.xsd" 
+         xmlns:cd="http://www.tresos.de/_projects/DataModel2/08/customdata.xsd" 
+         xmlns:f="http://www.tresos.de/_projects/DataModel2/14/formulaexpr.xsd" 
+         xmlns:icc="http://www.tresos.de/_projects/DataModel2/08/implconfigclass.xsd" 
+         xmlns:mt="http://www.tresos.de/_projects/DataModel2/11/multitest.xsd"  
+         xmlns:variant="http://www.tresos.de/_projects/DataModel2/11/variant.xsd">
+    <d:lst type="TOP-LEVEL-PACKAGES">
+      <d:ctr name="Rm" type="AR-PACKAGE">
+        <d:lst type="ELEMENTS">
+          <d:chc name="Rm" type="AR-ELEMENT" value="MODULE-CONFIGURATION">
+            <d:ctr type="MODULE-CONFIGURATION">
+              <a:a name="DEF" value="ASPath:/TS_T40D11M50I0R0/Rm"/>
+              <d:var name="POST_BUILD_VARIANT_USED" type="BOOLEAN" value="false">
+                <a:a name="IMPORTER_INFO" value="@DEF"/>
+              </d:var>
+              <d:var name="IMPLEMENTATION_CONFIG_VARIANT" type="ENUMERATION" 
+                     value="VariantPreCompile">
+                <a:a name="IMPORTER_INFO" value="@DEF"/>
+              </d:var>
+              <d:ctr name="RmGeneral" type="IDENTIFIABLE">
+                <d:var name="Rm_VersionInfoApi" type="BOOLEAN" value="true"/>
+                <d:var name="RmDevErrorDetect" type="BOOLEAN" value="true">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="RmEnableUserModeSupport" type="BOOLEAN" 
+                       value="false">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="RmEnableMultiCore" type="BOOLEAN" value="false">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="RmEnableXRDCSupport" type="BOOLEAN" value="true"/>
+                <d:var name="RmEnableSema42Support" type="BOOLEAN" value="false">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="RmMpuM7Configurable" type="BOOLEAN" value="false"/>
+                <d:var name="RmEnableMscmSupport" type="BOOLEAN" value="false">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+              </d:ctr>
+              <d:ctr name="RmConfigSet" type="IDENTIFIABLE">
+                <d:ctr name="Xrdc_Configuration" type="IDENTIFIABLE">
+                  <d:var name="XrdcDevErrorDetect" type="BOOLEAN" value="true">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="XrdcRegistersLock" type="BOOLEAN" value="false">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="XrdcCRLockBit" type="BOOLEAN" value="false">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="XrdcPIDRegisterLock" type="ENUMERATION" 
+                         value="XRDC_PID_UNLOCKED">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                </d:ctr>
+                <d:lst name="Rm_XRDC_Domain_Assignment" type="MAP">
+                  <d:ctr name="Rm_XRDC_Domain_Assignment_HSE" 
+                         type="IDENTIFIABLE">
+                    <d:var name="DomainID" type="ENUMERATION" 
+                           value="XRDC_DOMAIN1"/>
+                    <d:lst name="Domain_Master_Assignment" type="MAP">
+                      <d:ctr name="Domain_Master_Assignment_0" 
+                             type="IDENTIFIABLE">
+                        <d:var name="XrdcMasterInstance" type="ENUMERATION" 
+                               value="Xrdc_0_HSE"/>
+                        <d:var name="XrdcPIDEnable" type="ENUMERATION" 
+                               value="XRDC_MDA_PID_DISABLE">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMasterPID" type="INTEGER" value="0">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMasterPIDMask" type="INTEGER" value="0">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcDIDBDisable" type="BOOLEAN" 
+                               value="false">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMDADFMTLockBit" type="BOOLEAN" 
+                               value="false">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMasterMode" type="ENUMERATION" 
+                               value="XRDC_SECURE">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMasterPriviledgeMode" 
+                               type="ENUMERATION" 
+                               value="XRDC_INPUT_PRIVILEDGE_FROM_BUS_MASTER">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                      </d:ctr>
+                    </d:lst>
+                    <d:lst name="Domain_Peripheral_Assignment" type="MAP">
+                      <d:ctr name="Domain_Peripheral_Assignment_0" 
+                             type="IDENTIFIABLE">
+                        <d:ref name="Domain_Peripheral_Assignment" 
+                               type="REFERENCE" 
+                               value="ASPath:/Rm/Rm/RmConfigSet/Rm_XRDC_HSEMU0"/>
+                        <d:var name="Secure_Access_Policy" type="ENUMERATION" 
+                               value="XRDC_FULL_ACCESS"/>
+                        <d:var name="Non_Secure_Access_Policy" 
+                               type="ENUMERATION" value="XRDC_FULL_ACCESS"/>
+                      </d:ctr>
+                      <d:ctr name="Domain_Peripheral_Assignment_1" 
+                             type="IDENTIFIABLE">
+                        <d:ref name="Domain_Peripheral_Assignment" 
+                               type="REFERENCE" 
+                               value="ASPath:/Rm/Rm/RmConfigSet/Rm_XRDC_HSEMU1"/>
+                        <d:var name="Secure_Access_Policy" type="ENUMERATION" 
+                               value="XRDC_FULL_ACCESS"/>
+                        <d:var name="Non_Secure_Access_Policy" 
+                               type="ENUMERATION" value="XRDC_FULL_ACCESS"/>
+                      </d:ctr>
+                      <d:ctr name="Domain_Peripheral_Assignment_2" 
+                             type="IDENTIFIABLE">
+                        <d:ref name="Domain_Peripheral_Assignment" 
+                               type="REFERENCE" 
+                               value="ASPath:/Rm/Rm/RmConfigSet/Rm_XRDC_HSEMU2"/>
+                        <d:var name="Secure_Access_Policy" type="ENUMERATION" 
+                               value="XRDC_FULL_ACCESS"/>
+                        <d:var name="Non_Secure_Access_Policy" 
+                               type="ENUMERATION" value="XRDC_FULL_ACCESS"/>
+                      </d:ctr>
+                      <d:ctr name="Domain_Peripheral_Assignment_3" 
+                             type="IDENTIFIABLE">
+                        <d:ref name="Domain_Peripheral_Assignment" 
+                               type="REFERENCE" 
+                               value="ASPath:/Rm/Rm/RmConfigSet/Rm_XRDC_HSEMU3"/>
+                        <d:var name="Secure_Access_Policy" type="ENUMERATION" 
+                               value="XRDC_FULL_ACCESS"/>
+                        <d:var name="Non_Secure_Access_Policy" 
+                               type="ENUMERATION" value="XRDC_FULL_ACCESS"/>
+                      </d:ctr>
+                    </d:lst>
+                    <d:lst name="Domain_Memory_Assignment" type="MAP">
+                      <d:ctr name="Domain_Memory_Assignment_1" 
+                             type="IDENTIFIABLE">
+                        <d:ref name="Domain_Memory_Assignment" type="REFERENCE" 
+                               value="ASPath:/Rm/Rm/RmConfigSet/Rm_XRDC_Memory_Config_SRAM_CANGW"/>
+                        <d:var name="Secure_Access_Policy" type="ENUMERATION" 
+                               value="XRDC_FULL_ACCESS"/>
+                        <d:var name="Non_Secure_Access_Policy" 
+                               type="ENUMERATION" value="XRDC_FULL_ACCESS"/>
+                      </d:ctr>
+                      <d:ctr name="Domain_Memory_Assignment_0" 
+                             type="IDENTIFIABLE">
+                        <d:ref name="Domain_Memory_Assignment" type="REFERENCE" 
+                               value="ASPath:/Rm/Rm/RmConfigSet/Rm_XRDC_Memory_Config_DRAM0_A53"/>
+                        <d:var name="Secure_Access_Policy" type="ENUMERATION" 
+                               value="XRDC_FULL_ACCESS"/>
+                        <d:var name="Non_Secure_Access_Policy" 
+                               type="ENUMERATION" value="XRDC_FULL_ACCESS"/>
+                      </d:ctr>
+                      <d:ctr name="Domain_Memory_Assignment_2" 
+                             type="IDENTIFIABLE">
+                        <d:ref name="Domain_Memory_Assignment" type="REFERENCE" 
+                               value="ASPath:/Rm/Rm/RmConfigSet/Rm_XRDC_Memory_Config_DRAM0_GENERAL"/>
+                        <d:var name="Secure_Access_Policy" type="ENUMERATION" 
+                               value="XRDC_FULL_ACCESS">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="Non_Secure_Access_Policy" 
+                               type="ENUMERATION" value="XRDC_FULL_ACCESS">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                      </d:ctr>
+                    </d:lst>
+                  </d:ctr>
+                  <d:ctr name="Rm_XRDC_Domain_Assignment_PFE" 
+                         type="IDENTIFIABLE">
+                    <d:var name="DomainID" type="ENUMERATION" 
+                           value="XRDC_DOMAIN2"/>
+                    <d:lst name="Domain_Master_Assignment" type="MAP">
+                      <d:ctr name="Domain_Master_Assignment_8" 
+                             type="IDENTIFIABLE">
+                        <d:var name="XrdcMasterInstance" type="ENUMERATION" 
+                               value="Xrdc_1_PFE_DDR"/>
+                        <d:var name="XrdcPIDEnable" type="ENUMERATION" 
+                               value="XRDC_MDA_PID_DISABLE">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMasterPID" type="INTEGER" value="0">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMasterPIDMask" type="INTEGER" value="0">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcDIDBDisable" type="BOOLEAN" 
+                               value="false">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMDADFMTLockBit" type="BOOLEAN" 
+                               value="false">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMasterMode" type="ENUMERATION" 
+                               value="XRDC_INPUT_FROM_BUS_MASTER"/>
+                        <d:var name="XrdcMasterPriviledgeMode" 
+                               type="ENUMERATION" 
+                               value="XRDC_INPUT_PRIVILEDGE_FROM_BUS_MASTER">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                      </d:ctr>
+                      <d:ctr name="Domain_Master_Assignment_9" 
+                             type="IDENTIFIABLE">
+                        <d:var name="XrdcMasterInstance" type="ENUMERATION" 
+                               value="Xrdc_1_PFE_UTIL"/>
+                        <d:var name="XrdcPIDEnable" type="ENUMERATION" 
+                               value="XRDC_MDA_PID_DISABLE">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMasterPID" type="INTEGER" value="0">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMasterPIDMask" type="INTEGER" value="0">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcDIDBDisable" type="BOOLEAN" 
+                               value="false">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMDADFMTLockBit" type="BOOLEAN" 
+                               value="false">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMasterMode" type="ENUMERATION" 
+                               value="XRDC_INPUT_FROM_BUS_MASTER"/>
+                        <d:var name="XrdcMasterPriviledgeMode" 
+                               type="ENUMERATION" 
+                               value="XRDC_INPUT_PRIVILEDGE_FROM_BUS_MASTER">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                      </d:ctr>
+                      <d:ctr name="Domain_Master_Assignment_3" 
+                             type="IDENTIFIABLE">
+                        <d:var name="XrdcMasterInstance" type="ENUMERATION" 
+                               value="Xrdc_1_PFE_HIF0"/>
+                        <d:var name="XrdcPIDEnable" type="ENUMERATION" 
+                               value="XRDC_MDA_PID_DISABLE">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMasterPID" type="INTEGER" value="0">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMasterPIDMask" type="INTEGER" value="0">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcDIDBDisable" type="BOOLEAN" 
+                               value="false">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMDADFMTLockBit" type="BOOLEAN" 
+                               value="false">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMasterMode" type="ENUMERATION" 
+                               value="XRDC_INPUT_FROM_BUS_MASTER"/>
+                        <d:var name="XrdcMasterPriviledgeMode" 
+                               type="ENUMERATION" 
+                               value="XRDC_INPUT_PRIVILEDGE_FROM_BUS_MASTER">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                      </d:ctr>
+                      <d:ctr name="Domain_Master_Assignment_4" 
+                             type="IDENTIFIABLE">
+                        <d:var name="XrdcMasterInstance" type="ENUMERATION" 
+                               value="Xrdc_1_PFE_HIF2"/>
+                        <d:var name="XrdcPIDEnable" type="ENUMERATION" 
+                               value="XRDC_MDA_PID_DISABLE">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMasterPID" type="INTEGER" value="0">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMasterPIDMask" type="INTEGER" value="0">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcDIDBDisable" type="BOOLEAN" 
+                               value="false">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMDADFMTLockBit" type="BOOLEAN" 
+                               value="false">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMasterMode" type="ENUMERATION" 
+                               value="XRDC_INPUT_FROM_BUS_MASTER"/>
+                        <d:var name="XrdcMasterPriviledgeMode" 
+                               type="ENUMERATION" 
+                               value="XRDC_INPUT_PRIVILEDGE_FROM_BUS_MASTER">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                      </d:ctr>
+                      <d:ctr name="Domain_Master_Assignment_5" 
+                             type="IDENTIFIABLE">
+                        <d:var name="XrdcMasterInstance" type="ENUMERATION" 
+                               value="Xrdc_1_PFE_HIF3"/>
+                        <d:var name="XrdcPIDEnable" type="ENUMERATION" 
+                               value="XRDC_MDA_PID_DISABLE">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMasterPID" type="INTEGER" value="0">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMasterPIDMask" type="INTEGER" value="0">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcDIDBDisable" type="BOOLEAN" 
+                               value="false">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMDADFMTLockBit" type="BOOLEAN" 
+                               value="false">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMasterMode" type="ENUMERATION" 
+                               value="XRDC_INPUT_FROM_BUS_MASTER"/>
+                        <d:var name="XrdcMasterPriviledgeMode" 
+                               type="ENUMERATION" 
+                               value="XRDC_INPUT_PRIVILEDGE_FROM_BUS_MASTER">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                      </d:ctr>
+                      <d:ctr name="Domain_Master_Assignment_6" 
+                             type="IDENTIFIABLE">
+                        <d:var name="XrdcMasterInstance" type="ENUMERATION" 
+                               value="Xrdc_1_PFE_HIF1"/>
+                        <d:var name="XrdcPIDEnable" type="ENUMERATION" 
+                               value="XRDC_MDA_PID_DISABLE">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMasterPID" type="INTEGER" value="0">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMasterPIDMask" type="INTEGER" value="0">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcDIDBDisable" type="BOOLEAN" 
+                               value="false">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMDADFMTLockBit" type="BOOLEAN" 
+                               value="false">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMasterMode" type="ENUMERATION" 
+                               value="XRDC_INPUT_FROM_BUS_MASTER"/>
+                        <d:var name="XrdcMasterPriviledgeMode" 
+                               type="ENUMERATION" 
+                               value="XRDC_INPUT_PRIVILEDGE_FROM_BUS_MASTER">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                      </d:ctr>
+                    </d:lst>
+                    <d:lst name="Domain_Peripheral_Assignment" type="MAP">
+                      <d:ctr name="Domain_Peripheral_Assignment_10" 
+                             type="IDENTIFIABLE">
+                        <d:ref name="Domain_Peripheral_Assignment" 
+                               type="REFERENCE" 
+                               value="ASPath:/Rm/Rm/RmConfigSet/Rm_XRDC_DDR"/>
+                        <d:var name="Secure_Access_Policy" type="ENUMERATION" 
+                               value="XRDC_FULL_ACCESS"/>
+                        <d:var name="Non_Secure_Access_Policy" 
+                               type="ENUMERATION" value="XRDC_FULL_ACCESS"/>
+                      </d:ctr>
+                    </d:lst>
+                    <d:lst name="Domain_Memory_Assignment" type="MAP">
+                      <d:ctr name="Domain_Memory_Assignment_1" 
+                             type="IDENTIFIABLE">
+                        <d:ref name="Domain_Memory_Assignment" type="REFERENCE" 
+                               value="ASPath:/Rm/Rm/RmConfigSet/Rm_XRDC_Memory_Config_SRAM_CANGW"/>
+                        <d:var name="Secure_Access_Policy" type="ENUMERATION" 
+                               value="XRDC_FULL_ACCESS"/>
+                        <d:var name="Non_Secure_Access_Policy" 
+                               type="ENUMERATION" value="XRDC_FULL_ACCESS"/>
+                      </d:ctr>
+                      <d:ctr name="Domain_Memory_Assignment_7" 
+                             type="IDENTIFIABLE">
+                        <d:ref name="Domain_Memory_Assignment" type="REFERENCE" 
+                               value="ASPath:/Rm/Rm/RmConfigSet/Rm_XRDC_Memory_Config_SRAM_PFE_SHMEM"/>
+                        <d:var name="Secure_Access_Policy" type="ENUMERATION" 
+                               value="XRDC_FULL_ACCESS"/>
+                        <d:var name="Non_Secure_Access_Policy" 
+                               type="ENUMERATION" value="XRDC_FULL_ACCESS"/>
+                      </d:ctr>
+                      <d:ctr name="Domain_Memory_Assignment_0" 
+                             type="IDENTIFIABLE">
+                        <d:ref name="Domain_Memory_Assignment" type="REFERENCE" 
+                               value="ASPath:/Rm/Rm/RmConfigSet/Rm_XRDC_Memory_Config_Concerto"/>
+                        <d:var name="Secure_Access_Policy" type="ENUMERATION" 
+                               value="XRDC_FULL_ACCESS"/>
+                        <d:var name="Non_Secure_Access_Policy" 
+                               type="ENUMERATION" value="XRDC_FULL_ACCESS"/>
+                      </d:ctr>
+                      <d:ctr name="Domain_Memory_Assignment_3" 
+                             type="IDENTIFIABLE">
+                        <d:ref name="Domain_Memory_Assignment" type="REFERENCE" 
+                               value="ASPath:/Rm/Rm/RmConfigSet/Rm_XRDC_Memory_Config_DRAM0_A53"/>
+                        <d:var name="Secure_Access_Policy" type="ENUMERATION" 
+                               value="XRDC_FULL_ACCESS"/>
+                        <d:var name="Non_Secure_Access_Policy" 
+                               type="ENUMERATION" value="XRDC_FULL_ACCESS"/>
+                      </d:ctr>
+                      <d:ctr name="Domain_Memory_Assignment_8" 
+                             type="IDENTIFIABLE">
+                        <d:ref name="Domain_Memory_Assignment" type="REFERENCE" 
+                               value="ASPath:/Rm/Rm/RmConfigSet/Rm_XRDC_Memory_Config_DRAM0_GENERAL"/>
+                        <d:var name="Secure_Access_Policy" type="ENUMERATION" 
+                               value="XRDC_FULL_ACCESS">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="Non_Secure_Access_Policy" 
+                               type="ENUMERATION" value="XRDC_FULL_ACCESS">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                      </d:ctr>
+                      <d:ctr name="Domain_Memory_Assignment_5" 
+                             type="IDENTIFIABLE">
+                        <d:ref name="Domain_Memory_Assignment" type="REFERENCE" 
+                               value="ASPath:/Rm/Rm/RmConfigSet/Rm_XRDC_Memory_Config_S_LLCE"/>
+                        <d:var name="Secure_Access_Policy" type="ENUMERATION" 
+                               value="XRDC_FULL_ACCESS">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="Non_Secure_Access_Policy" 
+                               type="ENUMERATION" value="XRDC_FULL_ACCESS">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                      </d:ctr>
+                      <d:ctr name="Domain_Memory_Assignment_4" 
+                             type="IDENTIFIABLE">
+                        <d:ref name="Domain_Memory_Assignment" type="REFERENCE" 
+                               value="ASPath:/Rm/Rm/RmConfigSet/Rm_XRDC_Memory_Config_CohAcc_CANGW"/>
+                        <d:var name="Secure_Access_Policy" type="ENUMERATION" 
+                               value="XRDC_FULL_ACCESS">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="Non_Secure_Access_Policy" 
+                               type="ENUMERATION" value="XRDC_FULL_ACCESS">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                      </d:ctr>
+                      <d:ctr name="Domain_Memory_Assignment_6" 
+                             type="IDENTIFIABLE">
+                        <d:ref name="Domain_Memory_Assignment" type="REFERENCE" 
+                               value="ASPath:/Rm/Rm/RmConfigSet/Rm_XRDC_Memory_Config_CohAcc_LLCE"/>
+                        <d:var name="Secure_Access_Policy" type="ENUMERATION" 
+                               value="XRDC_FULL_ACCESS">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="Non_Secure_Access_Policy" 
+                               type="ENUMERATION" value="XRDC_FULL_ACCESS">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                      </d:ctr>
+                      <d:ctr name="Domain_Memory_Assignment_2" 
+                             type="IDENTIFIABLE">
+                        <d:ref name="Domain_Memory_Assignment" type="REFERENCE" 
+                               value="ASPath:/Rm/Rm/RmConfigSet/Rm_XRDC_Memory_Config_CohAcc_DRAM"/>
+                        <d:var name="Secure_Access_Policy" type="ENUMERATION" 
+                               value="XRDC_FULL_ACCESS">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="Non_Secure_Access_Policy" 
+                               type="ENUMERATION" value="XRDC_FULL_ACCESS">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                      </d:ctr>
+                    </d:lst>
+                  </d:ctr>
+                  <d:ctr name="Rm_XRDC_Domain_Assignment_A53" 
+                         type="IDENTIFIABLE">
+                    <d:var name="DomainID" type="ENUMERATION" 
+                           value="XRDC_DOMAIN3"/>
+                    <d:lst name="Domain_Master_Assignment" type="MAP">
+                      <d:ctr name="Domain_Master_A53CoreC0" type="IDENTIFIABLE">
+                        <d:var name="XrdcMasterInstance" type="ENUMERATION" 
+                               value="Xrdc_0_CortexA53_C0"/>
+                        <d:var name="XrdcPIDEnable" type="ENUMERATION" 
+                               value="XRDC_MDA_PID_DISABLE"/>
+                        <d:var name="XrdcMasterPID" type="INTEGER" value="0">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMasterPIDMask" type="INTEGER" value="0">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcDIDBDisable" type="BOOLEAN" 
+                               value="false">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMDADFMTLockBit" type="BOOLEAN" 
+                               value="false">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMasterMode" type="ENUMERATION" 
+                               value="XRDC_SECURE">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMasterPriviledgeMode" 
+                               type="ENUMERATION" 
+                               value="XRDC_INPUT_PRIVILEDGE_FROM_BUS_MASTER">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                      </d:ctr>
+                      <d:ctr name="Domain_Master_A53CoreC1" type="IDENTIFIABLE">
+                        <d:var name="XrdcMasterInstance" type="ENUMERATION" 
+                               value="Xrdc_0_CortexA53_C1"/>
+                        <d:var name="XrdcPIDEnable" type="ENUMERATION" 
+                               value="XRDC_MDA_PID_DISABLE">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMasterPID" type="INTEGER" value="0">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMasterPIDMask" type="INTEGER" value="0">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcDIDBDisable" type="BOOLEAN" 
+                               value="false">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMDADFMTLockBit" type="BOOLEAN" 
+                               value="false">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMasterMode" type="ENUMERATION" 
+                               value="XRDC_SECURE">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMasterPriviledgeMode" 
+                               type="ENUMERATION" 
+                               value="XRDC_INPUT_PRIVILEDGE_FROM_BUS_MASTER">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                      </d:ctr>
+                      <d:ctr name="Domain_Master_USDHC" type="IDENTIFIABLE">
+                        <d:var name="XrdcMasterInstance" type="ENUMERATION" 
+                               value="Xrdc_0_uSDHC_Input"/>
+                        <d:var name="XrdcPIDEnable" type="ENUMERATION" 
+                               value="XRDC_MDA_PID_DISABLE">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMasterPID" type="INTEGER" value="0">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMasterPIDMask" type="INTEGER" value="0">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcDIDBDisable" type="BOOLEAN" 
+                               value="false">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMDADFMTLockBit" type="BOOLEAN" 
+                               value="false">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMasterMode" type="ENUMERATION" 
+                               value="XRDC_NON_SECURE"/>
+                        <d:var name="XrdcMasterPriviledgeMode" 
+                               type="ENUMERATION" 
+                               value="XRDC_INPUT_PRIVILEDGE_FROM_BUS_MASTER">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                      </d:ctr>
+                      <d:ctr name="Domain_Master_GIC500" type="IDENTIFIABLE">
+                        <d:var name="XrdcMasterInstance" type="ENUMERATION" 
+                               value="Xrdc_0_GIC_500"/>
+                        <d:var name="XrdcPIDEnable" type="ENUMERATION" 
+                               value="XRDC_MDA_PID_DISABLE">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMasterPID" type="INTEGER" value="0">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMasterPIDMask" type="INTEGER" value="0">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcDIDBDisable" type="BOOLEAN" 
+                               value="false">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMDADFMTLockBit" type="BOOLEAN" 
+                               value="false">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMasterMode" type="ENUMERATION" 
+                               value="XRDC_NON_SECURE"/>
+                        <d:var name="XrdcMasterPriviledgeMode" 
+                               type="ENUMERATION" 
+                               value="XRDC_INPUT_PRIVILEDGE_FROM_BUS_MASTER">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                      </d:ctr>
+                      <d:ctr name="Domain_Master_eDMA0" type="IDENTIFIABLE">
+                        <d:var name="XrdcMasterInstance" type="ENUMERATION" 
+                               value="Xrdc_0_eDMA_0"/>
+                        <d:var name="XrdcPIDEnable" type="ENUMERATION" 
+                               value="XRDC_MDA_PID_DISABLE">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMasterPID" type="INTEGER" value="0">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMasterPIDMask" type="INTEGER" value="0">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcDIDBDisable" type="BOOLEAN" 
+                               value="false">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMDADFMTLockBit" type="BOOLEAN" 
+                               value="false">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMasterMode" type="ENUMERATION" 
+                               value="XRDC_INPUT_FROM_BUS_MASTER"/>
+                        <d:var name="XrdcMasterPriviledgeMode" 
+                               type="ENUMERATION" 
+                               value="XRDC_INPUT_PRIVILEDGE_FROM_BUS_MASTER">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                      </d:ctr>
+                      <d:ctr name="Domain_Master_eDMA1" type="IDENTIFIABLE">
+                        <d:var name="XrdcMasterInstance" type="ENUMERATION" 
+                               value="Xrdc_0_eDMA_1"/>
+                        <d:var name="XrdcPIDEnable" type="ENUMERATION" 
+                               value="XRDC_MDA_PID_DISABLE">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMasterPID" type="INTEGER" value="0">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMasterPIDMask" type="INTEGER" value="0">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcDIDBDisable" type="BOOLEAN" 
+                               value="false">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMDADFMTLockBit" type="BOOLEAN" 
+                               value="false">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMasterMode" type="ENUMERATION" 
+                               value="XRDC_INPUT_FROM_BUS_MASTER"/>
+                        <d:var name="XrdcMasterPriviledgeMode" 
+                               type="ENUMERATION" 
+                               value="XRDC_INPUT_PRIVILEDGE_FROM_BUS_MASTER">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                      </d:ctr>
+                      <d:ctr name="Domain_Master_GMAC0" type="IDENTIFIABLE">
+                        <d:var name="XrdcMasterInstance" type="ENUMERATION" 
+                               value="Xrdc_0_XRDC_GMAC_0"/>
+                        <d:var name="XrdcPIDEnable" type="ENUMERATION" 
+                               value="XRDC_MDA_PID_DISABLE">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMasterPID" type="INTEGER" value="0">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMasterPIDMask" type="INTEGER" value="0">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcDIDBDisable" type="BOOLEAN" 
+                               value="false">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMDADFMTLockBit" type="BOOLEAN" 
+                               value="false">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMasterMode" type="ENUMERATION" 
+                               value="XRDC_INPUT_FROM_BUS_MASTER"/>
+                        <d:var name="XrdcMasterPriviledgeMode" 
+                               type="ENUMERATION" 
+                               value="XRDC_INPUT_PRIVILEDGE_FROM_BUS_MASTER">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                      </d:ctr>
+                      <d:ctr name="Domain_Master_USB" type="IDENTIFIABLE">
+                        <d:var name="XrdcMasterInstance" type="ENUMERATION" 
+                               value="Xrdc_1_USB"/>
+                        <d:var name="XrdcPIDEnable" type="ENUMERATION" 
+                               value="XRDC_MDA_PID_DISABLE">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMasterPID" type="INTEGER" value="0">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMasterPIDMask" type="INTEGER" value="0">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcDIDBDisable" type="BOOLEAN" 
+                               value="false">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMDADFMTLockBit" type="BOOLEAN" 
+                               value="false">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMasterMode" type="ENUMERATION" 
+                               value="XRDC_INPUT_FROM_BUS_MASTER"/>
+                        <d:var name="XrdcMasterPriviledgeMode" 
+                               type="ENUMERATION" 
+                               value="XRDC_INPUT_PRIVILEDGE_FROM_BUS_MASTER">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                      </d:ctr>
+                      <d:ctr name="Domain_Master_PCIe_0" type="IDENTIFIABLE">
+                        <d:var name="XrdcMasterInstance" type="ENUMERATION" 
+                               value="Xrdc_0_PCIe_0"/>
+                        <d:var name="XrdcPIDEnable" type="ENUMERATION" 
+                               value="XRDC_MDA_PID_DISABLE">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMasterPID" type="INTEGER" value="0">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMasterPIDMask" type="INTEGER" value="0">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcDIDBDisable" type="BOOLEAN" 
+                               value="false">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMDADFMTLockBit" type="BOOLEAN" 
+                               value="false">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMasterMode" type="ENUMERATION" 
+                               value="XRDC_INPUT_FROM_BUS_MASTER"/>
+                        <d:var name="XrdcMasterPriviledgeMode" 
+                               type="ENUMERATION" 
+                               value="XRDC_INPUT_PRIVILEDGE_FROM_BUS_MASTER">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                      </d:ctr>
+                    </d:lst>
+                    <d:lst name="Domain_Peripheral_Assignment" type="MAP">
+                      <d:ctr name="Domain_Peripheral_Assignment_2" 
+                             type="IDENTIFIABLE">
+                        <d:ref name="Domain_Peripheral_Assignment" 
+                               type="REFERENCE" 
+                               value="ASPath:/Rm/Rm/RmConfigSet/Rm_XRDC_HSEMU0"/>
+                        <d:var name="Secure_Access_Policy" type="ENUMERATION" 
+                               value="XRDC_FULL_ACCESS"/>
+                        <d:var name="Non_Secure_Access_Policy" 
+                               type="ENUMERATION" value="XRDC_FULL_ACCESS"/>
+                      </d:ctr>
+                      <d:ctr name="Domain_Peripheral_Assignment_3" 
+                             type="IDENTIFIABLE">
+                        <d:ref name="Domain_Peripheral_Assignment" 
+                               type="REFERENCE" 
+                               value="ASPath:/Rm/Rm/RmConfigSet/Rm_XRDC_HSEMU1"/>
+                        <d:var name="Secure_Access_Policy" type="ENUMERATION" 
+                               value="XRDC_FULL_ACCESS"/>
+                        <d:var name="Non_Secure_Access_Policy" 
+                               type="ENUMERATION" value="XRDC_FULL_ACCESS"/>
+                      </d:ctr>
+                      <d:ctr name="Domain_Peripheral_Assignment_4" 
+                             type="IDENTIFIABLE">
+                        <d:ref name="Domain_Peripheral_Assignment" 
+                               type="REFERENCE" 
+                               value="ASPath:/Rm/Rm/RmConfigSet/Rm_XRDC_USDHC"/>
+                        <d:var name="Secure_Access_Policy" type="ENUMERATION" 
+                               value="XRDC_FULL_ACCESS"/>
+                        <d:var name="Non_Secure_Access_Policy" 
+                               type="ENUMERATION" value="XRDC_FULL_ACCESS"/>
+                      </d:ctr>
+                      <d:ctr name="Domain_Peripheral_Assignment_5" 
+                             type="IDENTIFIABLE">
+                        <d:ref name="Domain_Peripheral_Assignment" 
+                               type="REFERENCE" 
+                               value="ASPath:/Rm/Rm/RmConfigSet/Rm_XRDC_QSPI"/>
+                        <d:var name="Secure_Access_Policy" type="ENUMERATION" 
+                               value="XRDC_FULL_ACCESS"/>
+                        <d:var name="Non_Secure_Access_Policy" 
+                               type="ENUMERATION" value="XRDC_FULL_ACCESS"/>
+                      </d:ctr>
+                      <d:ctr name="Domain_Peripheral_Assignment_0" 
+                             type="IDENTIFIABLE">
+                        <d:ref name="Domain_Peripheral_Assignment" 
+                               type="REFERENCE" 
+                               value="ASPath:/Rm/Rm/RmConfigSet/Rm_XRDC_edma0"/>
+                        <d:var name="Secure_Access_Policy" type="ENUMERATION" 
+                               value="XRDC_FULL_ACCESS"/>
+                        <d:var name="Non_Secure_Access_Policy" 
+                               type="ENUMERATION" value="XRDC_FULL_ACCESS"/>
+                      </d:ctr>
+                      <d:ctr name="Domain_Peripheral_Assignment_1" 
+                             type="IDENTIFIABLE">
+                        <d:ref name="Domain_Peripheral_Assignment" 
+                               type="REFERENCE" 
+                               value="ASPath:/Rm/Rm/RmConfigSet/Rm_XRDC_edma1"/>
+                        <d:var name="Secure_Access_Policy" type="ENUMERATION" 
+                               value="XRDC_FULL_ACCESS"/>
+                        <d:var name="Non_Secure_Access_Policy" 
+                               type="ENUMERATION" value="XRDC_FULL_ACCESS"/>
+                      </d:ctr>
+                      <d:ctr name="Domain_Peripheral_Assignment_8" 
+                             type="IDENTIFIABLE">
+                        <d:ref name="Domain_Peripheral_Assignment" 
+                               type="REFERENCE" 
+                               value="ASPath:/Rm/Rm/RmConfigSet/Rm_XRDC_Linflex0"/>
+                        <d:var name="Secure_Access_Policy" type="ENUMERATION" 
+                               value="XRDC_FULL_ACCESS"/>
+                        <d:var name="Non_Secure_Access_Policy" 
+                               type="ENUMERATION" value="XRDC_FULL_ACCESS"/>
+                      </d:ctr>
+                      <d:ctr name="Domain_Peripheral_Assignment_10" 
+                             type="IDENTIFIABLE">
+                        <d:ref name="Domain_Peripheral_Assignment" 
+                               type="REFERENCE" 
+                               value="ASPath:/Rm/Rm/RmConfigSet/Rm_XRDC_DDR"/>
+                        <d:var name="Secure_Access_Policy" type="ENUMERATION" 
+                               value="XRDC_FULL_ACCESS"/>
+                        <d:var name="Non_Secure_Access_Policy" 
+                               type="ENUMERATION" value="XRDC_FULL_ACCESS"/>
+                      </d:ctr>
+                      <d:ctr name="Domain_Peripheral_Assignment_9" 
+                             type="IDENTIFIABLE">
+                        <d:ref name="Domain_Peripheral_Assignment" 
+                               type="REFERENCE" 
+                               value="ASPath:/Rm/Rm/RmConfigSet/Rm_XRDC_FlexCAN0"/>
+                        <d:var name="Secure_Access_Policy" type="ENUMERATION" 
+                               value="XRDC_FULL_ACCESS"/>
+                        <d:var name="Non_Secure_Access_Policy" 
+                               type="ENUMERATION" value="XRDC_FULL_ACCESS"/>
+                      </d:ctr>
+                      <d:ctr name="Domain_Peripheral_Assignment_11" 
+                             type="IDENTIFIABLE">
+                        <d:ref name="Domain_Peripheral_Assignment" 
+                               type="REFERENCE" 
+                               value="ASPath:/Rm/Rm/RmConfigSet/Rm_XRDC_FlexCAN1"/>
+                        <d:var name="Secure_Access_Policy" type="ENUMERATION" 
+                               value="XRDC_FULL_ACCESS"/>
+                        <d:var name="Non_Secure_Access_Policy" 
+                               type="ENUMERATION" value="XRDC_FULL_ACCESS"/>
+                      </d:ctr>
+                      <d:ctr name="Domain_Peripheral_Assignment_12" 
+                             type="IDENTIFIABLE">
+                        <d:ref name="Domain_Peripheral_Assignment" 
+                               type="REFERENCE" 
+                               value="ASPath:/Rm/Rm/RmConfigSet/Rm_XRDC_FlexCAN2"/>
+                        <d:var name="Secure_Access_Policy" type="ENUMERATION" 
+                               value="XRDC_FULL_ACCESS"/>
+                        <d:var name="Non_Secure_Access_Policy" 
+                               type="ENUMERATION" value="XRDC_FULL_ACCESS"/>
+                      </d:ctr>
+                      <d:ctr name="Domain_Peripheral_Assignment_13" 
+                             type="IDENTIFIABLE">
+                        <d:ref name="Domain_Peripheral_Assignment" 
+                               type="REFERENCE" 
+                               value="ASPath:/Rm/Rm/RmConfigSet/Rm_XRDC_FlexCAN3"/>
+                        <d:var name="Secure_Access_Policy" type="ENUMERATION" 
+                               value="XRDC_FULL_ACCESS"/>
+                        <d:var name="Non_Secure_Access_Policy" 
+                               type="ENUMERATION" value="XRDC_FULL_ACCESS"/>
+                      </d:ctr>
+                      <d:ctr name="Domain_Peripheral_Assignment_14" 
+                             type="IDENTIFIABLE">
+                        <d:ref name="Domain_Peripheral_Assignment" 
+                               type="REFERENCE" 
+                               value="ASPath:/Rm/Rm/RmConfigSet/Rm_XRDC_GMAC"/>
+                        <d:var name="Secure_Access_Policy" type="ENUMERATION" 
+                               value="XRDC_FULL_ACCESS"/>
+                        <d:var name="Non_Secure_Access_Policy" 
+                               type="ENUMERATION" value="XRDC_FULL_ACCESS"/>
+                      </d:ctr>
+                      <d:ctr name="Domain_Peripheral_Assignment_15" 
+                             type="IDENTIFIABLE">
+                        <d:ref name="Domain_Peripheral_Assignment" 
+                               type="REFERENCE" 
+                               value="ASPath:/Rm/Rm/RmConfigSet/Rm_XRDC_PCIe_0"/>
+                        <d:var name="Secure_Access_Policy" type="ENUMERATION" 
+                               value="XRDC_FULL_ACCESS"/>
+                        <d:var name="Non_Secure_Access_Policy" 
+                               type="ENUMERATION" value="XRDC_FULL_ACCESS"/>
+                      </d:ctr>
+                      <d:ctr name="Domain_Peripheral_Assignment_6" 
+                             type="IDENTIFIABLE">
+                        <d:ref name="Domain_Peripheral_Assignment" 
+                               type="REFERENCE" 
+                               value="ASPath:/Rm/Rm/RmConfigSet/Rm_XRDC_PCIe_1"/>
+                        <d:var name="Secure_Access_Policy" type="ENUMERATION" 
+                               value="XRDC_FULL_ACCESS">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="Non_Secure_Access_Policy" 
+                               type="ENUMERATION" value="XRDC_FULL_ACCESS">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                      </d:ctr>
+                    </d:lst>
+                    <d:lst name="Domain_Memory_Assignment" type="MAP">
+                      <d:ctr name="Domain_Memory_Assignment_6" 
+                             type="IDENTIFIABLE">
+                        <d:ref name="Domain_Memory_Assignment" type="REFERENCE" 
+                               value="ASPath:/Rm/Rm/RmConfigSet/Rm_XRDC_Memory_Config_S_FLASH"/>
+                        <d:var name="Secure_Access_Policy" type="ENUMERATION" 
+                               value="XRDC_FULL_ACCESS">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="Non_Secure_Access_Policy" 
+                               type="ENUMERATION" value="XRDC_FULL_ACCESS">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                      </d:ctr>
+                      <d:ctr name="Domain_Memory_Assignment_3" 
+                             type="IDENTIFIABLE">
+                        <d:ref name="Domain_Memory_Assignment" type="REFERENCE" 
+                               value="ASPath:/Rm/Rm/RmConfigSet/Rm_XRDC_Memory_Config_SRAM_PFE_SHMEM"/>
+                        <d:var name="Secure_Access_Policy" type="ENUMERATION" 
+                               value="XRDC_FULL_ACCESS">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="Non_Secure_Access_Policy" 
+                               type="ENUMERATION" value="XRDC_FULL_ACCESS">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                      </d:ctr>
+                      <d:ctr name="Domain_Memory_Assignment_10" 
+                             type="IDENTIFIABLE">
+                        <d:ref name="Domain_Memory_Assignment" type="REFERENCE" 
+                               value="ASPath:/Rm/Rm/RmConfigSet/Rm_XRDC_Memory_Config_SRAM_SCMI_Mailboxes"/>
+                        <d:var name="Secure_Access_Policy" type="ENUMERATION" 
+                               value="XRDC_FULL_ACCESS">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="Non_Secure_Access_Policy" 
+                               type="ENUMERATION" value="XRDC_FULL_ACCESS">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                      </d:ctr>
+                      <d:ctr name="Domain_Memory_Assignment_14" 
+                             type="IDENTIFIABLE">
+                        <d:ref name="Domain_Memory_Assignment" type="REFERENCE" 
+                               value="ASPath:/Rm/Rm/RmConfigSet/Rm_XRDC_Memory_Config_SRAM_IPC_SHMEM"/>
+                        <d:var name="Secure_Access_Policy" type="ENUMERATION" 
+                               value="XRDC_FULL_ACCESS"/>
+                        <d:var name="Non_Secure_Access_Policy" 
+                               type="ENUMERATION" value="XRDC_FULL_ACCESS"/>
+                      </d:ctr>
+                      <d:ctr name="Domain_Memory_Assignment_1" 
+                             type="IDENTIFIABLE">
+                        <d:ref name="Domain_Memory_Assignment" type="REFERENCE" 
+                               value="ASPath:/Rm/Rm/RmConfigSet/Rm_XRDC_Memory_Config_SRAM_ATF"/>
+                        <d:var name="Secure_Access_Policy" type="ENUMERATION" 
+                               value="XRDC_FULL_ACCESS"/>
+                        <d:var name="Non_Secure_Access_Policy" 
+                               type="ENUMERATION" value="XRDC_FULL_ACCESS"/>
+                      </d:ctr>
+                      <d:ctr name="Domain_Memory_Assignment_8" 
+                             type="IDENTIFIABLE">
+                        <d:ref name="Domain_Memory_Assignment" type="REFERENCE" 
+                               value="ASPath:/Rm/Rm/RmConfigSet/Rm_XRDC_Memory_Config_1_STDBY_SRAM"/>
+                        <d:var name="Secure_Access_Policy" type="ENUMERATION" 
+                               value="XRDC_FULL_ACCESS">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="Non_Secure_Access_Policy" 
+                               type="ENUMERATION" value="XRDC_FULL_ACCESS">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                      </d:ctr>
+                      <d:ctr name="Domain_Memory_Assignment_16" 
+                             type="IDENTIFIABLE">
+                        <d:ref name="Domain_Memory_Assignment" type="REFERENCE" 
+                               value="ASPath:/Rm/Rm/RmConfigSet/Rm_XRDC_Memory_Config_QSPI_Periph"/>
+                        <d:var name="Secure_Access_Policy" type="ENUMERATION" 
+                               value="XRDC_FULL_ACCESS">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="Non_Secure_Access_Policy" 
+                               type="ENUMERATION" value="XRDC_FULL_ACCESS">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                      </d:ctr>
+                      <d:ctr name="Domain_Memory_Assignment_13" 
+                             type="IDENTIFIABLE">
+                        <d:ref name="Domain_Memory_Assignment" type="REFERENCE" 
+                               value="ASPath:/Rm/Rm/RmConfigSet/Rm_XRDC_Memory_Config_QSPI_ARDB_Buffers"/>
+                        <d:var name="Secure_Access_Policy" type="ENUMERATION" 
+                               value="XRDC_FULL_ACCESS">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="Non_Secure_Access_Policy" 
+                               type="ENUMERATION" value="XRDC_FULL_ACCESS">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                      </d:ctr>
+                      <d:ctr name="Domain_Memory_Assignment_0" 
+                             type="IDENTIFIABLE">
+                        <d:ref name="Domain_Memory_Assignment" type="REFERENCE" 
+                               value="ASPath:/Rm/Rm/RmConfigSet/Rm_XRDC_Memory_Config_Concerto"/>
+                        <d:var name="Secure_Access_Policy" type="ENUMERATION" 
+                               value="XRDC_FULL_ACCESS">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="Non_Secure_Access_Policy" 
+                               type="ENUMERATION" value="XRDC_FULL_ACCESS">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                      </d:ctr>
+                      <d:ctr name="Domain_Memory_Assignment_7" 
+                             type="IDENTIFIABLE">
+                        <d:ref name="Domain_Memory_Assignment" type="REFERENCE" 
+                               value="ASPath:/Rm/Rm/RmConfigSet/Rm_XRDC_Memory_Config_S_GIC_500"/>
+                        <d:var name="Secure_Access_Policy" type="ENUMERATION" 
+                               value="XRDC_FULL_ACCESS"/>
+                        <d:var name="Non_Secure_Access_Policy" 
+                               type="ENUMERATION" value="XRDC_FULL_ACCESS"/>
+                      </d:ctr>
+                      <d:ctr name="Domain_Memory_Assignment_5" 
+                             type="IDENTIFIABLE">
+                        <d:ref name="Domain_Memory_Assignment" type="REFERENCE" 
+                               value="ASPath:/Rm/Rm/RmConfigSet/Rm_XRDC_Memory_Config_NoC_0"/>
+                        <d:var name="Secure_Access_Policy" type="ENUMERATION" 
+                               value="XRDC_FULL_ACCESS"/>
+                        <d:var name="Non_Secure_Access_Policy" 
+                               type="ENUMERATION" value="XRDC_FULL_ACCESS"/>
+                      </d:ctr>
+                      <d:ctr name="Domain_Memory_Assignment_2" 
+                             type="IDENTIFIABLE">
+                        <d:ref name="Domain_Memory_Assignment" type="REFERENCE" 
+                               value="ASPath:/Rm/Rm/RmConfigSet/Rm_XRDC_Memory_Config_1_PFE_Periph"/>
+                        <d:var name="Secure_Access_Policy" type="ENUMERATION" 
+                               value="XRDC_FULL_ACCESS">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="Non_Secure_Access_Policy" 
+                               type="ENUMERATION" value="XRDC_FULL_ACCESS">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                      </d:ctr>
+                      <d:ctr name="Domain_Memory_Assignment_4" 
+                             type="IDENTIFIABLE">
+                        <d:ref name="Domain_Memory_Assignment" type="REFERENCE" 
+                               value="ASPath:/Rm/Rm/RmConfigSet/Rm_XRDC_Memory_Config_DRAM0_A53"/>
+                        <d:var name="Secure_Access_Policy" type="ENUMERATION" 
+                               value="XRDC_FULL_ACCESS"/>
+                        <d:var name="Non_Secure_Access_Policy" 
+                               type="ENUMERATION" value="XRDC_FULL_ACCESS"/>
+                      </d:ctr>
+                      <d:ctr name="Domain_Memory_Assignment_12" 
+                             type="IDENTIFIABLE">
+                        <d:ref name="Domain_Memory_Assignment" type="REFERENCE" 
+                               value="ASPath:/Rm/Rm/RmConfigSet/Rm_XRDC_Memory_Config_CohAcc_DRAM"/>
+                        <d:var name="Secure_Access_Policy" type="ENUMERATION" 
+                               value="XRDC_FULL_ACCESS">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="Non_Secure_Access_Policy" 
+                               type="ENUMERATION" value="XRDC_FULL_ACCESS">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                      </d:ctr>
+                      <d:ctr name="Domain_Memory_Assignment_11" 
+                             type="IDENTIFIABLE">
+                        <d:ref name="Domain_Memory_Assignment" type="REFERENCE" 
+                               value="ASPath:/Rm/Rm/RmConfigSet/Rm_XRDC_Memory_Config_DRAM_Ncore"/>
+                        <d:var name="Secure_Access_Policy" type="ENUMERATION" 
+                               value="XRDC_FULL_ACCESS">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="Non_Secure_Access_Policy" 
+                               type="ENUMERATION" value="XRDC_FULL_ACCESS">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                      </d:ctr>
+                      <d:ctr name="Domain_Memory_Assignment_9" 
+                             type="IDENTIFIABLE">
+                        <d:ref name="Domain_Memory_Assignment" type="REFERENCE" 
+                               value="ASPath:/Rm/Rm/RmConfigSet/Rm_XRDC_Memory_Config_PCIe_0"/>
+                        <d:var name="Secure_Access_Policy" type="ENUMERATION" 
+                               value="XRDC_FULL_ACCESS">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="Non_Secure_Access_Policy" 
+                               type="ENUMERATION" value="XRDC_FULL_ACCESS">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                      </d:ctr>
+                      <d:ctr name="Domain_Memory_Assignment_15" 
+                             type="IDENTIFIABLE">
+                        <d:ref name="Domain_Memory_Assignment" type="REFERENCE" 
+                               value="ASPath:/Rm/Rm/RmConfigSet/Rm_XRDC_Memory_Config_PCIe_0_Mirrored"/>
+                        <d:var name="Secure_Access_Policy" type="ENUMERATION" 
+                               value="XRDC_FULL_ACCESS">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="Non_Secure_Access_Policy" 
+                               type="ENUMERATION" value="XRDC_FULL_ACCESS">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                      </d:ctr>
+                      <d:ctr name="Domain_Memory_Assignment_17" 
+                             type="IDENTIFIABLE">
+                        <d:ref name="Domain_Memory_Assignment" type="REFERENCE" 
+                               value="ASPath:/Rm/Rm/RmConfigSet/Rm_XRDC_Memory_Config_PCIe_1"/>
+                        <d:var name="Secure_Access_Policy" type="ENUMERATION" 
+                               value="XRDC_FULL_ACCESS">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="Non_Secure_Access_Policy" 
+                               type="ENUMERATION" value="XRDC_FULL_ACCESS">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                      </d:ctr>
+                      <d:ctr name="Domain_Memory_Assignment_18" 
+                             type="IDENTIFIABLE">
+                        <d:ref name="Domain_Memory_Assignment" type="REFERENCE" 
+                               value="ASPath:/Rm/Rm/RmConfigSet/Rm_XRDC_Memory_Config_PCIe_1_Mirrored"/>
+                        <d:var name="Secure_Access_Policy" type="ENUMERATION" 
+                               value="XRDC_FULL_ACCESS">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="Non_Secure_Access_Policy" 
+                               type="ENUMERATION" value="XRDC_FULL_ACCESS">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                      </d:ctr>
+                    </d:lst>
+                  </d:ctr>
+                  <d:ctr name="Rm_XRDC_Domain_Assignment_M7_0" 
+                         type="IDENTIFIABLE">
+                    <d:var name="DomainID" type="ENUMERATION" 
+                           value="XRDC_DOMAIN4"/>
+                    <d:lst name="Domain_Master_Assignment" type="MAP">
+                      <d:ctr name="Domain_Master_Assignment_0" 
+                             type="IDENTIFIABLE">
+                        <d:var name="XrdcMasterInstance" type="ENUMERATION" 
+                               value="Xrdc_0_M7_0_AXI"/>
+                        <d:var name="XrdcPIDEnable" type="ENUMERATION" 
+                               value="XRDC_MDA_PID_DISABLE">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMasterPID" type="INTEGER" value="0">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMasterPIDMask" type="INTEGER" value="0">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcDIDBDisable" type="BOOLEAN" 
+                               value="false">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMDADFMTLockBit" type="BOOLEAN" 
+                               value="false">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMasterMode" type="ENUMERATION" 
+                               value="XRDC_SECURE">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMasterPriviledgeMode" 
+                               type="ENUMERATION" 
+                               value="XRDC_INPUT_PRIVILEDGE_FROM_BUS_MASTER">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                      </d:ctr>
+                      <d:ctr name="Domain_Master_Assignment_1" 
+                             type="IDENTIFIABLE">
+                        <d:var name="XrdcMasterInstance" type="ENUMERATION" 
+                               value="Xrdc_0_M7_0_AHB"/>
+                        <d:var name="XrdcPIDEnable" type="ENUMERATION" 
+                               value="XRDC_MDA_PID_DISABLE">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMasterPID" type="INTEGER" value="0">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMasterPIDMask" type="INTEGER" value="0">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcDIDBDisable" type="BOOLEAN" 
+                               value="false">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMDADFMTLockBit" type="BOOLEAN" 
+                               value="false">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMasterMode" type="ENUMERATION" 
+                               value="XRDC_SECURE">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMasterPriviledgeMode" 
+                               type="ENUMERATION" 
+                               value="XRDC_INPUT_PRIVILEDGE_FROM_BUS_MASTER">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                      </d:ctr>
+                      <d:ctr name="Domain_Master_Assignment_2" 
+                             type="IDENTIFIABLE">
+                        <d:var name="XrdcMasterInstance" type="ENUMERATION" 
+                               value="Xrdc_0_XRDC_LLCE"/>
+                        <d:var name="XrdcPIDEnable" type="ENUMERATION" 
+                               value="XRDC_MDA_PID_DISABLE">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMasterPID" type="INTEGER" value="0">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMasterPIDMask" type="INTEGER" value="0">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcDIDBDisable" type="BOOLEAN" 
+                               value="false">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMDADFMTLockBit" type="BOOLEAN" 
+                               value="false">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMasterMode" type="ENUMERATION" 
+                               value="XRDC_SECURE">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMasterPriviledgeMode" 
+                               type="ENUMERATION" 
+                               value="XRDC_INPUT_PRIVILEDGE_FROM_BUS_MASTER">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                      </d:ctr>
+                      <d:ctr name="Domain_Master_Assignment_3" 
+                             type="IDENTIFIABLE">
+                        <d:var name="XrdcMasterInstance" type="ENUMERATION" 
+                               value="Xrdc_1_PCIe_1"/>
+                        <d:var name="XrdcPIDEnable" type="ENUMERATION" 
+                               value="XRDC_MDA_PID_DISABLE">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMasterPID" type="INTEGER" value="0">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMasterPIDMask" type="INTEGER" value="0">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcDIDBDisable" type="BOOLEAN" 
+                               value="false">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMDADFMTLockBit" type="BOOLEAN" 
+                               value="false">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMasterMode" type="ENUMERATION" 
+                               value="XRDC_SECURE">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMasterPriviledgeMode" 
+                               type="ENUMERATION" 
+                               value="XRDC_INPUT_PRIVILEDGE_FROM_BUS_MASTER">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                      </d:ctr>
+                    </d:lst>
+                    <d:lst name="Domain_Peripheral_Assignment" type="MAP">
+                      <d:ctr name="Domain_Peripheral_Assignment_0" 
+                             type="IDENTIFIABLE">
+                        <d:ref name="Domain_Peripheral_Assignment" 
+                               type="REFERENCE" 
+                               value="ASPath:/Rm/Rm/RmConfigSet/Rm_XRDC_HSEMU2"/>
+                        <d:var name="Secure_Access_Policy" type="ENUMERATION" 
+                               value="XRDC_FULL_ACCESS"/>
+                        <d:var name="Non_Secure_Access_Policy" 
+                               type="ENUMERATION" value="XRDC_FULL_ACCESS"/>
+                      </d:ctr>
+                      <d:ctr name="Domain_Peripheral_Assignment_1" 
+                             type="IDENTIFIABLE">
+                        <d:ref name="Domain_Peripheral_Assignment" 
+                               type="REFERENCE" 
+                               value="ASPath:/Rm/Rm/RmConfigSet/Rm_XRDC_HSEMU3"/>
+                        <d:var name="Secure_Access_Policy" type="ENUMERATION" 
+                               value="XRDC_FULL_ACCESS"/>
+                        <d:var name="Non_Secure_Access_Policy" 
+                               type="ENUMERATION" value="XRDC_FULL_ACCESS"/>
+                      </d:ctr>
+                      <d:ctr name="Domain_Peripheral_Assignment_5" 
+                             type="IDENTIFIABLE">
+                        <d:ref name="Domain_Peripheral_Assignment" 
+                               type="REFERENCE" 
+                               value="ASPath:/Rm/Rm/RmConfigSet/Rm_XRDC_Linflex1"/>
+                        <d:var name="Secure_Access_Policy" type="ENUMERATION" 
+                               value="XRDC_FULL_ACCESS"/>
+                        <d:var name="Non_Secure_Access_Policy" 
+                               type="ENUMERATION" value="XRDC_FULL_ACCESS"/>
+                      </d:ctr>
+                      <d:ctr name="Domain_Peripheral_Assignment_2" 
+                             type="IDENTIFIABLE">
+                        <d:ref name="Domain_Peripheral_Assignment" 
+                               type="REFERENCE" 
+                               value="ASPath:/Rm/Rm/RmConfigSet/Rm_XRDC_FlexCAN0"/>
+                        <d:var name="Secure_Access_Policy" type="ENUMERATION" 
+                               value="XRDC_FULL_ACCESS"/>
+                        <d:var name="Non_Secure_Access_Policy" 
+                               type="ENUMERATION" value="XRDC_FULL_ACCESS"/>
+                      </d:ctr>
+                      <d:ctr name="Domain_Peripheral_Assignment_3" 
+                             type="IDENTIFIABLE">
+                        <d:ref name="Domain_Peripheral_Assignment" 
+                               type="REFERENCE" 
+                               value="ASPath:/Rm/Rm/RmConfigSet/Rm_XRDC_FlexCAN1"/>
+                        <d:var name="Secure_Access_Policy" type="ENUMERATION" 
+                               value="XRDC_FULL_ACCESS"/>
+                        <d:var name="Non_Secure_Access_Policy" 
+                               type="ENUMERATION" value="XRDC_FULL_ACCESS"/>
+                      </d:ctr>
+                      <d:ctr name="Domain_Peripheral_Assignment_4" 
+                             type="IDENTIFIABLE">
+                        <d:ref name="Domain_Peripheral_Assignment" 
+                               type="REFERENCE" 
+                               value="ASPath:/Rm/Rm/RmConfigSet/Rm_XRDC_SEMA42"/>
+                        <d:var name="Secure_Access_Policy" type="ENUMERATION" 
+                               value="XRDC_FULL_ACCESS"/>
+                        <d:var name="Non_Secure_Access_Policy" 
+                               type="ENUMERATION" value="XRDC_FULL_ACCESS"/>
+                      </d:ctr>
+                      <d:ctr name="Domain_Peripheral_Assignment_6" 
+                             type="IDENTIFIABLE">
+                        <d:ref name="Domain_Peripheral_Assignment" 
+                               type="REFERENCE" 
+                               value="ASPath:/Rm/Rm/RmConfigSet/Rm_XRDC_PCIe_0"/>
+                        <d:var name="Secure_Access_Policy" type="ENUMERATION" 
+                               value="XRDC_FULL_ACCESS">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="Non_Secure_Access_Policy" 
+                               type="ENUMERATION" value="XRDC_FULL_ACCESS">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                      </d:ctr>
+                      <d:ctr name="Domain_Peripheral_Assignment_7" 
+                             type="IDENTIFIABLE">
+                        <d:ref name="Domain_Peripheral_Assignment" 
+                               type="REFERENCE" 
+                               value="ASPath:/Rm/Rm/RmConfigSet/Rm_XRDC_PCIe_1"/>
+                        <d:var name="Secure_Access_Policy" type="ENUMERATION" 
+                               value="XRDC_FULL_ACCESS">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="Non_Secure_Access_Policy" 
+                               type="ENUMERATION" value="XRDC_FULL_ACCESS">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                      </d:ctr>
+                    </d:lst>
+                    <d:lst name="Domain_Memory_Assignment" type="MAP">
+                      <d:ctr name="Domain_Memory_Assignment_7" 
+                             type="IDENTIFIABLE">
+                        <d:ref name="Domain_Memory_Assignment" type="REFERENCE" 
+                               value="ASPath:/Rm/Rm/RmConfigSet/Rm_XRDC_Memory_Config_SRAM_CANGW"/>
+                        <d:var name="Secure_Access_Policy" type="ENUMERATION" 
+                               value="XRDC_FULL_ACCESS"/>
+                        <d:var name="Non_Secure_Access_Policy" 
+                               type="ENUMERATION" value="XRDC_FULL_ACCESS"/>
+                      </d:ctr>
+                      <d:ctr name="Domain_Memory_Assignment_10" 
+                             type="IDENTIFIABLE">
+                        <d:ref name="Domain_Memory_Assignment" type="REFERENCE" 
+                               value="ASPath:/Rm/Rm/RmConfigSet/Rm_XRDC_Memory_Config_SRAM_PFE_SHMEM"/>
+                        <d:var name="Secure_Access_Policy" type="ENUMERATION" 
+                               value="XRDC_FULL_ACCESS">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="Non_Secure_Access_Policy" 
+                               type="ENUMERATION" value="XRDC_FULL_ACCESS">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                      </d:ctr>
+                      <d:ctr name="Domain_Memory_Assignment_1" 
+                             type="IDENTIFIABLE">
+                        <d:ref name="Domain_Memory_Assignment" type="REFERENCE" 
+                               value="ASPath:/Rm/Rm/RmConfigSet/Rm_XRDC_Memory_Config_SRAM_SCMI_Mailboxes"/>
+                        <d:var name="Secure_Access_Policy" type="ENUMERATION" 
+                               value="XRDC_FULL_ACCESS">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="Non_Secure_Access_Policy" 
+                               type="ENUMERATION" value="XRDC_FULL_ACCESS">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                      </d:ctr>
+                      <d:ctr name="Domain_Memory_Assignment_3" 
+                             type="IDENTIFIABLE">
+                        <d:ref name="Domain_Memory_Assignment" type="REFERENCE" 
+                               value="ASPath:/Rm/Rm/RmConfigSet/Rm_XRDC_Memory_Config_SRAM_IPC_SHMEM"/>
+                        <d:var name="Secure_Access_Policy" type="ENUMERATION" 
+                               value="XRDC_FULL_ACCESS">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="Non_Secure_Access_Policy" 
+                               type="ENUMERATION" value="XRDC_FULL_ACCESS">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                      </d:ctr>
+                      <d:ctr name="Domain_Memory_Assignment_2" 
+                             type="IDENTIFIABLE">
+                        <d:ref name="Domain_Memory_Assignment" type="REFERENCE" 
+                               value="ASPath:/Rm/Rm/RmConfigSet/Rm_XRDC_Memory_Config_SRAM_Bootloader"/>
+                        <d:var name="Secure_Access_Policy" type="ENUMERATION" 
+                               value="XRDC_FULL_ACCESS"/>
+                        <d:var name="Non_Secure_Access_Policy" 
+                               type="ENUMERATION" value="XRDC_FULL_ACCESS"/>
+                      </d:ctr>
+                      <d:ctr name="Domain_Memory_Assignment_0" 
+                             type="IDENTIFIABLE">
+                        <d:ref name="Domain_Memory_Assignment" type="REFERENCE" 
+                               value="ASPath:/Rm/Rm/RmConfigSet/Rm_XRDC_Memory_Config_S_LLCE"/>
+                        <d:var name="Secure_Access_Policy" type="ENUMERATION" 
+                               value="XRDC_FULL_ACCESS"/>
+                        <d:var name="Non_Secure_Access_Policy" 
+                               type="ENUMERATION" value="XRDC_FULL_ACCESS"/>
+                      </d:ctr>
+                      <d:ctr name="Domain_Memory_Assignment_4" 
+                             type="IDENTIFIABLE">
+                        <d:ref name="Domain_Memory_Assignment" type="REFERENCE" 
+                               value="ASPath:/Rm/Rm/RmConfigSet/Rm_XRDC_Memory_Config_S_DBG_APB"/>
+                        <d:var name="Secure_Access_Policy" type="ENUMERATION" 
+                               value="XRDC_FULL_ACCESS"/>
+                        <d:var name="Non_Secure_Access_Policy" 
+                               type="ENUMERATION" value="XRDC_FULL_ACCESS"/>
+                      </d:ctr>
+                      <d:ctr name="Domain_Memory_Assignment_9" 
+                             type="IDENTIFIABLE">
+                        <d:ref name="Domain_Memory_Assignment" type="REFERENCE" 
+                               value="ASPath:/Rm/Rm/RmConfigSet/Rm_XRDC_Memory_Config_1_PFE_Periph"/>
+                        <d:var name="Secure_Access_Policy" type="ENUMERATION" 
+                               value="XRDC_FULL_ACCESS">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="Non_Secure_Access_Policy" 
+                               type="ENUMERATION" value="XRDC_FULL_ACCESS">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                      </d:ctr>
+                      <d:ctr name="Domain_Memory_Assignment_5" 
+                             type="IDENTIFIABLE">
+                        <d:ref name="Domain_Memory_Assignment" type="REFERENCE" 
+                               value="ASPath:/Rm/Rm/RmConfigSet/Rm_XRDC_Memory_Config_NoC_0"/>
+                        <d:var name="Secure_Access_Policy" type="ENUMERATION" 
+                               value="XRDC_FULL_ACCESS">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="Non_Secure_Access_Policy" 
+                               type="ENUMERATION" value="XRDC_FULL_ACCESS">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                      </d:ctr>
+                      <d:ctr name="Domain_Memory_Assignment_6" 
+                             type="IDENTIFIABLE">
+                        <d:ref name="Domain_Memory_Assignment" type="REFERENCE" 
+                               value="ASPath:/Rm/Rm/RmConfigSet/Rm_XRDC_Memory_Config_PCIe_0"/>
+                        <d:var name="Secure_Access_Policy" type="ENUMERATION" 
+                               value="XRDC_FULL_ACCESS">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="Non_Secure_Access_Policy" 
+                               type="ENUMERATION" value="XRDC_FULL_ACCESS">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                      </d:ctr>
+                      <d:ctr name="Domain_Memory_Assignment_8" 
+                             type="IDENTIFIABLE">
+                        <d:ref name="Domain_Memory_Assignment" type="REFERENCE" 
+                               value="ASPath:/Rm/Rm/RmConfigSet/Rm_XRDC_Memory_Config_PCIe_0_Mirrored"/>
+                        <d:var name="Secure_Access_Policy" type="ENUMERATION" 
+                               value="XRDC_FULL_ACCESS">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="Non_Secure_Access_Policy" 
+                               type="ENUMERATION" value="XRDC_FULL_ACCESS">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                      </d:ctr>
+                      <d:ctr name="Domain_Memory_Assignment_11" 
+                             type="IDENTIFIABLE">
+                        <d:ref name="Domain_Memory_Assignment" type="REFERENCE" 
+                               value="ASPath:/Rm/Rm/RmConfigSet/Rm_XRDC_Memory_Config_PCIe_1"/>
+                        <d:var name="Secure_Access_Policy" type="ENUMERATION" 
+                               value="XRDC_FULL_ACCESS">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="Non_Secure_Access_Policy" 
+                               type="ENUMERATION" value="XRDC_FULL_ACCESS">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                      </d:ctr>
+                      <d:ctr name="Domain_Memory_Assignment_12" 
+                             type="IDENTIFIABLE">
+                        <d:ref name="Domain_Memory_Assignment" type="REFERENCE" 
+                               value="ASPath:/Rm/Rm/RmConfigSet/Rm_XRDC_Memory_Config_PCIe_1_Mirrored"/>
+                        <d:var name="Secure_Access_Policy" type="ENUMERATION" 
+                               value="XRDC_FULL_ACCESS">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="Non_Secure_Access_Policy" 
+                               type="ENUMERATION" value="XRDC_FULL_ACCESS">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                      </d:ctr>
+                    </d:lst>
+                  </d:ctr>
+                  <d:ctr name="Rm_XRDC_Domain_Assignment_M7_1" 
+                         type="IDENTIFIABLE">
+                    <d:var name="DomainID" type="ENUMERATION" 
+                           value="XRDC_DOMAIN5"/>
+                    <d:lst name="Domain_Master_Assignment" type="MAP">
+                      <d:ctr name="Domain_Master_Assignment_0" 
+                             type="IDENTIFIABLE">
+                        <d:var name="XrdcMasterInstance" type="ENUMERATION" 
+                               value="Xrdc_0_M7_1_AXI"/>
+                        <d:var name="XrdcPIDEnable" type="ENUMERATION" 
+                               value="XRDC_MDA_PID_DISABLE">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMasterPID" type="INTEGER" value="0">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMasterPIDMask" type="INTEGER" value="0">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcDIDBDisable" type="BOOLEAN" 
+                               value="false">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMDADFMTLockBit" type="BOOLEAN" 
+                               value="false">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMasterMode" type="ENUMERATION" 
+                               value="XRDC_SECURE">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMasterPriviledgeMode" 
+                               type="ENUMERATION" 
+                               value="XRDC_INPUT_PRIVILEDGE_FROM_BUS_MASTER">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                      </d:ctr>
+                      <d:ctr name="Domain_Master_Assignment_1" 
+                             type="IDENTIFIABLE">
+                        <d:var name="XrdcMasterInstance" type="ENUMERATION" 
+                               value="Xrdc_0_M7_1_AHB"/>
+                        <d:var name="XrdcPIDEnable" type="ENUMERATION" 
+                               value="XRDC_MDA_PID_DISABLE">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMasterPID" type="INTEGER" value="0">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMasterPIDMask" type="INTEGER" value="0">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcDIDBDisable" type="BOOLEAN" 
+                               value="false">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMDADFMTLockBit" type="BOOLEAN" 
+                               value="false">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMasterMode" type="ENUMERATION" 
+                               value="XRDC_SECURE">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="XrdcMasterPriviledgeMode" 
+                               type="ENUMERATION" 
+                               value="XRDC_INPUT_PRIVILEDGE_FROM_BUS_MASTER">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                      </d:ctr>
+                    </d:lst>
+                    <d:lst name="Domain_Peripheral_Assignment" type="MAP">
+                      <d:ctr name="Domain_Peripheral_Assignment_0" 
+                             type="IDENTIFIABLE">
+                        <d:ref name="Domain_Peripheral_Assignment" 
+                               type="REFERENCE" 
+                               value="ASPath:/Rm/Rm/RmConfigSet/Rm_XRDC_HSEMU2"/>
+                        <d:var name="Secure_Access_Policy" type="ENUMERATION" 
+                               value="XRDC_FULL_ACCESS"/>
+                        <d:var name="Non_Secure_Access_Policy" 
+                               type="ENUMERATION" value="XRDC_FULL_ACCESS"/>
+                      </d:ctr>
+                      <d:ctr name="Domain_Peripheral_Assignment_1" 
+                             type="IDENTIFIABLE">
+                        <d:ref name="Domain_Peripheral_Assignment" 
+                               type="REFERENCE" 
+                               value="ASPath:/Rm/Rm/RmConfigSet/Rm_XRDC_HSEMU3"/>
+                        <d:var name="Secure_Access_Policy" type="ENUMERATION" 
+                               value="XRDC_FULL_ACCESS"/>
+                        <d:var name="Non_Secure_Access_Policy" 
+                               type="ENUMERATION" value="XRDC_FULL_ACCESS"/>
+                      </d:ctr>
+                      <d:ctr name="Domain_Peripheral_Assignment_5" 
+                             type="IDENTIFIABLE">
+                        <d:ref name="Domain_Peripheral_Assignment" 
+                               type="REFERENCE" 
+                               value="ASPath:/Rm/Rm/RmConfigSet/Rm_XRDC_Linflex1"/>
+                        <d:var name="Secure_Access_Policy" type="ENUMERATION" 
+                               value="XRDC_FULL_ACCESS"/>
+                        <d:var name="Non_Secure_Access_Policy" 
+                               type="ENUMERATION" value="XRDC_FULL_ACCESS"/>
+                      </d:ctr>
+                      <d:ctr name="Domain_Peripheral_Assignment_2" 
+                             type="IDENTIFIABLE">
+                        <d:ref name="Domain_Peripheral_Assignment" 
+                               type="REFERENCE" 
+                               value="ASPath:/Rm/Rm/RmConfigSet/Rm_XRDC_FlexCAN0"/>
+                        <d:var name="Secure_Access_Policy" type="ENUMERATION" 
+                               value="XRDC_FULL_ACCESS"/>
+                        <d:var name="Non_Secure_Access_Policy" 
+                               type="ENUMERATION" value="XRDC_FULL_ACCESS"/>
+                      </d:ctr>
+                      <d:ctr name="Domain_Peripheral_Assignment_3" 
+                             type="IDENTIFIABLE">
+                        <d:ref name="Domain_Peripheral_Assignment" 
+                               type="REFERENCE" 
+                               value="ASPath:/Rm/Rm/RmConfigSet/Rm_XRDC_FlexCAN1"/>
+                        <d:var name="Secure_Access_Policy" type="ENUMERATION" 
+                               value="XRDC_FULL_ACCESS"/>
+                        <d:var name="Non_Secure_Access_Policy" 
+                               type="ENUMERATION" value="XRDC_FULL_ACCESS"/>
+                      </d:ctr>
+                      <d:ctr name="Domain_Peripheral_Assignment_4" 
+                             type="IDENTIFIABLE">
+                        <d:ref name="Domain_Peripheral_Assignment" 
+                               type="REFERENCE" 
+                               value="ASPath:/Rm/Rm/RmConfigSet/Rm_XRDC_SEMA42"/>
+                        <d:var name="Secure_Access_Policy" type="ENUMERATION" 
+                               value="XRDC_FULL_ACCESS"/>
+                        <d:var name="Non_Secure_Access_Policy" 
+                               type="ENUMERATION" value="XRDC_FULL_ACCESS"/>
+                      </d:ctr>
+                    </d:lst>
+                    <d:lst name="Domain_Memory_Assignment" type="MAP">
+                      <d:ctr name="Domain_Memory_Assignment_2" 
+                             type="IDENTIFIABLE">
+                        <d:ref name="Domain_Memory_Assignment" type="REFERENCE" 
+                               value="ASPath:/Rm/Rm/RmConfigSet/Rm_XRDC_Memory_Config_SRAM_CANGW"/>
+                        <d:var name="Secure_Access_Policy" type="ENUMERATION" 
+                               value="XRDC_FULL_ACCESS"/>
+                        <d:var name="Non_Secure_Access_Policy" 
+                               type="ENUMERATION" value="XRDC_FULL_ACCESS"/>
+                      </d:ctr>
+                      <d:ctr name="Domain_Memory_Assignment_6" 
+                             type="IDENTIFIABLE">
+                        <d:ref name="Domain_Memory_Assignment" type="REFERENCE" 
+                               value="ASPath:/Rm/Rm/RmConfigSet/Rm_XRDC_Memory_Config_SRAM_PFE_SHMEM"/>
+                        <d:var name="Secure_Access_Policy" type="ENUMERATION" 
+                               value="XRDC_FULL_ACCESS"/>
+                        <d:var name="Non_Secure_Access_Policy" 
+                               type="ENUMERATION" value="XRDC_FULL_ACCESS"/>
+                      </d:ctr>
+                      <d:ctr name="Domain_Memory_Assignment_7" 
+                             type="IDENTIFIABLE">
+                        <d:ref name="Domain_Memory_Assignment" type="REFERENCE" 
+                               value="ASPath:/Rm/Rm/RmConfigSet/Rm_XRDC_Memory_Config_SRAM_IPC_SHMEM"/>
+                        <d:var name="Secure_Access_Policy" type="ENUMERATION" 
+                               value="XRDC_FULL_ACCESS">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="Non_Secure_Access_Policy" 
+                               type="ENUMERATION" value="XRDC_FULL_ACCESS">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                      </d:ctr>
+                      <d:ctr name="Domain_Memory_Assignment_0" 
+                             type="IDENTIFIABLE">
+                        <d:ref name="Domain_Memory_Assignment" type="REFERENCE" 
+                               value="ASPath:/Rm/Rm/RmConfigSet/Rm_XRDC_Memory_Config_SRAM_Bootloader"/>
+                        <d:var name="Secure_Access_Policy" type="ENUMERATION" 
+                               value="XRDC_FULL_ACCESS"/>
+                        <d:var name="Non_Secure_Access_Policy" 
+                               type="ENUMERATION" value="XRDC_FULL_ACCESS"/>
+                      </d:ctr>
+                      <d:ctr name="Domain_Memory_Assignment_5" 
+                             type="IDENTIFIABLE">
+                        <d:ref name="Domain_Memory_Assignment" type="REFERENCE" 
+                               value="ASPath:/Rm/Rm/RmConfigSet/Rm_XRDC_Memory_Config_S_DBG_APB"/>
+                        <d:var name="Secure_Access_Policy" type="ENUMERATION" 
+                               value="XRDC_FULL_ACCESS"/>
+                        <d:var name="Non_Secure_Access_Policy" 
+                               type="ENUMERATION" value="XRDC_FULL_ACCESS"/>
+                      </d:ctr>
+                      <d:ctr name="Domain_Memory_Assignment_4" 
+                             type="IDENTIFIABLE">
+                        <d:ref name="Domain_Memory_Assignment" type="REFERENCE" 
+                               value="ASPath:/Rm/Rm/RmConfigSet/Rm_XRDC_Memory_Config_S_LLCE"/>
+                        <d:var name="Secure_Access_Policy" type="ENUMERATION" 
+                               value="XRDC_FULL_ACCESS">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="Non_Secure_Access_Policy" 
+                               type="ENUMERATION" value="XRDC_FULL_ACCESS">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                      </d:ctr>
+                      <d:ctr name="Domain_Memory_Assignment_1" 
+                             type="IDENTIFIABLE">
+                        <d:ref name="Domain_Memory_Assignment" type="REFERENCE" 
+                               value="ASPath:/Rm/Rm/RmConfigSet/Rm_XRDC_Memory_Config_1_PFE_Periph"/>
+                        <d:var name="Secure_Access_Policy" type="ENUMERATION" 
+                               value="XRDC_FULL_ACCESS">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="Non_Secure_Access_Policy" 
+                               type="ENUMERATION" value="XRDC_FULL_ACCESS">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                      </d:ctr>
+                    </d:lst>
+                  </d:ctr>
+                </d:lst>
+                <d:lst name="Rm_XRDC_Memory_Config" type="MAP">
+                  <d:ctr name="Rm_XRDC_Memory_Config_S_FLASH" 
+                         type="IDENTIFIABLE">
+                    <d:var name="XrdcMrcInstance" type="ENUMERATION" 
+                           value="Xrdc_0_S_FLASH"/>
+                    <d:var name="XrdcStartAddress" type="INTEGER" value="0"/>
+                    <d:var name="XrdcEndAddress" type="INTEGER" 
+                           value="536870911"/>
+                    <d:var name="XrdcSema4Enable" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                    <d:ref name="XrdcSema42LogicChannel" type="REFERENCE" >
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:ref>
+                    <d:var name="XrdcMRGDLockBit" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                  </d:ctr>
+                  <d:ctr name="Rm_XRDC_Memory_Config_1_STDBY_SRAM" 
+                         type="IDENTIFIABLE">
+                    <d:var name="XrdcMrcInstance" type="ENUMERATION" 
+                           value="Xrdc_1_STDBY_SRAM"/>
+                    <d:var name="XrdcStartAddress" type="INTEGER" 
+                           value="603979776">
+                      <a:a name="IMPORTER_INFO">
+                        <a:v>@CALC</a:v>
+                        <a:v>@DEF</a:v>
+                      </a:a>
+                    </d:var>
+                    <d:var name="XrdcEndAddress" type="INTEGER" 
+                           value="872415231">
+                      <a:a name="IMPORTER_INFO">
+                        <a:v>@CALC</a:v>
+                        <a:v>@DEF</a:v>
+                      </a:a>
+                    </d:var>
+                    <d:var name="XrdcSema4Enable" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                    <d:ref name="XrdcSema42LogicChannel" type="REFERENCE" >
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:ref>
+                    <d:var name="XrdcMRGDLockBit" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                  </d:ctr>
+                  <d:ctr name="Rm_XRDC_Memory_Config_SRAM_CANGW" 
+                         type="IDENTIFIABLE">
+                    <d:var name="XrdcMrcInstance" type="ENUMERATION" 
+                           value="Xrdc_0_SRAM_0_3"/>
+                    <d:var name="XrdcStartAddress" type="INTEGER" 
+                           value="872415232">
+                      <a:a name="IMPORTER_INFO">
+                        <a:v>@DEF</a:v>
+                        <a:v>@CALC</a:v>
+                      </a:a>
+                    </d:var>
+                    <d:var name="XrdcEndAddress" type="INTEGER" 
+                           value="876609535">
+                      <a:a name="IMPORTER_INFO">
+                        <a:v>@DEF</a:v>
+                        <a:v>@CALC</a:v>
+                      </a:a>
+                    </d:var>
+                    <d:var name="XrdcSema4Enable" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                    <d:ref name="XrdcSema42LogicChannel" type="REFERENCE" >
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:ref>
+                    <d:var name="XrdcMRGDLockBit" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                  </d:ctr>
+                  <d:ctr name="Rm_XRDC_Memory_Config_CohAcc_CANGW" 
+                         type="IDENTIFIABLE">
+                    <d:var name="XrdcMrcInstance" type="ENUMERATION" 
+                           value="Xrdc_1_Coherent_Accesses"/>
+                    <d:var name="XrdcStartAddress" type="INTEGER" 
+                           value="872415232"/>
+                    <d:var name="XrdcEndAddress" type="INTEGER" 
+                           value="876609535"/>
+                    <d:var name="XrdcSema4Enable" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                    <d:ref name="XrdcSema42LogicChannel" type="REFERENCE" >
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:ref>
+                    <d:var name="XrdcMRGDLockBit" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                  </d:ctr>
+                  <d:ctr name="Rm_XRDC_Memory_Config_SRAM_PFE_SHMEM" 
+                         type="IDENTIFIABLE">
+                    <d:var name="XrdcMrcInstance" type="ENUMERATION" 
+                           value="Xrdc_0_SRAM_0_3"/>
+                    <d:var name="XrdcStartAddress" type="INTEGER" 
+                           value="876609536"/>
+                    <d:var name="XrdcEndAddress" type="INTEGER" 
+                           value="877264895"/>
+                    <d:var name="XrdcSema4Enable" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                    <d:ref name="XrdcSema42LogicChannel" type="REFERENCE" >
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:ref>
+                    <d:var name="XrdcMRGDLockBit" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                  </d:ctr>
+                  <d:ctr name="Rm_XRDC_Memory_Config_SRAM_SCMI_Mailboxes" 
+                         type="IDENTIFIABLE">
+                    <d:var name="XrdcMrcInstance" type="ENUMERATION" 
+                           value="Xrdc_0_SRAM_4_7"/>
+                    <d:var name="XrdcStartAddress" type="INTEGER" 
+                           value="877658112"/>
+                    <d:var name="XrdcEndAddress" type="INTEGER" 
+                           value="877789183"/>
+                    <d:var name="XrdcSema4Enable" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                    <d:ref name="XrdcSema42LogicChannel" type="REFERENCE" >
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:ref>
+                    <d:var name="XrdcMRGDLockBit" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                  </d:ctr>
+                  <d:ctr name="Rm_XRDC_Memory_Config_SRAM_IPC_SHMEM" 
+                         type="IDENTIFIABLE">
+                    <d:var name="XrdcMrcInstance" type="ENUMERATION" 
+                           value="Xrdc_0_SRAM_4_7"/>
+                    <d:var name="XrdcStartAddress" type="INTEGER" 
+                           value="877789184"/>
+                    <d:var name="XrdcEndAddress" type="INTEGER" 
+                           value="878706687"/>
+                    <d:var name="XrdcSema4Enable" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                    <d:ref name="XrdcSema42LogicChannel" type="REFERENCE" >
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:ref>
+                    <d:var name="XrdcMRGDLockBit" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                  </d:ctr>
+                  <d:ctr name="Rm_XRDC_Memory_Config_SRAM_ATF" 
+                         type="IDENTIFIABLE">
+                    <d:var name="XrdcMrcInstance" type="ENUMERATION" 
+                           value="Xrdc_0_SRAM_4_7"/>
+                    <d:var name="XrdcStartAddress" type="INTEGER" 
+                           value="878706688"/>
+                    <d:var name="XrdcEndAddress" type="INTEGER" 
+                           value="879755263"/>
+                    <d:var name="XrdcSema4Enable" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                    <d:ref name="XrdcSema42LogicChannel" type="REFERENCE" >
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:ref>
+                    <d:var name="XrdcMRGDLockBit" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                  </d:ctr>
+                  <d:ctr name="Rm_XRDC_Memory_Config_SRAM_Bootloader" 
+                         type="IDENTIFIABLE">
+                    <d:var name="XrdcMrcInstance" type="ENUMERATION" 
+                           value="Xrdc_0_SRAM_12_15"/>
+                    <d:var name="XrdcStartAddress" type="INTEGER" 
+                           value="892338176"/>
+                    <d:var name="XrdcEndAddress" type="INTEGER" 
+                           value="893386751"/>
+                    <d:var name="XrdcSema4Enable" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                    <d:ref name="XrdcSema42LogicChannel" type="REFERENCE" >
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:ref>
+                    <d:var name="XrdcMRGDLockBit" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                  </d:ctr>
+                  <d:ctr name="Rm_XRDC_Memory_Config_QSPI_Periph" 
+                         type="IDENTIFIABLE">
+                    <d:var name="XrdcMrcInstance" type="ENUMERATION" 
+                           value="Xrdc_0_S_FLASH"/>
+                    <d:var name="XrdcStartAddress" type="INTEGER" 
+                           value="1075003392"/>
+                    <d:var name="XrdcEndAddress" type="INTEGER" 
+                           value="1075007487"/>
+                    <d:var name="XrdcSema4Enable" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                    <d:ref name="XrdcSema42LogicChannel" type="REFERENCE" >
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:ref>
+                    <d:var name="XrdcMRGDLockBit" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                  </d:ctr>
+                  <d:ctr name="Rm_XRDC_Memory_Config_QSPI_ARDB_Buffers" 
+                         type="IDENTIFIABLE">
+                    <d:var name="XrdcMrcInstance" type="ENUMERATION" 
+                           value="Xrdc_0_S_FLASH"/>
+                    <d:var name="XrdcStartAddress" type="INTEGER" 
+                           value="1090519040"/>
+                    <d:var name="XrdcEndAddress" type="INTEGER" 
+                           value="1098907647"/>
+                    <d:var name="XrdcSema4Enable" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                    <d:ref name="XrdcSema42LogicChannel" type="REFERENCE" >
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:ref>
+                    <d:var name="XrdcMRGDLockBit" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                  </d:ctr>
+                  <d:ctr name="Rm_XRDC_Memory_Config_S_LLCE" 
+                         type="IDENTIFIABLE">
+                    <d:var name="XrdcMrcInstance" type="ENUMERATION" 
+                           value="Xrdc_0_S_LLCE"/>
+                    <d:var name="XrdcStartAddress" type="INTEGER" 
+                           value="1124073472"/>
+                    <d:var name="XrdcEndAddress" type="INTEGER" 
+                           value="1140850687"/>
+                    <d:var name="XrdcSema4Enable" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                    <d:ref name="XrdcSema42LogicChannel" type="REFERENCE" >
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:ref>
+                    <d:var name="XrdcMRGDLockBit" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                  </d:ctr>
+                  <d:ctr name="Rm_XRDC_Memory_Config_CohAcc_LLCE" 
+                         type="IDENTIFIABLE">
+                    <d:var name="XrdcMrcInstance" type="ENUMERATION" 
+                           value="Xrdc_1_Coherent_Accesses"/>
+                    <d:var name="XrdcStartAddress" type="INTEGER" 
+                           value="1124073472"/>
+                    <d:var name="XrdcEndAddress" type="INTEGER" 
+                           value="1140850687"/>
+                    <d:var name="XrdcSema4Enable" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                    <d:ref name="XrdcSema42LogicChannel" type="REFERENCE" >
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:ref>
+                    <d:var name="XrdcMRGDLockBit" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                  </d:ctr>
+                  <d:ctr name="Rm_XRDC_Memory_Config_PCIe_1" 
+                         type="IDENTIFIABLE">
+                    <d:var name="XrdcMrcInstance" type="ENUMERATION" 
+                           value="Xrdc_1_SerDes_1"/>
+                    <d:var name="XrdcStartAddress" type="INTEGER" 
+                           value="1157627904"/>
+                    <d:var name="XrdcEndAddress" type="INTEGER" 
+                           value="1174405119"/>
+                    <d:var name="XrdcSema4Enable" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                    <d:ref name="XrdcSema42LogicChannel" type="REFERENCE" >
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:ref>
+                    <d:var name="XrdcMRGDLockBit" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                  </d:ctr>
+                  <d:ctr name="Rm_XRDC_Memory_Config_1_PFE_Periph" 
+                         type="IDENTIFIABLE">
+                    <d:var name="XrdcMrcInstance" type="ENUMERATION" 
+                           value="Xrdc_1_PFE"/>
+                    <d:var name="XrdcStartAddress" type="INTEGER" 
+                           value="1174405120"/>
+                    <d:var name="XrdcEndAddress" type="INTEGER" 
+                           value="1191182335"/>
+                    <d:var name="XrdcSema4Enable" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                    <d:ref name="XrdcSema42LogicChannel" type="REFERENCE" >
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:ref>
+                    <d:var name="XrdcMRGDLockBit" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                  </d:ctr>
+                  <d:ctr name="Rm_XRDC_Memory_Config_NoC_0" type="IDENTIFIABLE">
+                    <d:var name="XrdcMrcInstance" type="ENUMERATION" 
+                           value="Xrdc_0_NoC_0"/>
+                    <d:var name="XrdcStartAddress" type="INTEGER" 
+                           value="1342177280">
+                      <a:a name="IMPORTER_INFO">
+                        <a:v>@CALC</a:v>
+                        <a:v>@DEF</a:v>
+                      </a:a>
+                    </d:var>
+                    <d:var name="XrdcEndAddress" type="INTEGER" 
+                           value="1342701567">
+                      <a:a name="IMPORTER_INFO">
+                        <a:v>@CALC</a:v>
+                        <a:v>@DEF</a:v>
+                      </a:a>
+                    </d:var>
+                    <d:var name="XrdcSema4Enable" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                    <d:ref name="XrdcSema42LogicChannel" type="REFERENCE" >
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:ref>
+                    <d:var name="XrdcMRGDLockBit" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                  </d:ctr>
+                  <d:ctr name="Rm_XRDC_Memory_Config_Concerto" 
+                         type="IDENTIFIABLE">
+                    <d:var name="XrdcMrcInstance" type="ENUMERATION" 
+                           value="Xrdc_0_Ncore_Regs"/>
+                    <d:var name="XrdcStartAddress" type="INTEGER" 
+                           value="1346371584">
+                      <a:a name="IMPORTER_INFO">
+                        <a:v>@CALC</a:v>
+                        <a:v>@DEF</a:v>
+                      </a:a>
+                    </d:var>
+                    <d:var name="XrdcEndAddress" type="INTEGER" 
+                           value="1349517311"/>
+                    <d:var name="XrdcSema4Enable" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                    <d:ref name="XrdcSema42LogicChannel" type="REFERENCE" >
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:ref>
+                    <d:var name="XrdcMRGDLockBit" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                  </d:ctr>
+                  <d:ctr name="Rm_XRDC_Memory_Config_S_GIC_500" 
+                         type="IDENTIFIABLE">
+                    <d:var name="XrdcMrcInstance" type="ENUMERATION" 
+                           value="Xrdc_0_S_GIC_500"/>
+                    <d:var name="XrdcStartAddress" type="INTEGER" 
+                           value="1350565888">
+                      <a:a name="IMPORTER_INFO">
+                        <a:v>@CALC</a:v>
+                        <a:v>@DEF</a:v>
+                      </a:a>
+                    </d:var>
+                    <d:var name="XrdcEndAddress" type="INTEGER" 
+                           value="1352663039">
+                      <a:a name="IMPORTER_INFO">
+                        <a:v>@CALC</a:v>
+                        <a:v>@DEF</a:v>
+                      </a:a>
+                    </d:var>
+                    <d:var name="XrdcSema4Enable" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                    <d:ref name="XrdcSema42LogicChannel" type="REFERENCE" >
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:ref>
+                    <d:var name="XrdcMRGDLockBit" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                  </d:ctr>
+                  <d:ctr name="Rm_XRDC_Memory_Config_S_DBG_APB" 
+                         type="IDENTIFIABLE">
+                    <d:var name="XrdcMrcInstance" type="ENUMERATION" 
+                           value="Xrdc_0_S_DBG_APB"/>
+                    <d:var name="XrdcStartAddress" type="INTEGER" 
+                           value="1358954496">
+                      <a:a name="IMPORTER_INFO">
+                        <a:v>@CALC</a:v>
+                        <a:v>@DEF</a:v>
+                      </a:a>
+                    </d:var>
+                    <d:var name="XrdcEndAddress" type="INTEGER" 
+                           value="1375731711">
+                      <a:a name="IMPORTER_INFO">
+                        <a:v>@CALC</a:v>
+                        <a:v>@DEF</a:v>
+                      </a:a>
+                    </d:var>
+                    <d:var name="XrdcSema4Enable" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                    <d:ref name="XrdcSema42LogicChannel" type="REFERENCE" >
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:ref>
+                    <d:var name="XrdcMRGDLockBit" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                  </d:ctr>
+                  <d:ctr name="Rm_XRDC_Memory_Config_PCIe_0" 
+                         type="IDENTIFIABLE">
+                    <d:var name="XrdcMrcInstance" type="ENUMERATION" 
+                           value="Xrdc_0_PCIe_0"/>
+                    <d:var name="XrdcStartAddress" type="INTEGER" 
+                           value="1392508928"/>
+                    <d:var name="XrdcEndAddress" type="INTEGER" 
+                           value="1409286143">
+                      <a:a name="IMPORTER_INFO">
+                        <a:v>@CALC</a:v>
+                        <a:v>@DEF</a:v>
+                      </a:a>
+                    </d:var>
+                    <d:var name="XrdcSema4Enable" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                    <d:ref name="XrdcSema42LogicChannel" type="REFERENCE" >
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:ref>
+                    <d:var name="XrdcMRGDLockBit" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                  </d:ctr>
+                  <d:ctr name="Rm_XRDC_Memory_Config_PCIe_1_Mirrored" 
+                         type="IDENTIFIABLE">
+                    <d:var name="XrdcMrcInstance" type="ENUMERATION" 
+                           value="Xrdc_1_SerDes_1"/>
+                    <d:var name="XrdcStartAddress" type="INTEGER" 
+                           value="309237645312"/>
+                    <d:var name="XrdcEndAddress" type="INTEGER" 
+                           value="343597383679"/>
+                    <d:var name="XrdcSema4Enable" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                    <d:ref name="XrdcSema42LogicChannel" type="REFERENCE" >
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:ref>
+                    <d:var name="XrdcMRGDLockBit" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                  </d:ctr>
+                  <d:ctr name="Rm_XRDC_Memory_Config_PCIe_0_Mirrored" 
+                         type="IDENTIFIABLE">
+                    <d:var name="XrdcMrcInstance" type="ENUMERATION" 
+                           value="Xrdc_0_PCIe_0"/>
+                    <d:var name="XrdcStartAddress" type="INTEGER" 
+                           value="377957122048"/>
+                    <d:var name="XrdcEndAddress" type="INTEGER" 
+                           value="412316860415"/>
+                    <d:var name="XrdcSema4Enable" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                    <d:ref name="XrdcSema42LogicChannel" type="REFERENCE" >
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:ref>
+                    <d:var name="XrdcMRGDLockBit" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                  </d:ctr>
+                  <d:ctr name="Rm_XRDC_Memory_Config_DRAM0_A53" 
+                         type="IDENTIFIABLE">
+                    <d:var name="XrdcMrcInstance" type="ENUMERATION" 
+                           value="Xrdc_0_DRAM0"/>
+                    <d:var name="XrdcStartAddress" type="INTEGER" 
+                           value="1610612736">
+                      <a:a name="IMPORTER_INFO">
+                        <a:v>@DEF</a:v>
+                        <a:v>@CALC</a:v>
+                      </a:a>
+                    </d:var>
+                    <d:var name="XrdcEndAddress" type="INTEGER" 
+                           value="38654705663">
+                      <a:a name="IMPORTER_INFO">
+                        <a:v>@CALC</a:v>
+                        <a:v>@DEF</a:v>
+                      </a:a>
+                    </d:var>
+                    <d:var name="XrdcSema4Enable" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                    <d:ref name="XrdcSema42LogicChannel" type="REFERENCE" >
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:ref>
+                    <d:var name="XrdcMRGDLockBit" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                  </d:ctr>
+                  <d:ctr name="Rm_XRDC_Memory_Config_DRAM0_GENERAL" 
+                         type="IDENTIFIABLE">
+                    <d:var name="XrdcMrcInstance" type="ENUMERATION" 
+                           value="Xrdc_0_DRAM0"/>
+                    <d:var name="XrdcStartAddress" type="INTEGER" 
+                           value="1610612736"/>
+                    <d:var name="XrdcEndAddress" type="INTEGER" 
+                           value="4294967295">
+                      <a:a name="IMPORTER_INFO">
+                        <a:v>@CALC</a:v>
+                        <a:v>@DEF</a:v>
+                      </a:a>
+                    </d:var>
+                    <d:var name="XrdcSema4Enable" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                    <d:ref name="XrdcSema42LogicChannel" type="REFERENCE" >
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:ref>
+                    <d:var name="XrdcMRGDLockBit" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                  </d:ctr>
+                  <d:ctr name="Rm_XRDC_Memory_Config_DRAM_Ncore" 
+                         type="IDENTIFIABLE">
+                    <d:var name="XrdcMrcInstance" type="ENUMERATION" 
+                           value="Xrdc_0_Ncore_Regs"/>
+                    <d:var name="XrdcStartAddress" type="INTEGER" 
+                           value="1610612736"/>
+                    <d:var name="XrdcEndAddress" type="INTEGER" 
+                           value="4294967295"/>
+                    <d:var name="XrdcSema4Enable" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                    <d:ref name="XrdcSema42LogicChannel" type="REFERENCE" >
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:ref>
+                    <d:var name="XrdcMRGDLockBit" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                  </d:ctr>
+                  <d:ctr name="Rm_XRDC_Memory_Config_CohAcc_DRAM" 
+                         type="IDENTIFIABLE">
+                    <d:var name="XrdcMrcInstance" type="ENUMERATION" 
+                           value="Xrdc_1_Coherent_Accesses"/>
+                    <d:var name="XrdcStartAddress" type="INTEGER" 
+                           value="2147483648"/>
+                    <d:var name="XrdcEndAddress" type="INTEGER" 
+                           value="1099511627775"/>
+                    <d:var name="XrdcSema4Enable" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                    <d:ref name="XrdcSema42LogicChannel" type="REFERENCE" >
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:ref>
+                    <d:var name="XrdcMRGDLockBit" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                  </d:ctr>
+                </d:lst>
+                <d:lst name="Rm_XRDC_Peripheral_Config" type="MAP">
+                  <d:ctr name="Rm_XRDC_edma0" type="IDENTIFIABLE">
+                    <d:var name="XrdcPeripheralSlot" type="ENUMERATION" 
+                           value="Xrdc_0_eDMA_0_control"/>
+                    <d:var name="XrdcSema4Enable" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                    <d:ref name="XrdcSema42LogicChannel" type="REFERENCE" >
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:ref>
+                    <d:var name="XrdcPDACLockBit" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                  </d:ctr>
+                  <d:ctr name="Rm_XRDC_edma1" type="IDENTIFIABLE">
+                    <d:var name="XrdcPeripheralSlot" type="ENUMERATION" 
+                           value="Xrdc_0_eDMA_1_control"/>
+                    <d:var name="XrdcSema4Enable" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                    <d:ref name="XrdcSema42LogicChannel" type="REFERENCE" >
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:ref>
+                    <d:var name="XrdcPDACLockBit" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                  </d:ctr>
+                  <d:ctr name="Rm_XRDC_HSEMU0" type="IDENTIFIABLE">
+                    <d:var name="XrdcPeripheralSlot" type="ENUMERATION" 
+                           value="Xrdc_0_HSE_MU0"/>
+                    <d:var name="XrdcSema4Enable" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                    <d:ref name="XrdcSema42LogicChannel" type="REFERENCE" >
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:ref>
+                    <d:var name="XrdcPDACLockBit" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                  </d:ctr>
+                  <d:ctr name="Rm_XRDC_HSEMU1" type="IDENTIFIABLE">
+                    <d:var name="XrdcPeripheralSlot" type="ENUMERATION" 
+                           value="Xrdc_0_HSE_MU1"/>
+                    <d:var name="XrdcSema4Enable" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                    <d:ref name="XrdcSema42LogicChannel" type="REFERENCE" >
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:ref>
+                    <d:var name="XrdcPDACLockBit" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                  </d:ctr>
+                  <d:ctr name="Rm_XRDC_HSEMU2" type="IDENTIFIABLE">
+                    <d:var name="XrdcPeripheralSlot" type="ENUMERATION" 
+                           value="Xrdc_0_HSE_MU2"/>
+                    <d:var name="XrdcSema4Enable" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                    <d:ref name="XrdcSema42LogicChannel" type="REFERENCE" >
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:ref>
+                    <d:var name="XrdcPDACLockBit" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                  </d:ctr>
+                  <d:ctr name="Rm_XRDC_HSEMU3" type="IDENTIFIABLE">
+                    <d:var name="XrdcPeripheralSlot" type="ENUMERATION" 
+                           value="Xrdc_0_HSE_MU3"/>
+                    <d:var name="XrdcSema4Enable" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                    <d:ref name="XrdcSema42LogicChannel" type="REFERENCE" >
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:ref>
+                    <d:var name="XrdcPDACLockBit" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                  </d:ctr>
+                  <d:ctr name="Rm_XRDC_QSPI" type="IDENTIFIABLE">
+                    <d:var name="XrdcPeripheralSlot" type="ENUMERATION" 
+                           value="Xrdc_0_QuadSPI"/>
+                    <d:var name="XrdcSema4Enable" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                    <d:ref name="XrdcSema42LogicChannel" type="REFERENCE" >
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:ref>
+                    <d:var name="XrdcPDACLockBit" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                  </d:ctr>
+                  <d:ctr name="Rm_XRDC_USDHC" type="IDENTIFIABLE">
+                    <d:var name="XrdcPeripheralSlot" type="ENUMERATION" 
+                           value="Xrdc_0_uSDHC"/>
+                    <d:var name="XrdcSema4Enable" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                    <d:ref name="XrdcSema42LogicChannel" type="REFERENCE" >
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:ref>
+                    <d:var name="XrdcPDACLockBit" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                  </d:ctr>
+                  <d:ctr name="Rm_XRDC_Linflex0" type="IDENTIFIABLE">
+                    <d:var name="XrdcPeripheralSlot" type="ENUMERATION" 
+                           value="Xrdc_0_LINFlex_0"/>
+                    <d:var name="XrdcSema4Enable" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                    <d:ref name="XrdcSema42LogicChannel" type="REFERENCE" >
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:ref>
+                    <d:var name="XrdcPDACLockBit" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                  </d:ctr>
+                  <d:ctr name="Rm_XRDC_Linflex1" type="IDENTIFIABLE">
+                    <d:var name="XrdcPeripheralSlot" type="ENUMERATION" 
+                           value="Xrdc_0_LINFlex_1"/>
+                    <d:var name="XrdcSema4Enable" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                    <d:ref name="XrdcSema42LogicChannel" type="REFERENCE" >
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:ref>
+                    <d:var name="XrdcPDACLockBit" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                  </d:ctr>
+                  <d:ctr name="Rm_XRDC_DDR" type="IDENTIFIABLE">
+                    <d:var name="XrdcPeripheralSlot" type="ENUMERATION" 
+                           value="Xrdc_0_DDRSS_0"/>
+                    <d:var name="XrdcSema4Enable" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                    <d:ref name="XrdcSema42LogicChannel" type="REFERENCE" >
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:ref>
+                    <d:var name="XrdcPDACLockBit" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                  </d:ctr>
+                  <d:ctr name="Rm_XRDC_GMAC" type="IDENTIFIABLE">
+                    <d:var name="XrdcPeripheralSlot" type="ENUMERATION" 
+                           value="Xrdc_0_GMAC_0"/>
+                    <d:var name="XrdcSema4Enable" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                    <d:ref name="XrdcSema42LogicChannel" type="REFERENCE" >
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:ref>
+                    <d:var name="XrdcPDACLockBit" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                  </d:ctr>
+                  <d:ctr name="Rm_XRDC_FlexCAN0" type="IDENTIFIABLE">
+                    <d:var name="XrdcPeripheralSlot" type="ENUMERATION" 
+                           value="Xrdc_0_CAN_0"/>
+                    <d:var name="XrdcSema4Enable" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                    <d:ref name="XrdcSema42LogicChannel" type="REFERENCE" >
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:ref>
+                    <d:var name="XrdcPDACLockBit" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                  </d:ctr>
+                  <d:ctr name="Rm_XRDC_FlexCAN1" type="IDENTIFIABLE">
+                    <d:var name="XrdcPeripheralSlot" type="ENUMERATION" 
+                           value="Xrdc_0_CAN_1"/>
+                    <d:var name="XrdcSema4Enable" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                    <d:ref name="XrdcSema42LogicChannel" type="REFERENCE" >
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:ref>
+                    <d:var name="XrdcPDACLockBit" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                  </d:ctr>
+                  <d:ctr name="Rm_XRDC_FlexCAN2" type="IDENTIFIABLE">
+                    <d:var name="XrdcPeripheralSlot" type="ENUMERATION" 
+                           value="Xrdc_0_CAN_2"/>
+                    <d:var name="XrdcSema4Enable" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                    <d:ref name="XrdcSema42LogicChannel" type="REFERENCE" >
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:ref>
+                    <d:var name="XrdcPDACLockBit" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                  </d:ctr>
+                  <d:ctr name="Rm_XRDC_FlexCAN3" type="IDENTIFIABLE">
+                    <d:var name="XrdcPeripheralSlot" type="ENUMERATION" 
+                           value="Xrdc_0_CAN_3"/>
+                    <d:var name="XrdcSema4Enable" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                    <d:ref name="XrdcSema42LogicChannel" type="REFERENCE" >
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:ref>
+                    <d:var name="XrdcPDACLockBit" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                  </d:ctr>
+                  <d:ctr name="Rm_XRDC_SEMA42" type="IDENTIFIABLE">
+                    <d:var name="XrdcPeripheralSlot" type="ENUMERATION" 
+                           value="Xrdc_0_SEMA42"/>
+                    <d:var name="XrdcSema4Enable" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                    <d:ref name="XrdcSema42LogicChannel" type="REFERENCE" >
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:ref>
+                    <d:var name="XrdcPDACLockBit" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                  </d:ctr>
+                  <d:ctr name="Rm_XRDC_PCIe_0" type="IDENTIFIABLE">
+                    <d:var name="XrdcPeripheralSlot" type="ENUMERATION" 
+                           value="Xrdc_0_PCIe_APB"/>
+                    <d:var name="XrdcSema4Enable" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                    <d:ref name="XrdcSema42LogicChannel" type="REFERENCE" >
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:ref>
+                    <d:var name="XrdcPDACLockBit" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                  </d:ctr>
+                  <d:ctr name="Rm_XRDC_PCIe_1" type="IDENTIFIABLE">
+                    <d:var name="XrdcPeripheralSlot" type="ENUMERATION" 
+                           value="Xrdc_1_PCIE1"/>
+                    <d:var name="XrdcSema4Enable" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                    <d:ref name="XrdcSema42LogicChannel" type="REFERENCE" >
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:ref>
+                    <d:var name="XrdcPDACLockBit" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                  </d:ctr>
+                </d:lst>
+                <d:ctr name="MPU_M7_Configuration" type="IDENTIFIABLE">
+                  <d:var name="MpuDevErrorDetect" type="BOOLEAN" value="true">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:lst name="MPU_M7_ModuleConfig" type="MAP"/>
+                </d:ctr>
+                <d:ctr name="Sema42_ModuleConfig" type="IDENTIFIABLE">
+                  <d:var name="Sema42DevErrorDetect" type="BOOLEAN" value="true">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="Sema42ResetAllGates" type="BOOLEAN" value="true">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:lst name="Sema42LogicChannelConfiguration" type="MAP"/>
+                </d:ctr>
+                <d:ctr name="Mscm_Configuration" type="IDENTIFIABLE">
+                  <d:var name="MscmDevErrorDetect" type="BOOLEAN" value="true">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:lst name="MscmConfig" type="MAP"/>
+                </d:ctr>
+              </d:ctr>
+              <d:ctr name="CommonPublishedInformation" type="IDENTIFIABLE">
+                <d:var name="ArReleaseMajorVersion" type="INTEGER" value="4">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="ArReleaseMinorVersion" type="INTEGER" value="4">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="ArReleaseRevisionVersion" type="INTEGER" value="0">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="ModuleId" type="INTEGER" value="255">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="SwMajorVersion" type="INTEGER" value="5"/>
+                <d:var name="SwMinorVersion" type="INTEGER" value="0">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="SwPatchVersion" type="INTEGER" value="0"/>
+                <d:var name="VendorApiInfix" type="STRING" value="">
+                  <a:a name="ENABLE" value="false"/>
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="VendorId" type="INTEGER" value="43">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+              </d:ctr>
+            </d:ctr>
+          </d:chc>
+        </d:lst>
+      </d:ctr>
+    </d:lst>
+  </d:ctr>
+
+</datamodel>

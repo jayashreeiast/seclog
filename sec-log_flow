@@ -1,0 +1,94 @@
++----------------------+             +----------------------+            +------------------+
+| Event producers      |             | Secure Log Daemon    |            | HSM / TEE / RPMB |
+| (systemd units,      |--> log() -->| (secure-logd)        |--> sign()->| (non-exportable  |
+| kernel modules, apps)|             |                      |            | private key)     |
++----------------------+             +----------------------+            +------------------+
+                                                       |
+                                                       | append on /dev/secure_log (raw partition)
+                                                       v
+                                               +------------------+
+                                               | On-board Flash   |
+                                               | (dedicated part) |
+                                               +------------------+
+                                                       |
+                                                       | periodic anchor (mTLS)
+                                                       v
+                                               +------------------+
+                                               | Remote Anchor DB |
+                                               |(verify checkpoints)|
+                                               +------------------+
+
+
+
+
+
+
+Secure Logging Flow
+┌──────────────┐
+│Secure Boot FW│
+└─────┬────────┘
+      │ Boot Failure Event (log HSE error message via api)  {nor}
+      ▼
+┌───────────────┐
+│Early Boot Log │ (/boot_log)
+└─────┬─────────┘
+      │ Continue Boot
+      ▼
+┌──────────────────────┐
+│Linux Init + Systemd  │
+└────────┬─────────────┘
+         │ Runtime Failure Events (TLS, WiFi, OTA)
+         ▼
+┌─────────────────────────────────┐
+│ Secure Logger Daemon (sl_daemon)│
+│ - Receives events via DBus/API  │
+└─────────┬───────────────────────┘
+          │
+| Secure Log Daemon         |  <-- TRUSTED
+| - Hash chaining           |
+| - Signing                 |
+| - Secure storage 
+          |
+          ▼
+┌────────────────────┐
+│Secure Storage      │
+│ (/var/log/sec_log) │  ← Protected by HSE access control
+└─────────┬──────────┘
+          │ Upload periodically [securly via ipsec tunnel]
+          ▼
+┌──────────────────┐
+│Backend Cloud     │
+└──────────────────┘
+
+
+
+
+
+secure-logging design:
+
+
+log wifi and tls events via network manager
+setup ipsec via network manager
+To secure the location, using the linkden post, we can log using hash and keys via HSE
+
+
+
+BL2 / BL31 / BL33
+   │  
+   │  (1) HSE/Authentication errors
+   ▼
+SecureBoot RAM Log Buffer (in BL2)
+   │  
+   │ pass pointer via TF-A parameter block
+   ▼
+Linux Kernel
+   │
+   │ (2) Early userspace script pulls RAM log data
+   ▼
+JSON Log File:  /var/log/secure_boot_log.json
+   │
+   │ (3) Secure it using permissions / dm-verity / encrypted partition
+   ▼
+Available to cloud / audit system
+
+

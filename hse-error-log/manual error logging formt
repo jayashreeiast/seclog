@@ -1,0 +1,74 @@
+Which APIs should YOU use in BL2?
+✅ Use these
+Purpose	API
+Read	xspi_ip_read()
+Write	xspi_write()
+Erase	xspi_erase() (or IP erase)
+
+pc_rx_addr / pc_wr_addr
+        ↓
+  NOR FLASH OFFSET
+        ↓
+  FSPI IP COMMAND
+        ↓
+  NON-VOLATILE STORAGE
+
+
+
+err = load_auth_image(image_id, image_info);
+if (err) {
+	bl2_log_to_nor(err, image_id, __LINE__);
+	plat_error_handler(err);
+}
+
+
+
+
+static void bl2_nor_erase(void)
+{
+	/* Erase sector command via IP */
+	xspi_ip_write(BL2_LOG_ADDR,
+	              NULL,
+	              BL2_LOG_SIZE,
+	              XSPI_OP_SECTOR_ERASE);
+}
+
+
+
+static void bl2_log_to_nor(uint32_t err,
+                           uint32_t image,
+                           uint32_t line)
+{
+	bl2_log_t log = {
+		.magic = BL2_LOG_MAGIC,
+		.err = err,
+		.image_id = image,
+		.line = line,
+	};
+
+	/* Erase first */
+	bl2_nor_erase();
+
+	/* Write using IP mode */
+	xspi_ip_write(BL2_LOG_ADDR,
+	              &log,
+	              sizeof(log),
+	              XSPI_OP_PAGE_PROGRAM);
+}
+
+
+
+
+bl2_log_t verify;
+
+xspi_ip_read(BL2_LOG_ADDR,
+             &verify,
+             sizeof(verify));
+
+NOTICE("BL2 LOG: err=%u img=%u line=%u\n",
+       verify.err,
+       verify.image_id,
+       verify.line);
+
+
+

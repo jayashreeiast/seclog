@@ -1,0 +1,1550 @@
+<?xml version='1.0'?>
+<datamodel version="7.0" 
+           xmlns="http://www.tresos.de/_projects/DataModel2/16/root.xsd" 
+           xmlns:a="http://www.tresos.de/_projects/DataModel2/16/attribute.xsd" 
+           xmlns:v="http://www.tresos.de/_projects/DataModel2/06/schema.xsd" 
+           xmlns:d="http://www.tresos.de/_projects/DataModel2/06/data.xsd">
+
+  <d:ctr type="AUTOSAR" factory="autosar" 
+         xmlns:ad="http://www.tresos.de/_projects/DataModel2/08/admindata.xsd" 
+         xmlns:cd="http://www.tresos.de/_projects/DataModel2/08/customdata.xsd" 
+         xmlns:f="http://www.tresos.de/_projects/DataModel2/14/formulaexpr.xsd" 
+         xmlns:icc="http://www.tresos.de/_projects/DataModel2/08/implconfigclass.xsd" 
+         xmlns:mt="http://www.tresos.de/_projects/DataModel2/11/multitest.xsd"  
+         xmlns:variant="http://www.tresos.de/_projects/DataModel2/11/variant.xsd">
+    <d:lst type="TOP-LEVEL-PACKAGES">
+      <d:ctr name="sBoot" type="AR-PACKAGE">
+        <d:lst type="ELEMENTS">
+          <d:chc name="sBoot" type="AR-ELEMENT" value="MODULE-CONFIGURATION">
+            <d:ctr type="MODULE-CONFIGURATION">
+              <a:a name="DEF" value="ASPath:/TS_T40D11M20I2R0/sBoot"/>
+              <d:var name="IMPLEMENTATION_CONFIG_VARIANT" type="ENUMERATION" 
+                     value="VariantPostBuild">
+                <a:a name="IMPORTER_INFO" value="@DEF"/>
+              </d:var>
+              <d:ctr name="General" type="IDENTIFIABLE">
+                <d:var name="FHTI" type="FLOAT" value="5.0">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="FDTI" type="FLOAT" value="5.0">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="sBootGetErrorApi" type="BOOLEAN" value="true">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="sBootDebugMode" type="BOOLEAN" value="false">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="A53ConfigCheck" type="BOOLEAN" value="false">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="PmicCheckEnable" type="BOOLEAN" value="false">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="RgmCheckEnable" type="BOOLEAN" value="false">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="MselCheckEnable" type="BOOLEAN" value="false">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="M7EccCheckEnable" type="BOOLEAN" value="false">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="FlexNoCCheckEnable" type="BOOLEAN" value="false">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+              </d:ctr>
+              <d:ctr name="XRDCCheck" type="IDENTIFIABLE">
+                <d:var name="sBootEnableXRDCCheck" type="BOOLEAN" value="false"/>
+                <d:var name="sBootXRDCMasterAccessCheck" type="BOOLEAN" 
+                       value="false"/>
+                <d:var name="sBootEnableXRDCLockCheck" type="BOOLEAN" 
+                       value="false"/>
+                <d:var name="sBootXRDCBusAccessCheck" type="BOOLEAN" 
+                       value="false"/>
+                <d:var name="PidLockOption" type="ENUMERATION" 
+                       value="SBOOT_XRDC_PID_UNLOCKED">
+                  <a:a name="IMPORTER_INFO">
+                    <a:v>@DEF</a:v>
+                    <a:v>@CALC</a:v>
+                  </a:a>
+                </d:var>
+                <d:var name="XRDCStructureName" type="STRING" 
+                       value="Xrdc_Config">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+              </d:ctr>
+              <d:ctr name="SIUL" type="IDENTIFIABLE">
+                <d:var name="SiulCheckEnable" type="BOOLEAN" value="false">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="SiulPortConfigurationStructName" type="STRING" 
+                       value="Port_Config">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+              </d:ctr>
+              <d:ctr name="DDR" type="IDENTIFIABLE">
+                <d:var name="IsDdrUsedInSafetyContext" type="BOOLEAN" 
+                       value="true"/>
+                <d:var name="DdrMemorySize" type="ENUMERATION" value="SIZE_2_GB"/>
+              </d:ctr>
+              <d:lst name="DrrEccRegions" type="MAP">
+                <d:ctr name="DrrEccRegions_0" type="IDENTIFIABLE">
+                  <d:var name="Name" type="STRING" value="DRAM_REGION_0">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:var name="StartAddress" type="STRING" value="0x0800000000">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:var name="EndAddress" type="STRING" value="0x86fffffff">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                </d:ctr>
+              </d:lst>
+              <d:lst name="FccuNcfConfig" type="MAP">
+                <d:ctr name="FccuNcfConfig_0" type="IDENTIFIABLE">
+                  <d:var name="FccuNcfChannel" type="ENUMERATION" 
+                         value="SBOOT_FCCU_M7_0_RCCU_LS_ERROR">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:var name="FccuNcfReaction" type="ENUMERATION" value="R3">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:var name="FccuNcfEnable" type="BOOLEAN" value="false">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                </d:ctr>
+                <d:ctr name="FccuNcfConfig_1" type="IDENTIFIABLE">
+                  <d:var name="FccuNcfChannel" type="ENUMERATION" 
+                         value="SBOOT_FCCU_M7_0_SRAM_ECC_UE">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:var name="FccuNcfReaction" type="ENUMERATION" value="R3">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:var name="FccuNcfEnable" type="BOOLEAN" value="false">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                </d:ctr>
+                <d:ctr name="FccuNcfConfig_2" type="IDENTIFIABLE">
+                  <d:var name="FccuNcfChannel" type="ENUMERATION" 
+                         value="SBOOT_FCCU_CM7_0_LOCKUP">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:var name="FccuNcfReaction" type="ENUMERATION" value="R3">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:var name="FccuNcfEnable" type="BOOLEAN" value="false">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                </d:ctr>
+                <d:ctr name="FccuNcfConfig_3" type="IDENTIFIABLE">
+                  <d:var name="FccuNcfChannel" type="ENUMERATION" 
+                         value="SBOOT_FCCU_DEBUG_ACTIVATION">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:var name="FccuNcfReaction" type="ENUMERATION" value="R1_R2">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:var name="FccuNcfEnable" type="BOOLEAN" value="false">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                </d:ctr>
+                <d:ctr name="FccuNcfConfig_4" type="IDENTIFIABLE">
+                  <d:var name="FccuNcfChannel" type="ENUMERATION" 
+                         value="SBOOT_FCCU_A53_DBG_ACTIVATION">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:var name="FccuNcfReaction" type="ENUMERATION" value="R1_R2">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:var name="FccuNcfEnable" type="BOOLEAN" value="false">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                </d:ctr>
+                <d:ctr name="FccuNcfConfig_5" type="IDENTIFIABLE">
+                  <d:var name="FccuNcfChannel" type="ENUMERATION" 
+                         value="SBOOT_FCCU_TEST_ACTIVATION">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:var name="FccuNcfReaction" type="ENUMERATION" value="R1_R2">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:var name="FccuNcfEnable" type="BOOLEAN" value="false">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                </d:ctr>
+                <d:ctr name="FccuNcfConfig_6" type="IDENTIFIABLE">
+                  <d:var name="FccuNcfChannel" type="ENUMERATION" 
+                         value="SBOOT_FCCU_CMU_SAFETY_CORES_ERROR"/>
+                  <d:var name="FccuNcfReaction" type="ENUMERATION" value="R1_R2">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:var name="FccuNcfEnable" type="BOOLEAN" value="false">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                </d:ctr>
+                <d:ctr name="FccuNcfConfig_7" type="IDENTIFIABLE">
+                  <d:var name="FccuNcfChannel" type="ENUMERATION" 
+                         value="SBOOT_FCCU_CMU_PERFORMANCE_CORES_ERROR"/>
+                  <d:var name="FccuNcfReaction" type="ENUMERATION" value="R1_R2">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:var name="FccuNcfEnable" type="BOOLEAN" value="false">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                </d:ctr>
+                <d:ctr name="FccuNcfConfig_8" type="IDENTIFIABLE">
+                  <d:var name="FccuNcfChannel" type="ENUMERATION" 
+                         value="SBOOT_FCCU_CMU_PERIPH_CLOCK_ERROR"/>
+                  <d:var name="FccuNcfReaction" type="ENUMERATION" value="R1_R2">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:var name="FccuNcfEnable" type="BOOLEAN" value="false">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                </d:ctr>
+              </d:lst>
+              <d:lst name="CmuFcConfig" type="MAP">
+                <d:ctr name="CmuFcConfig_0" type="IDENTIFIABLE">
+                  <d:var name="sBootEnableCmuFcCheck" type="BOOLEAN" 
+                         value="false"/>
+                  <d:var name="CmuFcHw" type="ENUMERATION" value="CMU_FC_0">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:var name="CmuFcRefClkCnt" type="INTEGER" value="100">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="CmuFcMinFrequency" type="INTEGER" value="0"/>
+                  <d:var name="CmuFcMaxFrequency" type="INTEGER" value="0"/>
+                </d:ctr>
+                <d:ctr name="CmuFcConfig_1" type="IDENTIFIABLE">
+                  <d:var name="sBootEnableCmuFcCheck" type="BOOLEAN" 
+                         value="false"/>
+                  <d:var name="CmuFcHw" type="ENUMERATION" value="CMU_FC_5">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:var name="CmuFcRefClkCnt" type="INTEGER" value="100">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="CmuFcMinFrequency" type="INTEGER" value="0"/>
+                  <d:var name="CmuFcMaxFrequency" type="INTEGER" value="0"/>
+                </d:ctr>
+                <d:ctr name="CmuFcConfig_2" type="IDENTIFIABLE">
+                  <d:var name="sBootEnableCmuFcCheck" type="BOOLEAN" 
+                         value="false"/>
+                  <d:var name="CmuFcHw" type="ENUMERATION" value="CMU_FC_6">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:var name="CmuFcRefClkCnt" type="INTEGER" value="100">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="CmuFcMinFrequency" type="INTEGER" value="0"/>
+                  <d:var name="CmuFcMaxFrequency" type="INTEGER" value="0"/>
+                </d:ctr>
+                <d:ctr name="CmuFcConfig_3" type="IDENTIFIABLE">
+                  <d:var name="sBootEnableCmuFcCheck" type="BOOLEAN" 
+                         value="false">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="CmuFcHw" type="ENUMERATION" value="CMU_FC_7">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:var name="CmuFcRefClkCnt" type="INTEGER" value="100">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="CmuFcMinFrequency" type="INTEGER" value="0">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="CmuFcMaxFrequency" type="INTEGER" value="0">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                </d:ctr>
+                <d:ctr name="CmuFcConfig_4" type="IDENTIFIABLE">
+                  <d:var name="sBootEnableCmuFcCheck" type="BOOLEAN" 
+                         value="false">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="CmuFcHw" type="ENUMERATION" value="CMU_FC_8">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:var name="CmuFcRefClkCnt" type="INTEGER" value="100">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="CmuFcMinFrequency" type="INTEGER" value="0">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="CmuFcMaxFrequency" type="INTEGER" value="0">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                </d:ctr>
+                <d:ctr name="CmuFcConfig_5" type="IDENTIFIABLE">
+                  <d:var name="sBootEnableCmuFcCheck" type="BOOLEAN" 
+                         value="false">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="CmuFcHw" type="ENUMERATION" value="CMU_FC_9">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:var name="CmuFcRefClkCnt" type="INTEGER" value="100">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="CmuFcMinFrequency" type="INTEGER" value="0">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="CmuFcMaxFrequency" type="INTEGER" value="0">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                </d:ctr>
+                <d:ctr name="CmuFcConfig_6" type="IDENTIFIABLE">
+                  <d:var name="sBootEnableCmuFcCheck" type="BOOLEAN" 
+                         value="false">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="CmuFcHw" type="ENUMERATION" value="CMU_FC_10">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:var name="CmuFcRefClkCnt" type="INTEGER" value="100">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="CmuFcMinFrequency" type="INTEGER" value="0">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="CmuFcMaxFrequency" type="INTEGER" value="0">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                </d:ctr>
+                <d:ctr name="CmuFcConfig_7" type="IDENTIFIABLE">
+                  <d:var name="sBootEnableCmuFcCheck" type="BOOLEAN" 
+                         value="false">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="CmuFcHw" type="ENUMERATION" value="CMU_FC_11">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:var name="CmuFcRefClkCnt" type="INTEGER" value="100">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="CmuFcMinFrequency" type="INTEGER" value="0">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="CmuFcMaxFrequency" type="INTEGER" value="0">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                </d:ctr>
+                <d:ctr name="CmuFcConfig_8" type="IDENTIFIABLE">
+                  <d:var name="sBootEnableCmuFcCheck" type="BOOLEAN" 
+                         value="false">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="CmuFcHw" type="ENUMERATION" value="CMU_FC_12">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:var name="CmuFcRefClkCnt" type="INTEGER" value="100">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="CmuFcMinFrequency" type="INTEGER" value="0">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="CmuFcMaxFrequency" type="INTEGER" value="0">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                </d:ctr>
+                <d:ctr name="CmuFcConfig_9" type="IDENTIFIABLE">
+                  <d:var name="sBootEnableCmuFcCheck" type="BOOLEAN" 
+                         value="false">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="CmuFcHw" type="ENUMERATION" value="CMU_FC_13">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:var name="CmuFcRefClkCnt" type="INTEGER" value="100">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="CmuFcMinFrequency" type="INTEGER" value="0">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="CmuFcMaxFrequency" type="INTEGER" value="0">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                </d:ctr>
+                <d:ctr name="CmuFcConfig_10" type="IDENTIFIABLE">
+                  <d:var name="sBootEnableCmuFcCheck" type="BOOLEAN" 
+                         value="false">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="CmuFcHw" type="ENUMERATION" value="CMU_FC_14">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:var name="CmuFcRefClkCnt" type="INTEGER" value="100">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="CmuFcMinFrequency" type="INTEGER" value="0">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="CmuFcMaxFrequency" type="INTEGER" value="0">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                </d:ctr>
+                <d:ctr name="CmuFcConfig_11" type="IDENTIFIABLE">
+                  <d:var name="sBootEnableCmuFcCheck" type="BOOLEAN" 
+                         value="false">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="CmuFcHw" type="ENUMERATION" value="CMU_FC_15">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:var name="CmuFcRefClkCnt" type="INTEGER" value="100">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="CmuFcMinFrequency" type="INTEGER" value="0">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="CmuFcMaxFrequency" type="INTEGER" value="0">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                </d:ctr>
+                <d:ctr name="CmuFcConfig_12" type="IDENTIFIABLE">
+                  <d:var name="sBootEnableCmuFcCheck" type="BOOLEAN" 
+                         value="false">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="CmuFcHw" type="ENUMERATION" value="CMU_FC_16">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:var name="CmuFcRefClkCnt" type="INTEGER" value="100">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="CmuFcMinFrequency" type="INTEGER" value="0">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="CmuFcMaxFrequency" type="INTEGER" value="0">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                </d:ctr>
+                <d:ctr name="CmuFcConfig_13" type="IDENTIFIABLE">
+                  <d:var name="sBootEnableCmuFcCheck" type="BOOLEAN" 
+                         value="false">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="CmuFcHw" type="ENUMERATION" value="CMU_FC_17">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:var name="CmuFcRefClkCnt" type="INTEGER" value="100">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="CmuFcMinFrequency" type="INTEGER" value="0">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="CmuFcMaxFrequency" type="INTEGER" value="0">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                </d:ctr>
+                <d:ctr name="CmuFcConfig_14" type="IDENTIFIABLE">
+                  <d:var name="sBootEnableCmuFcCheck" type="BOOLEAN" 
+                         value="false">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="CmuFcHw" type="ENUMERATION" value="CMU_FC_18">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:var name="CmuFcRefClkCnt" type="INTEGER" value="100">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="CmuFcMinFrequency" type="INTEGER" value="0">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="CmuFcMaxFrequency" type="INTEGER" value="0">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                </d:ctr>
+                <d:ctr name="CmuFcConfig_15" type="IDENTIFIABLE">
+                  <d:var name="sBootEnableCmuFcCheck" type="BOOLEAN" 
+                         value="false">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="CmuFcHw" type="ENUMERATION" value="CMU_FC_20">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:var name="CmuFcRefClkCnt" type="INTEGER" value="100">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="CmuFcMinFrequency" type="INTEGER" value="0">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="CmuFcMaxFrequency" type="INTEGER" value="0">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                </d:ctr>
+                <d:ctr name="CmuFcConfig_16" type="IDENTIFIABLE">
+                  <d:var name="sBootEnableCmuFcCheck" type="BOOLEAN" 
+                         value="false">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="CmuFcHw" type="ENUMERATION" value="CMU_FC_21">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:var name="CmuFcRefClkCnt" type="INTEGER" value="100">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="CmuFcMinFrequency" type="INTEGER" value="0">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="CmuFcMaxFrequency" type="INTEGER" value="0">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                </d:ctr>
+                <d:ctr name="CmuFcConfig_17" type="IDENTIFIABLE">
+                  <d:var name="sBootEnableCmuFcCheck" type="BOOLEAN" 
+                         value="false">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="CmuFcHw" type="ENUMERATION" value="CMU_FC_22">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:var name="CmuFcRefClkCnt" type="INTEGER" value="100">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="CmuFcMinFrequency" type="INTEGER" value="0">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="CmuFcMaxFrequency" type="INTEGER" value="0">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                </d:ctr>
+                <d:ctr name="CmuFcConfig_18" type="IDENTIFIABLE">
+                  <d:var name="sBootEnableCmuFcCheck" type="BOOLEAN" 
+                         value="false">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="CmuFcHw" type="ENUMERATION" value="CMU_FC_24">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:var name="CmuFcRefClkCnt" type="INTEGER" value="100">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="CmuFcMinFrequency" type="INTEGER" value="0">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="CmuFcMaxFrequency" type="INTEGER" value="0">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                </d:ctr>
+                <d:ctr name="CmuFcConfig_19" type="IDENTIFIABLE">
+                  <d:var name="sBootEnableCmuFcCheck" type="BOOLEAN" 
+                         value="false">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="CmuFcHw" type="ENUMERATION" value="CMU_FC_27">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:var name="CmuFcRefClkCnt" type="INTEGER" value="100">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="CmuFcMinFrequency" type="INTEGER" value="0">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="CmuFcMaxFrequency" type="INTEGER" value="0">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                </d:ctr>
+                <d:ctr name="CmuFcConfig_20" type="IDENTIFIABLE">
+                  <d:var name="sBootEnableCmuFcCheck" type="BOOLEAN" 
+                         value="false">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="CmuFcHw" type="ENUMERATION" value="CMU_FC_28">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:var name="CmuFcRefClkCnt" type="INTEGER" value="100">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="CmuFcMinFrequency" type="INTEGER" value="0">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="CmuFcMaxFrequency" type="INTEGER" value="0">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                </d:ctr>
+                <d:ctr name="CmuFcConfig_21" type="IDENTIFIABLE">
+                  <d:var name="sBootEnableCmuFcCheck" type="BOOLEAN" 
+                         value="false">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="CmuFcHw" type="ENUMERATION" value="CMU_FC_39">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:var name="CmuFcRefClkCnt" type="INTEGER" value="100">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="CmuFcMinFrequency" type="INTEGER" value="0">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="CmuFcMaxFrequency" type="INTEGER" value="0">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                </d:ctr>
+                <d:ctr name="CmuFcConfig_22" type="IDENTIFIABLE">
+                  <d:var name="sBootEnableCmuFcCheck" type="BOOLEAN" 
+                         value="false">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="CmuFcHw" type="ENUMERATION" value="CMU_FC_46">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:var name="CmuFcRefClkCnt" type="INTEGER" value="100">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="CmuFcMinFrequency" type="INTEGER" value="0">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="CmuFcMaxFrequency" type="INTEGER" value="0">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                </d:ctr>
+                <d:ctr name="CmuFcConfig_23" type="IDENTIFIABLE">
+                  <d:var name="sBootEnableCmuFcCheck" type="BOOLEAN" 
+                         value="false">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="CmuFcHw" type="ENUMERATION" value="CMU_FC_47">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:var name="CmuFcRefClkCnt" type="INTEGER" value="100">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="CmuFcMinFrequency" type="INTEGER" value="0">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="CmuFcMaxFrequency" type="INTEGER" value="0">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                </d:ctr>
+                <d:ctr name="CmuFcConfig_24" type="IDENTIFIABLE">
+                  <d:var name="sBootEnableCmuFcCheck" type="BOOLEAN" 
+                         value="false">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="CmuFcHw" type="ENUMERATION" value="CMU_FC_48">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:var name="CmuFcRefClkCnt" type="INTEGER" value="100">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="CmuFcMinFrequency" type="INTEGER" value="0">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="CmuFcMaxFrequency" type="INTEGER" value="0">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                </d:ctr>
+                <d:ctr name="CmuFcConfig_25" type="IDENTIFIABLE">
+                  <d:var name="sBootEnableCmuFcCheck" type="BOOLEAN" 
+                         value="false">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="CmuFcHw" type="ENUMERATION" value="CMU_FC_49">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:var name="CmuFcRefClkCnt" type="INTEGER" value="100">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="CmuFcMinFrequency" type="INTEGER" value="0">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="CmuFcMaxFrequency" type="INTEGER" value="0">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                </d:ctr>
+                <d:ctr name="CmuFcConfig_26" type="IDENTIFIABLE">
+                  <d:var name="sBootEnableCmuFcCheck" type="BOOLEAN" 
+                         value="false">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="CmuFcHw" type="ENUMERATION" value="CMU_FC_50">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:var name="CmuFcRefClkCnt" type="INTEGER" value="100">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="CmuFcMinFrequency" type="INTEGER" value="0">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="CmuFcMaxFrequency" type="INTEGER" value="0">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                </d:ctr>
+                <d:ctr name="CmuFcConfig_27" type="IDENTIFIABLE">
+                  <d:var name="sBootEnableCmuFcCheck" type="BOOLEAN" 
+                         value="true"/>
+                  <d:var name="CmuFcHw" type="ENUMERATION" value="CMU_FC_51">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:var name="CmuFcRefClkCnt" type="INTEGER" value="100">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="CmuFcMinFrequency" type="INTEGER" value="0">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="CmuFcMaxFrequency" type="INTEGER" value="0">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                </d:ctr>
+              </d:lst>
+              <d:lst name="SpdConfig" type="MAP">
+                <d:ctr name="SpdConfig_0" type="IDENTIFIABLE">
+                  <d:var name="sBootEnableSpdCheck" type="BOOLEAN" value="true"/>
+                  <d:var name="SpdHw" type="ENUMERATION" value="VDD_FXOSC">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                </d:ctr>
+                <d:ctr name="SpdConfig_1" type="IDENTIFIABLE">
+                  <d:var name="sBootEnableSpdCheck" type="BOOLEAN" value="true"/>
+                  <d:var name="SpdHw" type="ENUMERATION" value="VDD_ADC">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                </d:ctr>
+                <d:ctr name="SpdConfig_2" type="IDENTIFIABLE">
+                  <d:var name="sBootEnableSpdCheck" type="BOOLEAN" value="false">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="SpdHw" type="ENUMERATION" value="VDD_ADC1">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                </d:ctr>
+                <d:ctr name="SpdConfig_3" type="IDENTIFIABLE">
+                  <d:var name="sBootEnableSpdCheck" type="BOOLEAN" value="false">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="SpdHw" type="ENUMERATION" value="VDD_TMU">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                </d:ctr>
+                <d:ctr name="SpdConfig_4" type="IDENTIFIABLE">
+                  <d:var name="sBootEnableSpdCheck" type="BOOLEAN" value="false">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="SpdHw" type="ENUMERATION" value="VDD_EFUSE">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                </d:ctr>
+                <d:ctr name="SpdConfig_5" type="IDENTIFIABLE">
+                  <d:var name="sBootEnableSpdCheck" type="BOOLEAN" value="false">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="SpdHw" type="ENUMERATION" value="VDD_HV_PLL">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                </d:ctr>
+                <d:ctr name="SpdConfig_6" type="IDENTIFIABLE">
+                  <d:var name="sBootEnableSpdCheck" type="BOOLEAN" value="false">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="SpdHw" type="ENUMERATION" value="VDD_HV_PLL_DDR0">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                </d:ctr>
+                <d:ctr name="SpdConfig_7" type="IDENTIFIABLE">
+                  <d:var name="sBootEnableSpdCheck" type="BOOLEAN" value="false">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="SpdHw" type="ENUMERATION" 
+                         value="VDD_LV_PLL_DDR0_1">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                </d:ctr>
+                <d:ctr name="SpdConfig_8" type="IDENTIFIABLE">
+                  <d:var name="sBootEnableSpdCheck" type="BOOLEAN" value="false">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="SpdHw" type="ENUMERATION" value="VDD_HV_PLL_AUR">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                </d:ctr>
+                <d:ctr name="SpdConfig_9" type="IDENTIFIABLE">
+                  <d:var name="sBootEnableSpdCheck" type="BOOLEAN" value="false">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="SpdHw" type="ENUMERATION" value="VDD_LV_PLL_AUR1">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                </d:ctr>
+                <d:ctr name="SpdConfig_10" type="IDENTIFIABLE">
+                  <d:var name="sBootEnableSpdCheck" type="BOOLEAN" value="false">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="SpdHw" type="ENUMERATION" value="VDD_IO_STBY">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                </d:ctr>
+                <d:ctr name="SpdConfig_11" type="IDENTIFIABLE">
+                  <d:var name="sBootEnableSpdCheck" type="BOOLEAN" value="false">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="SpdHw" type="ENUMERATION" value="VDD_IO_A">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                </d:ctr>
+                <d:ctr name="SpdConfig_12" type="IDENTIFIABLE">
+                  <d:var name="sBootEnableSpdCheck" type="BOOLEAN" value="false">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="SpdHw" type="ENUMERATION" value="VDD_IO_B">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                </d:ctr>
+                <d:ctr name="SpdConfig_13" type="IDENTIFIABLE">
+                  <d:var name="sBootEnableSpdCheck" type="BOOLEAN" value="false">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="SpdHw" type="ENUMERATION" value="VDD_IO_USB">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                </d:ctr>
+                <d:ctr name="SpdConfig_14" type="IDENTIFIABLE">
+                  <d:var name="sBootEnableSpdCheck" type="BOOLEAN" value="false">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="SpdHw" type="ENUMERATION" value="VDD_IO_SDHC">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                </d:ctr>
+                <d:ctr name="SpdConfig_15" type="IDENTIFIABLE">
+                  <d:var name="sBootEnableSpdCheck" type="BOOLEAN" value="false">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="SpdHw" type="ENUMERATION" value="VDD_IO_QSPI">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                </d:ctr>
+                <d:ctr name="SpdConfig_16" type="IDENTIFIABLE">
+                  <d:var name="sBootEnableSpdCheck" type="BOOLEAN" value="false">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="SpdHw" type="ENUMERATION" value="VDD_IO_CLKOUT">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                </d:ctr>
+              </d:lst>
+              <d:lst name="GmacConfig" type="MAP">
+                <d:ctr name="GmacConfig_0" type="IDENTIFIABLE">
+                  <d:var name="GmacHw" type="ENUMERATION" value="GMAC_0">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:var name="sBootEnableGmacCheck" type="BOOLEAN" 
+                         value="false">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                </d:ctr>
+                <d:ctr name="GmacConfig_1" type="IDENTIFIABLE">
+                  <d:var name="GmacHw" type="ENUMERATION" value="GMAC_PFE_0">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:var name="sBootEnableGmacCheck" type="BOOLEAN" 
+                         value="false">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                </d:ctr>
+                <d:ctr name="GmacConfig_2" type="IDENTIFIABLE">
+                  <d:var name="GmacHw" type="ENUMERATION" value="GMAC_PFE_1">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:var name="sBootEnableGmacCheck" type="BOOLEAN" 
+                         value="false">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                </d:ctr>
+                <d:ctr name="GmacConfig_3" type="IDENTIFIABLE">
+                  <d:var name="GmacHw" type="ENUMERATION" value="GMAC_PFE_2">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:var name="sBootEnableGmacCheck" type="BOOLEAN" 
+                         value="false">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                </d:ctr>
+              </d:lst>
+              <d:ctr name="Clock" type="IDENTIFIABLE">
+                <d:var name="FIRCMinFrequency" type="FLOAT" value="45.6">
+                  <a:a name="IMPORTER_INFO">
+                    <a:v>@DEF</a:v>
+                    <a:v>@CALC</a:v>
+                  </a:a>
+                </d:var>
+                <d:var name="FIRCMaxFrequency" type="FLOAT" value="50.4">
+                  <a:a name="IMPORTER_INFO">
+                    <a:v>@DEF</a:v>
+                    <a:v>@CALC</a:v>
+                  </a:a>
+                </d:var>
+                <d:var name="FIRCMeasurementCycles" type="INTEGER" value="32768">
+                  <a:a name="IMPORTER_INFO">
+                    <a:v>@DEF</a:v>
+                    <a:v>@CALC</a:v>
+                  </a:a>
+                </d:var>
+                <d:var name="FircCheckEnable" type="BOOLEAN" value="false">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="FXOSCFrequency" type="FLOAT" value="40.0"/>
+                <d:var name="FXOSCFrequencyTolerancePpm" type="INTEGER" 
+                       value="50">
+                  <a:a name="IMPORTER_INFO">
+                    <a:v>@DEF</a:v>
+                    <a:v>@CALC</a:v>
+                  </a:a>
+                </d:var>
+                <d:var name="FlexRayClockSourceCheck" type="BOOLEAN" 
+                       value="false">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="FlexCANClockSourceCheck" type="BOOLEAN" 
+                       value="false">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="DdrPllClockSourceCheck" type="BOOLEAN" 
+                       value="false">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="PeriphPllClockSourceCheck" type="BOOLEAN" 
+                       value="false">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="CorePllClockSourceCheck" type="BOOLEAN" 
+                       value="false">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="SysClockSourceCheck" type="BOOLEAN" value="false">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="AccelPllClockSourceCheck" type="BOOLEAN" 
+                       value="false">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+              </d:ctr>
+              <d:lst name="EDMAConfig" type="MAP">
+                <d:ctr name="EDMAConfig_0" type="IDENTIFIABLE">
+                  <d:var name="EDMA_HW" type="ENUMERATION" value="EDMA_0">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:var name="FreezeCheck" type="BOOLEAN" value="false">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                </d:ctr>
+                <d:ctr name="EDMAConfig_1" type="IDENTIFIABLE">
+                  <d:var name="EDMA_HW" type="ENUMERATION" value="EDMA_1">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:var name="FreezeCheck" type="BOOLEAN" value="false">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                </d:ctr>
+              </d:lst>
+              <d:lst name="STMConfig" type="MAP">
+                <d:ctr name="STMConfig_0" type="IDENTIFIABLE">
+                  <d:var name="STM_HW" type="ENUMERATION" value="STM_0">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:var name="FreezeCheck" type="BOOLEAN" value="false">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                </d:ctr>
+                <d:ctr name="STMConfig_1" type="IDENTIFIABLE">
+                  <d:var name="STM_HW" type="ENUMERATION" value="STM_1">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:var name="FreezeCheck" type="BOOLEAN" value="true"/>
+                </d:ctr>
+                <d:ctr name="STMConfig_2" type="IDENTIFIABLE">
+                  <d:var name="STM_HW" type="ENUMERATION" value="STM_2">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:var name="FreezeCheck" type="BOOLEAN" value="true"/>
+                </d:ctr>
+                <d:ctr name="STMConfig_3" type="IDENTIFIABLE">
+                  <d:var name="STM_HW" type="ENUMERATION" value="STM_3">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:var name="FreezeCheck" type="BOOLEAN" value="true"/>
+                </d:ctr>
+                <d:ctr name="STMConfig_4" type="IDENTIFIABLE">
+                  <d:var name="STM_HW" type="ENUMERATION" value="STM_4">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:var name="FreezeCheck" type="BOOLEAN" value="true"/>
+                </d:ctr>
+                <d:ctr name="STMConfig_5" type="IDENTIFIABLE">
+                  <d:var name="STM_HW" type="ENUMERATION" value="STM_5">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:var name="FreezeCheck" type="BOOLEAN" value="true"/>
+                </d:ctr>
+                <d:ctr name="STMConfig_6" type="IDENTIFIABLE">
+                  <d:var name="STM_HW" type="ENUMERATION" value="STM_6">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:var name="FreezeCheck" type="BOOLEAN" value="true"/>
+                </d:ctr>
+                <d:ctr name="STMConfig_7" type="IDENTIFIABLE">
+                  <d:var name="STM_HW" type="ENUMERATION" value="STM_7">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:var name="FreezeCheck" type="BOOLEAN" value="true"/>
+                </d:ctr>
+                <d:ctr name="STMConfig_8" type="IDENTIFIABLE">
+                  <d:var name="STM_HW" type="ENUMERATION" value="STM_8">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:var name="FreezeCheck" type="BOOLEAN" value="true"/>
+                </d:ctr>
+                <d:ctr name="STMConfig_9" type="IDENTIFIABLE">
+                  <d:var name="STM_HW" type="ENUMERATION" value="STM_9">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:var name="FreezeCheck" type="BOOLEAN" value="true"/>
+                </d:ctr>
+                <d:ctr name="STMConfig_10" type="IDENTIFIABLE">
+                  <d:var name="STM_HW" type="ENUMERATION" value="STM_10">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:var name="FreezeCheck" type="BOOLEAN" value="true"/>
+                </d:ctr>
+                <d:ctr name="STMConfig_11" type="IDENTIFIABLE">
+                  <d:var name="STM_HW" type="ENUMERATION" value="STM_11">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:var name="FreezeCheck" type="BOOLEAN" value="true"/>
+                </d:ctr>
+                <d:ctr name="STMConfig_12" type="IDENTIFIABLE">
+                  <d:var name="STM_HW" type="ENUMERATION" value="STM_12">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:var name="FreezeCheck" type="BOOLEAN" value="true"/>
+                </d:ctr>
+              </d:lst>
+              <d:lst name="SPIConfig" type="MAP">
+                <d:ctr name="SPIConfig_0" type="IDENTIFIABLE">
+                  <d:var name="SPI_HW" type="ENUMERATION" value="SPI_0">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:var name="FreezeCheck" type="BOOLEAN" value="true"/>
+                </d:ctr>
+                <d:ctr name="SPIConfig_1" type="IDENTIFIABLE">
+                  <d:var name="SPI_HW" type="ENUMERATION" value="SPI_1">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:var name="FreezeCheck" type="BOOLEAN" value="true"/>
+                </d:ctr>
+                <d:ctr name="SPIConfig_2" type="IDENTIFIABLE">
+                  <d:var name="SPI_HW" type="ENUMERATION" value="SPI_2">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:var name="FreezeCheck" type="BOOLEAN" value="true"/>
+                </d:ctr>
+                <d:ctr name="SPIConfig_3" type="IDENTIFIABLE">
+                  <d:var name="SPI_HW" type="ENUMERATION" value="SPI_3">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:var name="FreezeCheck" type="BOOLEAN" value="true"/>
+                </d:ctr>
+                <d:ctr name="SPIConfig_4" type="IDENTIFIABLE">
+                  <d:var name="SPI_HW" type="ENUMERATION" value="SPI_4">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:var name="FreezeCheck" type="BOOLEAN" value="true"/>
+                </d:ctr>
+                <d:ctr name="SPIConfig_5" type="IDENTIFIABLE">
+                  <d:var name="SPI_HW" type="ENUMERATION" value="SPI_5">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:var name="FreezeCheck" type="BOOLEAN" value="true"/>
+                </d:ctr>
+              </d:lst>
+              <d:lst name="CANConfig" type="MAP">
+                <d:ctr name="CANConfig_0" type="IDENTIFIABLE">
+                  <d:var name="CAN_HW" type="ENUMERATION" value="CANFD_0">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:var name="FreezeCheck" type="BOOLEAN" value="true"/>
+                </d:ctr>
+                <d:ctr name="CANConfig_1" type="IDENTIFIABLE">
+                  <d:var name="CAN_HW" type="ENUMERATION" value="CANFD_1">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:var name="FreezeCheck" type="BOOLEAN" value="true"/>
+                </d:ctr>
+                <d:ctr name="CANConfig_2" type="IDENTIFIABLE">
+                  <d:var name="CAN_HW" type="ENUMERATION" value="CANFD_2">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:var name="FreezeCheck" type="BOOLEAN" value="true"/>
+                </d:ctr>
+                <d:ctr name="CANConfig_3" type="IDENTIFIABLE">
+                  <d:var name="CAN_HW" type="ENUMERATION" value="CANFD_3">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:var name="FreezeCheck" type="BOOLEAN" value="true"/>
+                </d:ctr>
+              </d:lst>
+              <d:lst name="PITConfig" type="MAP">
+                <d:ctr name="PITConfig_0" type="IDENTIFIABLE">
+                  <d:var name="PIT_HW" type="ENUMERATION" value="PIT_0">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:var name="FreezeCheck" type="BOOLEAN" value="true"/>
+                </d:ctr>
+                <d:ctr name="PITConfig_1" type="IDENTIFIABLE">
+                  <d:var name="PIT_HW" type="ENUMERATION" value="PIT_1">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:var name="FreezeCheck" type="BOOLEAN" value="true"/>
+                </d:ctr>
+              </d:lst>
+              <d:lst name="SWTConfig" type="MAP">
+                <d:ctr name="SWTConfig_0" type="IDENTIFIABLE">
+                  <d:var name="SWT_HW" type="ENUMERATION" value="SWT_0">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:var name="SwtCheckEnabled" type="BOOLEAN" value="false">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                </d:ctr>
+                <d:ctr name="SWTConfig_1" type="IDENTIFIABLE">
+                  <d:var name="SWT_HW" type="ENUMERATION" value="SWT_1">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:var name="SwtCheckEnabled" type="BOOLEAN" value="false">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                </d:ctr>
+                <d:ctr name="SWTConfig_2" type="IDENTIFIABLE">
+                  <d:var name="SWT_HW" type="ENUMERATION" value="SWT_2">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:var name="SwtCheckEnabled" type="BOOLEAN" value="false">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                </d:ctr>
+                <d:ctr name="SWTConfig_3" type="IDENTIFIABLE">
+                  <d:var name="SWT_HW" type="ENUMERATION" value="SWT_3">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:var name="SwtCheckEnabled" type="BOOLEAN" value="false">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                </d:ctr>
+                <d:ctr name="SWTConfig_4" type="IDENTIFIABLE">
+                  <d:var name="SWT_HW" type="ENUMERATION" value="SWT_4">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:var name="SwtCheckEnabled" type="BOOLEAN" value="false">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                </d:ctr>
+                <d:ctr name="SWTConfig_5" type="IDENTIFIABLE">
+                  <d:var name="SWT_HW" type="ENUMERATION" value="SWT_5">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:var name="SwtCheckEnabled" type="BOOLEAN" value="false">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                </d:ctr>
+                <d:ctr name="SWTConfig_6" type="IDENTIFIABLE">
+                  <d:var name="SWT_HW" type="ENUMERATION" value="SWT_6">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:var name="SwtCheckEnabled" type="BOOLEAN" value="false">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                </d:ctr>
+                <d:ctr name="SWTConfig_7" type="IDENTIFIABLE">
+                  <d:var name="SWT_HW" type="ENUMERATION" value="SWT_7">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:var name="SwtCheckEnabled" type="BOOLEAN" value="false">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                </d:ctr>
+                <d:ctr name="SWTConfig_8" type="IDENTIFIABLE">
+                  <d:var name="SWT_HW" type="ENUMERATION" value="SWT_8">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:var name="SwtCheckEnabled" type="BOOLEAN" value="false">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                </d:ctr>
+                <d:ctr name="SWTConfig_9" type="IDENTIFIABLE">
+                  <d:var name="SWT_HW" type="ENUMERATION" value="SWT_9">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:var name="SwtCheckEnabled" type="BOOLEAN" value="false">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                </d:ctr>
+                <d:ctr name="SWTConfig_10" type="IDENTIFIABLE">
+                  <d:var name="SWT_HW" type="ENUMERATION" value="SWT_10">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:var name="SwtCheckEnabled" type="BOOLEAN" value="false">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                </d:ctr>
+                <d:ctr name="SWTConfig_11" type="IDENTIFIABLE">
+                  <d:var name="SWT_HW" type="ENUMERATION" value="SWT_11">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:var name="SwtCheckEnabled" type="BOOLEAN" value="false">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                </d:ctr>
+              </d:lst>
+              <d:ctr name="CommonPublishedInformation" type="IDENTIFIABLE">
+                <d:var name="ArReleaseMajorVersion" type="INTEGER" value="4">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="ArReleaseMinorVersion" type="INTEGER" value="4">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="ArReleaseRevisionVersion" type="INTEGER" value="0">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="ModuleId" type="INTEGER" value="255">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="SwMajorVersion" type="INTEGER" value="2"/>
+                <d:var name="SwMinorVersion" type="INTEGER" value="0"/>
+                <d:var name="SwPatchVersion" type="INTEGER" value="2"/>
+                <d:var name="VendorApiInfix" type="STRING" value="">
+                  <a:a name="ENABLE" value="false"/>
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="VendorId" type="INTEGER" value="43">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+              </d:ctr>
+            </d:ctr>
+          </d:chc>
+        </d:lst>
+      </d:ctr>
+    </d:lst>
+  </d:ctr>
+
+</datamodel>

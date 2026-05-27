@@ -1,0 +1,32 @@
+From 22aacbd833dce2f51f2e2c2e168fd85830450c39 Mon Sep 17 00:00:00 2001
+From: maolin <maolin.pan@nxp.com>
+Date: Tue, 29 Apr 2025 12:03:34 +0900
+Subject: [PATCH] atf-ddr-init
+
+Signed-off-by: maolin <maolin.pan@nxp.com>
+---
+ plat/nxp/s32/s32cc/s32g/s32g_bl2_el3.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/plat/nxp/s32/s32cc/s32g/s32g_bl2_el3.c b/plat/nxp/s32/s32cc/s32g/s32g_bl2_el3.c
+index e3ae01dee..8945eda2d 100644
+--- a/plat/nxp/s32/s32cc/s32g/s32g_bl2_el3.c
++++ b/plat/nxp/s32/s32cc/s32g/s32g_bl2_el3.c
+@@ -270,10 +270,10 @@ void bl2_el3_plat_arch_setup(void)
+ 	clear_swt_faults();
+ 
+ 	/* This will also populate CSR section from bl31ssram */
+-	if (ddr_init()) {
+-		ERROR("Failed to configure the DDR subsystem\n");
+-		panic();
+-	}
++	// if (ddr_init()) {
++	// 	ERROR("Failed to configure the DDR subsystem\n");
++	// 	panic();
++	// }
+ 
+ 	dsbsy();
+ 
+-- 
+2.25.1
+

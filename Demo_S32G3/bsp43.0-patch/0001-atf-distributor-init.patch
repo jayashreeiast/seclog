@@ -1,0 +1,26 @@
+From b2bafaf49a1c556b528ab72f34058890667c97e7 Mon Sep 17 00:00:00 2001
+From: maolin <maolin.pan@nxp.com>
+Date: Mon, 28 Apr 2025 15:37:01 +0900
+Subject: [PATCH] atf-distributor-init
+
+Signed-off-by: maolin <maolin.pan@nxp.com>
+---
+ plat/nxp/s32/s32cc/s32_bl31.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/plat/nxp/s32/s32cc/s32_bl31.c b/plat/nxp/s32/s32cc/s32_bl31.c
+index c4878ed7d..dc495c953 100644
+--- a/plat/nxp/s32/s32cc/s32_bl31.c
++++ b/plat/nxp/s32/s32cc/s32_bl31.c
+@@ -481,7 +481,7 @@ void s32_gic_setup(void)
+ 	unsigned int pos = plat_my_core_pos();
+ 
+ 	gicv3_driver_init(&s32_gic_data);
+-	gicv3_distif_init();
++	// gicv3_distif_init();
+ 	gicv3_rdistif_init(pos);
+ 	gicv3_cpuif_enable(pos);
+ 	update_core_state(pos, CPUIF_EN, CPUIF_EN);
+-- 
+2.25.1
+

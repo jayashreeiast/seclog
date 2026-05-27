@@ -1,0 +1,176 @@
+/*
+ * Copyright (c) 2016-2022, ARM Limited and Contributors.
+ *
+ * SPDX-License-Identifier: BSD-3-Clause
+ */
+
+#include <assert.h>
+#include <stdint.h>
+
+#include <arch.h>
+#include <arch_helpers.h>
+#include "bl2_private.h"
+#include <common/bl_common.h>
+#include <common/debug.h>
+#include <common/desc_image_load.h>
+#include <drivers/auth/auth_mod.h>
+#include <plat/common/platform.h>
+
+#include <platform_def.h>
+
+/* ============================================================
+ * SIMPLE MMIO MACROS (AS REQUESTED)
+ * ============================================================ */
+#include <mmio.h>
+#define PLAT_QSPI_FLASH_BASE  0x00000000UL
+#define qspi_in32(a)           mmio_read_32((uintptr_t)(a))
+#define qspi_out32(a, v)       mmio_write_32((uintptr_t)(a), (v))
+
+/*******************************************************************************
+ * This function loads SCP_BL2/BL3x images and returns the ep_info for
+ * the next executable image.
+ ******************************************************************************/
+struct entry_point_info *bl2_load_images(void)
+{
+	bl_params_t *bl2_to_next_bl_params;
+	bl_load_info_t *bl2_load_info;
+	const bl_load_info_node_t *bl2_node_info;
+	int plat_setup_done = 0;
+	int err;
+
+/* ============================================================
+ * MMIO SANITY TEST — HARD CODED (VERBOSE)
+ * ============================================================ */
+{
+	NOTICE("BL2 MMIO TEST: Entering MMIO sanity test block\n");
+
+	/* Use QSPI NOR mapped base + offset */
+	NOTICE("BL2 MMIO TEST: Calculating test address\n");
+	uintptr_t test_addr = PLAT_QSPI_FLASH_BASE + 0x400;
+
+	NOTICE("BL2 MMIO TEST: PLAT_QSPI_FLASH_BASE = 0x%lx\n",
+	       (unsigned long)PLAT_QSPI_FLASH_BASE);
+	NOTICE("BL2 MMIO TEST: Offset = 0x400\n");
+	NOTICE("BL2 MMIO TEST: Final test_addr = 0x%lx\n",
+	       (unsigned long)test_addr);
+
+	NOTICE("BL2 MMIO TEST: Initializing write value\n");
+	uint32_t write_val = 0xA5A5A5A5;
+
+	NOTICE("BL2 MMIO TEST: write_val set to 0x%08x\n", write_val);
+
+	NOTICE("BL2 MMIO TEST: Declaring read_val variable\n");
+	uint32_t read_val = 0x0;
+
+	NOTICE("BL2 MMIO TEST: read_val initialized to 0x%08x\n", read_val);
+
+	/* Write */
+	NOTICE("BL2 MMIO TEST: Performing MMIO WRITE\n");
+	NOTICE("BL2 MMIO TEST: Writing 0x%08x to address 0x%lx\n",
+	       write_val, (unsigned long)test_addr);
+
+	qspi_out32(test_addr, write_val);
+
+	NOTICE("BL2 MMIO TEST: MMIO WRITE completed\n");
+
+	/* Read back */
+	NOTICE("BL2 MMIO TEST: Performing MMIO READ\n");
+
+	read_val = qspi_in32(test_addr);
+
+	NOTICE("BL2 MMIO TEST: MMIO READ completed\n");
+
+	NOTICE("BL2 MMIO TEST: Read value = 0x%08x\n", read_val);
+
+	/* Final comparison */
+	if (read_val == write_val) {
+		NOTICE("BL2 MMIO TEST: SUCCESS — Read matches written value\n");
+	} else {
+		ERROR("BL2 MMIO TEST: FAILURE — Read does NOT match written value\n");
+		ERROR("BL2 MMIO TEST: Expected 0x%08x, Got 0x%08x\n",
+		      write_val, read_val);
+	}
+
+	NOTICE("BL2 MMIO TEST: Exiting MMIO sanity test block\n");
+}
+/* ============================================================
+ * END MMIO TEST
+ * ============================================================ */
+
+
+	/*
+	 * Get information about the images to load.
+	 */
+	bl2_load_info = plat_get_bl_image_load_info();
+	assert(bl2_load_info != NULL);
+	assert(bl2_load_info->head != NULL);
+	assert(bl2_load_info->h.type == PARAM_BL_LOAD_INFO);
+	assert(bl2_load_info->h.version >= VERSION_2);
+	bl2_node_info = bl2_load_info->head;
+
+	while (bl2_node_info != NULL) {
+
+		if ((bl2_node_info->image_info->h.attr &
+		    IMAGE_ATTRIB_PLAT_SETUP) != 0U) {
+			if (plat_setup_done != 0) {
+				WARN("BL2: Platform setup already done!!\n");
+			} else {
+				INFO("BL2: Doing platform setup\n");
+				bl2_platform_setup();
+				plat_setup_done = 1;
+			}
+		}
+
+		err = bl2_plat_handle_pre_image_load(bl2_node_info->image_id);
+		if (err != 0) {
+			ERROR("BL2: Failure in pre image load handling (%i)\n", err);
+			plat_error_handler(err);
+		}
+
+		if ((bl2_node_info->image_info->h.attr &
+		    IMAGE_ATTRIB_SKIP_LOADING) == 0U) {
+			INFO("BL2: Loading image id %u\n",
+			     bl2_node_info->image_id);
+
+			err = load_auth_image(bl2_node_info->image_id,
+					      bl2_node_info->image_info);
+			if (err != 0) {
+				ERROR("BL2: Failed to load image id %u (%i)\n",
+				      bl2_node_info->image_id, err);
+				plat_error_handler(err);
+			}
+		} else {
+			INFO("BL2: Skip loading image id %u\n",
+			     bl2_node_info->image_id);
+		}
+
+		err = bl2_plat_handle_post_image_load(bl2_node_info->image_id);
+		if (err != 0) {
+			ERROR("BL2: Failure in post image load handling (%i)\n", err);
+			plat_error_handler(err);
+		}
+
+		bl2_node_info = bl2_node_info->next_load_info;
+	}
+
+	/*
+	 * Get information to pass to the next image.
+	 */
+	bl2_to_next_bl_params = plat_get_next_bl_params();
+	assert(bl2_to_next_bl_params != NULL);
+	assert(bl2_to_next_bl_params->head != NULL);
+	assert(bl2_to_next_bl_params->h.type == PARAM_BL_PARAMS);
+	assert(bl2_to_next_bl_params->h.version >= VERSION_2);
+	assert(bl2_to_next_bl_params->head->ep_info != NULL);
+
+	if (bl2_to_next_bl_params->head->ep_info->args.arg0 ==
+	    (u_register_t)0) {
+		bl2_to_next_bl_params->head->ep_info->args.arg0 =
+			(u_register_t)bl2_to_next_bl_params;
+	}
+
+	plat_flush_next_bl_params();
+
+	return bl2_to_next_bl_params->head->ep_info;
+}
+

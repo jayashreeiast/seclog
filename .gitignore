@@ -1,0 +1,29 @@
+# Ignore heavy binary images and bootloader builds
+*.bin
+*.sdcard
+*.s32-sdcard
+*.tar
+*.tar.gz
+*.zip
+
+# Ignore compiler build outputs and maps
+*.o
+*.obj
+*.map
+*.dld
+*.ld
+*.gld
+
+# Ignore temporary local IDE/Tresos configurations 
+.prefs/
+.settings/
+build/
+
+# Keep source code and configuration maps
+!*.c
+!*.h
+!*.s
+!*.S
+!*.mk
+!Makefile
+!*.xdm

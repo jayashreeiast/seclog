@@ -1,0 +1,29 @@
+From 598f741b8bdf01d096b979aed6815e641a955f78 Mon Sep 17 00:00:00 2001
+From: maolin <maolin.pan@nxp.com>
+Date: Tue, 27 May 2025 17:53:56 +0900
+Subject: [PATCH] deferred_probe_work_func_exclude_can_phy
+
+Signed-off-by: maolin <maolin.pan@nxp.com>
+---
+ drivers/base/dd.c | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/base/dd.c b/drivers/base/dd.c
+index 0c3725c3eefa..99eaaefbd479 100644
+--- a/drivers/base/dd.c
++++ b/drivers/base/dd.c
+@@ -120,7 +120,10 @@ static void deferred_probe_work_func(struct work_struct *work)
+ 		device_pm_move_to_tail(dev);
+ 
+ 		dev_dbg(dev, "Retrying from deferred list\n");
+-		bus_probe_device(dev);
++		if(dev->kobj.name[0] != 'c')
++		{
++			bus_probe_device(dev);
++		}
+ 		mutex_lock(&deferred_probe_mutex);
+ 
+ 		put_device(dev);
+-- 
+2.25.1
+

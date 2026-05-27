@@ -1,0 +1,284 @@
+/*
+ * idsm_event.h
+ * AUTOSAR IdsM Event Frame — full spec compliance.
+ *
+ * Wire layout (all multi-byte fields big-endian on wire):
+ *
+ *  ┌──────────────────────────────────────────────────────────────┐
+ *  │ FIXED HEADER  (8 bytes, always present)                      │
+ *  │  Byte 0  [7:4] Protocol Version (4-bit, value=1)             │
+ *  │          [3:0] Protocol Header  (4-bit flags)                │
+ *  │                  Bit[0] = 1 → Context Data Frame present     │
+ *  │                  Bit[1] = 1 → Timestamp present              │
+ *  │                  Bit[2] = 1 → Signature Frame present        │
+ *  │                  Bit[3] = reserved (0)                       │
+ *  │  Byte 1  instance_id[9:2]  (high 8 bits of 10-bit field)     │
+ *  │  Byte 2  [7:6] instance_id[1:0]  [5:0] module_id (6-bit)    │
+ *  │  Byte 3  event_id[15:8]                                      │
+ *  │  Byte 4  event_id[7:0]                                       │
+ *  │  Byte 5  count[15:8]                                         │
+ *  │  Byte 6  count[7:0]                                          │
+ *  │  Byte 7  reserve = 0x00                                      │
+ *  ├──────────────────────────────────────────────────────────────┤
+ *  │ TIMESTAMP  (8 bytes, optional, HDR Bit[1]=1)                 │
+ *  │  Byte[0] Bit[7] = 0 → AUTOSAR standard                      │
+ *  │  Byte[0] Bit[7] = 1 → OEM/Custom                            │
+ *  │  Byte[0] Bit[6] = reserved                                   │
+ *  │  Bytes[1..7] = timestamp value in ms, big-endian             │
+ *  ├──────────────────────────────────────────────────────────────┤
+ *  │ CONTEXT DATA VERSION  (2 bytes, optional, HDR Bit[0]=1)      │
+ *  │  Byte[0] Bit[7]=0 → original, Bit[7]=1 → user callout       │
+ *  ├──────────────────────────────────────────────────────────────┤
+ *  │ CONTEXT DATA LENGTH   (1 or 4 bytes, optional)               │
+ *  │  Byte[0] Bit[7]=0 → 7-bit length  (1..127 bytes)            │
+ *  │  Byte[0] Bit[7]=1 → 31-bit length (1..2^31-1 bytes)         │
+ *  ├──────────────────────────────────────────────────────────────┤
+ *  │ CONTEXT DATA  (variable, optional)                           │
+ *  ├──────────────────────────────────────────────────────────────┤
+ *  │ SIGNATURE LENGTH  (2 bytes, optional, HDR Bit[2]=1)          │
+ *  │  Value = number of signature bytes following (1..65535)      │
+ *  ├──────────────────────────────────────────────────────────────┤
+ *  │ SIGNATURE  (1..65535 bytes)                                  │
+ *  │  HMAC-SHA256 over: EventFrame + Timestamp + ContextData      │
+ *  │  (i.e. everything that precedes the Signature Length field)  │
+ *  └──────────────────────────────────────────────────────────────┘
+ *
+ * On-eMMC secured record (512 bytes, 1 sector):
+ *   fixed_hdr(8) | gcm_iv(12) | gcm_tag(16) | enc_timestamp(8)
+ *   | sig_frame(34) | pad(434)
+ *
+ *  AES-256-GCM  : encrypts the 8-byte Timestamp field.
+ *                 AAD = fixed_hdr (8 bytes).
+ *  HMAC-SHA256  : signs fixed_hdr(8) + enc_timestamp(8) = 16 bytes.
+ *                 Result written into Signature field (32 bytes).
+ *
+ * HSE driver used (same as s32_crypto_lib.c, needs HSE_SECBOOT=1):
+ *   hse_driver_init / hse_mem_alloc / hse_memcpy /
+ *   hse_virt_to_phys / hse_srv_req_sync(HSE_CHANNEL_CRYPTO, &desc)
+ */
+
+#ifndef IDSM_EVENT_H
+#define IDSM_EVENT_H
+
+#include <stdint.h>
+
+#ifdef HSE_SECBOOT
+# include <hse_interface.h>   /* hseKeyHandle_t */
+#endif
+
+/* ================================================================
+ * PROTOCOL CONSTANTS
+ * ================================================================ */
+
+#define IDSM_PROTOCOL_VERSION        0x1U   /* 4-bit */
+
+/* Protocol Header nibble — Bit[3:0] of Byte 0 */
+#define IDSM_HDR_BIT_CONTEXT         (1U << 0)  /* Context Data present  */
+#define IDSM_HDR_BIT_TIMESTAMP       (1U << 1)  /* Timestamp present     */
+#define IDSM_HDR_BIT_SIGNATURE       (1U << 2)  /* Signature present     */
+/* Bit[3] always 0 (reserved)                                            */
+
+/* Common header flag combinations */
+#define IDSM_HDR_PLAIN               (0U)
+#define IDSM_HDR_TS_ONLY             (IDSM_HDR_BIT_TIMESTAMP)
+#define IDSM_HDR_TS_AND_SIG          (IDSM_HDR_BIT_TIMESTAMP | IDSM_HDR_BIT_SIGNATURE)
+#define IDSM_HDR_ALL                 (IDSM_HDR_BIT_CONTEXT   | \
+                                      IDSM_HDR_BIT_TIMESTAMP  | \
+                                      IDSM_HDR_BIT_SIGNATURE)
+
+/* Timestamp Byte[0] type bit */
+#define IDSM_TS_AUTOSAR              0x00U   /* Bit[7] = 0 */
+#define IDSM_TS_OEM                  0x80U   /* Bit[7] = 1 */
+
+/* Context Data Version Byte[0] Bit[7] */
+#define IDSM_CTX_VER_ORIGINAL        0x00U
+#define IDSM_CTX_VER_USER_CALLOUT    0x80U
+
+/* Context Data Length encoding (Byte[0] MSB) */
+#define IDSM_CTX_LEN_7BIT            0x00U   /* 1-byte length field  (1..127)      */
+#define IDSM_CTX_LEN_31BIT           0x80U   /* 4-byte length field  (1..2^31 - 1) */
+
+/* ================================================================
+ * INSTANCE / MODULE IDs
+ * ================================================================ */
+#define IDSM_INSTANCE_A_CORE         0x000U   /* 10-bit IdsM Instance Id  */
+#define IDSM_MODULE_SECBOOT          0x00U    /* 6-bit  Module Instance Id */
+
+/* ================================================================
+ * EVENT IDs
+ *   AUTOSAR internal range : 0x0000 – 0x7FFF
+ *   Customer specific range: 0x8000 – 0xFFFF
+ * ================================================================ */
+#define IDSM_EVENT_BL2_BOOT_START    0x8000U
+#define IDSM_EVENT_BL2_BOOT_OK       0x8001U
+#define IDSM_EVENT_BL31_FAIL         0x8010U
+#define IDSM_EVENT_BL32_FAIL         0x8011U
+#define IDSM_EVENT_BL33_FAIL         0x8012U
+#define IDSM_EVENT_KERNEL_FAIL       0x8013U
+
+/* ================================================================
+ * STORAGE CONFIG (eMMC circular buffer)
+ * ================================================================ */
+#define IDSM_LOG_START_SECTOR        60686336U
+#define IDSM_LOG_MAX_ENTRIES         64U
+#define IDSM_BLOCK_SIZE              512U
+
+/* Sectors consumed per logged event */
+#define IDSM_SECTORS_SECURE          1U   /* HSE path: 1 × 512-byte record  */
+#define IDSM_SECTORS_PLAIN           2U   /* fallback: event + ts sectors    */
+
+/* ================================================================
+ * SPEC-DEFINED FIELD SIZES
+ * ================================================================ */
+#define IDSM_FIXED_HDR_BYTES         8U
+#define IDSM_TIMESTAMP_BYTES         8U
+#define IDSM_CTX_VER_BYTES           2U
+#define IDSM_SIG_LEN_FIELD_BYTES     2U   /* the 2-byte Signature Length prefix */
+#define IDSM_HMAC_SHA256_BYTES       32U  /* HMAC-SHA256 output = 32 bytes      */
+#define IDSM_SIG_FRAME_BYTES         (IDSM_SIG_LEN_FIELD_BYTES + IDSM_HMAC_SHA256_BYTES)
+                                          /* = 34 bytes total                   */
+
+/* ================================================================
+ * FIXED HEADER  (8 bytes, always present on wire)
+ *
+ *  Byte 0   [7:4] = Protocol Version
+ *           [3:0] = Protocol Header flags
+ *  Byte 1   instance_id[9:2]
+ *  Byte 2   [7:6] = instance_id[1:0]   [5:0] = module_id
+ *  Byte 3   event_id[15:8]
+ *  Byte 4   event_id[7:0]
+ *  Byte 5   count[15:8]
+ *  Byte 6   count[7:0]
+ *  Byte 7   reserve = 0x00
+ * ================================================================ */
+typedef struct {
+    uint8_t  ver_hdr;       /* [7:4] version  [3:0] hdr_flags           */
+    uint8_t  inst_hi;       /* IdsM Instance Id [9:2]                   */
+    uint8_t  inst_lo_mod;   /* [7:6] Instance Id [1:0]  [5:0] Module Id */
+    uint8_t  event_hi;      /* Event Id [15:8]                          */
+    uint8_t  event_lo;      /* Event Id [7:0]                           */
+    uint8_t  count_hi;      /* Count [15:8]                             */
+    uint8_t  count_lo;      /* Count [7:0]                              */
+    uint8_t  reserve;       /* 0x00                                     */
+} __attribute__((packed)) idsm_fixed_hdr_t;          /* = 8 bytes */
+
+/* ================================================================
+ * TIMESTAMP FRAME  (8 bytes, optional, HDR Bit[1]=1)
+ *
+ *  Byte[0]  Bit[7] = 0 → AUTOSAR standard  (IDSM_TS_AUTOSAR)
+ *           Bit[7] = 1 → OEM/Custom        (IDSM_TS_OEM)
+ *           Bit[6] = reserved (0)
+ *           Bits[5:0] = reserved (0) for AUTOSAR; OEM-defined otherwise
+ *  Bytes[1..7]  Timestamp in ms, big-endian, 56-bit value
+ * ================================================================ */
+typedef struct {
+    uint8_t  type_and_rsvd; /* Bit[7]=type  Bit[6:0]=reserved/OEM */
+    uint8_t  ts_ms[7];      /* 7-byte big-endian ms value         */
+} __attribute__((packed)) idsm_timestamp_frame_t;    /* = 8 bytes */
+
+/* ================================================================
+ * CONTEXT DATA VERSION  (2 bytes, optional, HDR Bit[0]=1)
+ *
+ *  Byte[0] Bit[7]=0 → original reported Context Data
+ *  Byte[0] Bit[7]=1 → Context Data provided by user callout
+ *  Byte[1] = version number (OEM-defined)
+ * ================================================================ */
+typedef struct {
+    uint8_t  flags;         /* Bit[7] = source flag */
+    uint8_t  version;
+} __attribute__((packed)) idsm_ctx_version_t;        /* = 2 bytes */
+
+/* ================================================================
+ * SIGNATURE FRAME  (34 bytes for HMAC-SHA256, optional, HDR Bit[2]=1)
+ *
+ * Wire layout (spec-defined):
+ *   Bytes[0..1]  Signature Length  (big-endian, = IDSM_HMAC_SHA256_BYTES = 32)
+ *   Bytes[2..33] Signature data    (HMAC-SHA256)
+ *
+ * HMAC input covers:
+ *   idsm_fixed_hdr_t  (8 bytes)
+ *   + idsm_timestamp_frame_t as encrypted (8 bytes)
+ *   — i.e. everything preceding the Signature Length field.
+ * ================================================================ */
+typedef struct {
+    uint8_t  sig_len_hi;                        /* Length[15:8]       */
+    uint8_t  sig_len_lo;                        /* Length[7:0]        */
+    uint8_t  sig_data[IDSM_HMAC_SHA256_BYTES];  /* 32-byte HMAC value */
+} __attribute__((packed)) idsm_signature_frame_t;    /* = 34 bytes */
+
+/* ================================================================
+ * ON-DISK SECURED RECORD  (exactly 512 bytes = 1 eMMC sector)
+ *
+ *  Offset  Size  Field
+ *  ------  ----  ----------------------------------------------------
+ *    0      8    idsm_fixed_hdr_t     (plain, used as AES-GCM AAD)
+ *    8     12    gcm_iv               (nonce, not part of AUTOSAR spec)
+ *   20     16    gcm_tag              (AES-GCM authentication tag)
+ *   36      8    enc_timestamp        (idsm_timestamp_frame_t, encrypted)
+ *   44     34    sig_frame            (idsm_signature_frame_t, spec-compliant)
+ *   78    434    pad                  (zero-fill to reach 512 bytes)
+ *
+ * Crypto coverage:
+ *   AES-256-GCM : encrypts enc_timestamp (8 bytes)
+ *                 AAD     = fixed_hdr    (8 bytes)
+ *   HMAC-SHA256 : signs fixed_hdr(8) + enc_timestamp(8) = 16 bytes
+ *                 output written into sig_frame.sig_data[32]
+ * ================================================================ */
+#define IDSM_GCM_IV_BYTES            12U
+#define IDSM_GCM_TAG_BYTES           16U
+#define IDSM_RECORD_PAD_BYTES \
+    (IDSM_BLOCK_SIZE \
+     - IDSM_FIXED_HDR_BYTES \
+     - IDSM_GCM_IV_BYTES \
+     - IDSM_GCM_TAG_BYTES \
+     - IDSM_TIMESTAMP_BYTES \
+     - IDSM_SIG_FRAME_BYTES)
+/* = 512 - 8 - 12 - 16 - 8 - 34 = 434 */
+
+typedef struct {
+    idsm_fixed_hdr_t        fixed_hdr;       /*   8 bytes  offset   0 */
+    uint8_t                 gcm_iv[IDSM_GCM_IV_BYTES];
+                                             /*  12 bytes  offset   8 */
+    uint8_t                 gcm_tag[IDSM_GCM_TAG_BYTES];
+                                             /*  16 bytes  offset  20 */
+    idsm_timestamp_frame_t  enc_timestamp;   /*   8 bytes  offset  36 */
+    idsm_signature_frame_t  sig_frame;       /*  34 bytes  offset  44 */
+    uint8_t                 pad[IDSM_RECORD_PAD_BYTES];
+                                             /* 434 bytes  offset  78 */
+} __attribute__((packed)) idsm_secure_record_t;
+
+/* Compile-time size guard */
+typedef char _idsm_rec_512_check[
+    (sizeof(idsm_secure_record_t) == 512) ? 1 : -1];
+
+/* ================================================================
+ * HSE KEY HANDLES — match to your NVM catalog provisioning.
+ *
+ *   Slot 0  (0x01000100) → TBBR RSA key (s32_crypto_lib.c) — DO NOT REUSE
+ *   Slot 2  (0x01000200) → IDSM AES-256 GCM encryption key
+ *   Slot 3  (0x01000300) → IDSM HMAC-SHA256 signing key
+ *
+ * Handle encoding: GET_KEY_HANDLE(catalogId=1, groupId=0, slotId)
+ * ================================================================ */
+#ifdef HSE_SECBOOT
+# define IDSM_AES_KEY_HANDLE     ((hseKeyHandle_t)0x01000200U)
+# define IDSM_HMAC_KEY_HANDLE    ((hseKeyHandle_t)0x01000300U)
+#endif
+
+/* ================================================================
+ * PUBLIC API
+ * ================================================================ */
+
+/**
+ * idsm_log_event() — serialise, sign, encrypt and write one AUTOSAR
+ * IdsM event record to the eMMC circular buffer.
+ *
+ * @event_id : IDSM_EVENT_* constant
+ * @count    : aggregation count (1 for single non-aggregated events)
+ *
+ * HSE active  → AES-GCM(timestamp) + HMAC-SHA256(hdr+enc_ts) → 1 sector
+ * HSE absent  → plaintext event+timestamp fallback              → 2 sectors
+ */
+void idsm_log_event(uint16_t event_id, uint16_t count);
+
+#endif /* IDSM_EVENT_H */

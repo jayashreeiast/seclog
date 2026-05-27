@@ -1,0 +1,21 @@
+#ifndef FSPI_H
+#define FSPI_H
+
+#include <stdint.h>
+#include <stddef.h>
+
+#define FSPI_BASE       0x40134000UL
+#define FSPI_AHB_BASE   0x60000000UL
+
+void fspi_init(void);
+
+int fspi_read_id(uint8_t id[3]);
+
+int fspi_read(uint32_t addr, uint8_t *buf, size_t len);
+
+int fspi_write(uint32_t addr, const uint8_t *buf, size_t len);
+
+int fspi_erase_sector(uint32_t addr);
+
+#endif
+
